@@ -1,0 +1,1526 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulador de Examen Aplicado - Emprendimiento Tecnológico PUCE</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+  </style>
+</head>
+
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col">
+
+  <!-- ENCABEZADO INSTITUCIONAL -->
+  <header class="bg-sky-900 text-white shadow-md border-b-4 border-cyan-500 sticky top-0 z-40">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap justify-between items-center gap-2">
+      <div class="flex items-center space-x-3">
+        <div class="bg-cyan-500 text-sky-950 font-black text-xl px-2.5 py-1 rounded shadow-inner tracking-wider">PUCE
+        </div>
+        <div>
+          <h1 class="text-base sm:text-lg font-bold tracking-tight leading-snug">Emprendimiento Tecnológico</h1>
+          <p class="text-xs text-sky-200">Sexto Nivel · Ingeniería de Sistemas · Simulador de Examen Aplicado</p>
+        </div>
+      </div>
+      <div class="flex items-center space-x-2">
+        <button id="btnOpenManager"
+          class="bg-sky-800 hover:bg-sky-700 text-xs sm:text-sm font-medium py-1.5 px-3 rounded-lg border border-sky-600 transition flex items-center gap-1.5 shadow-sm">
+          <span>⚙️</span>
+          <span>Gestionar / Añadir Preguntas</span>
+        </button>
+        <button id="btnResetQuiz"
+          class="bg-cyan-600 hover:bg-cyan-500 text-sky-950 font-bold text-xs sm:text-sm py-1.5 px-3 rounded-lg transition shadow-sm">
+          Reiniciar Examen
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTENEDOR PRINCIPAL -->
+  <main class="max-w-6xl mx-auto px-4 py-6 flex-1 w-full grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+    <!-- PANEL LATERAL: FILTROS Y PROGRESO (lg: 4 cols) -->
+    <aside class="lg:col-span-4 space-y-5">
+
+      <!-- TARJETA: TEMARIO Y FILTROS -->
+      <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-4">
+        <div class="flex justify-between items-center mb-3">
+          <h2 class="text-sm font-bold text-slate-700 uppercase tracking-wider">Modo de Práctica</h2>
+          <span id="badgeQuestionCount" class="text-xs font-semibold bg-sky-100 text-sky-800 px-2 py-0.5 rounded-full">0
+            preguntas</span>
+        </div>
+
+        <div class="space-y-1.5 text-xs sm:text-sm" id="topicFilters">
+          <button data-topic="ALL"
+            class="topic-btn w-full text-left px-3 py-2 rounded-lg font-medium transition flex justify-between items-center bg-sky-900 text-white shadow-sm">
+            <span>📚 Todos los temas (Simulacro oficial)</span>
+            <span class="text-xs bg-sky-800 px-2 py-0.5 rounded text-sky-200" id="count-ALL">0</span>
+          </button>
+
+          <button data-topic="TEMA1"
+            class="topic-btn w-full text-left px-3 py-2 rounded-lg font-medium transition flex justify-between items-center text-slate-700 hover:bg-slate-100">
+            <div class="truncate pr-2">
+              <span class="block font-semibold">1. Problema vs Solución</span>
+              <span class="text-[11px] text-slate-500">Ponderación: 6 pts</span>
+            </div>
+            <span class="text-xs bg-slate-200 px-2 py-0.5 rounded text-slate-700" id="count-TEMA1">0</span>
+          </button>
+
+          <button data-topic="TEMA2"
+            class="topic-btn w-full text-left px-3 py-2 rounded-lg font-medium transition flex justify-between items-center text-slate-700 hover:bg-slate-100">
+            <div class="truncate pr-2">
+              <span class="block font-semibold">2. The Mom Test (Corrección)</span>
+              <span class="text-[11px] text-slate-500">Ponderación: 8 pts</span>
+            </div>
+            <span class="text-xs bg-slate-200 px-2 py-0.5 rounded text-slate-700" id="count-TEMA2">0</span>
+          </button>
+
+          <button data-topic="TEMA3"
+            class="topic-btn w-full text-left px-3 py-2 rounded-lg font-medium transition flex justify-between items-center text-slate-700 hover:bg-slate-100">
+            <div class="truncate pr-2">
+              <span class="block font-semibold">3. Entrevistas y Falsos Positivos</span>
+              <span class="text-[11px] text-slate-500">Ponderación: 6 pts</span>
+            </div>
+            <span class="text-xs bg-slate-200 px-2 py-0.5 rounded text-slate-700" id="count-TEMA3">0</span>
+          </button>
+
+          <button data-topic="TEMA4"
+            class="topic-btn w-full text-left px-3 py-2 rounded-lg font-medium transition flex justify-between items-center text-slate-700 hover:bg-slate-100">
+            <div class="truncate pr-2">
+              <span class="block font-semibold">4. Formulación de Hipótesis</span>
+              <span class="text-[11px] text-slate-500">Ponderación: 5 pts</span>
+            </div>
+            <span class="text-xs bg-slate-200 px-2 py-0.5 rounded text-slate-700" id="count-TEMA4">0</span>
+          </button>
+
+          <button data-topic="TEMA5"
+            class="topic-btn w-full text-left px-3 py-2 rounded-lg font-medium transition flex justify-between items-center text-slate-700 hover:bg-slate-100">
+            <div class="truncate pr-2">
+              <span class="block font-semibold">5. Experimentos Lean y Métricas</span>
+              <span class="text-[11px] text-slate-500">Ponderación: 5 pts</span>
+            </div>
+            <span class="text-xs bg-slate-200 px-2 py-0.5 rounded text-slate-700" id="count-TEMA5">0</span>
+          </button>
+
+          <button data-topic="TEMA6"
+            class="topic-btn w-full text-left px-3 py-2 rounded-lg font-medium transition flex justify-between items-center text-slate-700 hover:bg-slate-100">
+            <div class="truncate pr-2">
+              <span class="block font-semibold">6. Tipos de Problemas</span>
+              <span class="text-[11px] text-slate-500">Ponderación: 4 pts</span>
+            </div>
+            <span class="text-xs bg-slate-200 px-2 py-0.5 rounded text-slate-700" id="count-TEMA6">0</span>
+          </button>
+
+          <button data-topic="TEMA7"
+            class="topic-btn w-full text-left px-3 py-2 rounded-lg font-medium transition flex justify-between items-center text-slate-700 hover:bg-slate-100">
+            <div class="truncate pr-2">
+              <span class="block font-semibold">7. Actores del Problema</span>
+              <span class="text-[11px] text-slate-500">Ponderación: 4 pts</span>
+            </div>
+            <span class="text-xs bg-slate-200 px-2 py-0.5 rounded text-slate-700" id="count-TEMA7">0</span>
+          </button>
+
+          <button data-topic="TEMA8"
+            class="topic-btn w-full text-left px-3 py-2 rounded-lg font-medium transition flex justify-between items-center text-slate-700 hover:bg-slate-100">
+            <div class="truncate pr-2">
+              <span class="block font-semibold">8. Tipos de PMV</span>
+              <span class="text-[11px] text-slate-500">Ponderación: 4 pts</span>
+            </div>
+            <span class="text-xs bg-slate-200 px-2 py-0.5 rounded text-slate-700" id="count-TEMA8">0</span>
+          </button>
+        </div>
+
+        <div class="mt-4 pt-3 border-t border-slate-200 space-y-2">
+          <label class="flex items-center text-xs text-slate-600 cursor-pointer select-none">
+            <input type="checkbox" id="chkOnlyErrors" class="rounded text-sky-600 mr-2 focus:ring-sky-500">
+            <span>Entrenar solo preguntas erradas</span>
+          </label>
+          <label class="flex items-center text-xs text-slate-600 cursor-pointer select-none">
+            <input type="checkbox" id="chkOnlyFlagged" class="rounded text-sky-600 mr-2 focus:ring-sky-500">
+            <span>Entrenar solo preguntas marcadas</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- TARJETA: RENDIMIENTO ACUMULADO -->
+      <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-4">
+        <h3 class="text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Desempeño en esta sesión</h3>
+        <div class="grid grid-cols-3 gap-2 text-center my-3">
+          <div class="p-2 rounded-lg bg-slate-50 border border-slate-200">
+            <div id="statTotalAnswered" class="text-lg font-black text-slate-800">0</div>
+            <div class="text-[10px] uppercase tracking-wider text-slate-500">Respuestas</div>
+          </div>
+          <div class="p-2 rounded-lg bg-emerald-50 border border-emerald-200">
+            <div id="statCorrect" class="text-lg font-black text-emerald-700">0</div>
+            <div class="text-[10px] uppercase tracking-wider text-emerald-600 font-semibold">Aciertos</div>
+          </div>
+          <div class="p-2 rounded-lg bg-rose-50 border border-rose-200">
+            <div id="statIncorrect" class="text-lg font-black text-rose-700">0</div>
+            <div class="text-[10px] uppercase tracking-wider text-rose-600 font-semibold">Fallos</div>
+          </div>
+        </div>
+
+        <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden mt-3">
+          <div id="progressBar" class="bg-sky-600 h-full transition-all duration-300" style="width: 0%"></div>
+        </div>
+        <div class="flex justify-between text-[11px] text-slate-500 mt-1">
+          <span>Precisión: <strong id="statAccuracy" class="text-slate-800">0%</strong></span>
+          <span id="statProgressText">0 de 0 contestadas</span>
+        </div>
+      </div>
+
+      <!-- GUÍA METODOLÓGICA RÁPIDA -->
+      <div class="bg-sky-50/70 border border-sky-200 rounded-xl p-3.5 text-xs text-sky-900 space-y-2">
+        <div class="font-bold flex items-center gap-1.5 text-sky-950">
+          <span>💡</span> <span>Regla de Oro del Examen Aplicado</span>
+        </div>
+        <p class="leading-relaxed text-slate-700">
+          El profesor penaliza las respuestas basadas en opiniones sobre el futuro o que confunden tecnologías con
+          problemas. Elige siempre la opción que evalúe <strong>hechos verificables del pasado</strong>, consecuencias
+          medibles en tiempo/dinero y compromiso de recursos reales.
+        </p>
+      </div>
+
+    </aside>
+
+    <!-- PANEL PRINCIPAL: PREGUNTA Y OPCIONES (lg: 8 cols) -->
+    <section class="lg:col-span-8 flex flex-col space-y-4">
+
+      <!-- CONTENEDOR DE TARJETA DE PREGUNTA -->
+      <div id="questionCard"
+        class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 sm:p-7 flex-1 flex flex-col justify-between relative transition-all">
+
+        <!-- Header de la pregunta actual -->
+        <div>
+          <div class="flex flex-wrap items-center justify-between gap-2 pb-3 mb-4 border-b border-slate-200">
+            <div class="flex items-center space-x-2">
+              <span id="lblTopicBadge"
+                class="text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded bg-sky-100 text-sky-800">
+                Tema
+              </span>
+              <span id="lblQuestionPoints" class="text-xs font-semibold text-slate-500 bg-slate-100 px-2 py-1 rounded">
+                6 pts
+              </span>
+            </div>
+            <div class="flex items-center space-x-3">
+              <div class="text-xs font-bold text-slate-400">
+                Pregunta <span id="lblQuestionIndex" class="text-slate-800">1</span> de <span
+                  id="lblQuestionTotal">50</span>
+              </div>
+              <button id="btnToggleFlag" class="text-slate-300 hover:text-amber-500 transition focus:outline-none" title="Marcar pregunta">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Texto de la pregunta (Enunciado situado) -->
+          <div id="questionStem" class="text-base sm:text-lg font-medium text-slate-900 leading-relaxed mb-6">
+            Cargando pregunta...
+          </div>
+
+          <!-- Opciones de respuesta -->
+          <div id="optionsContainer" class="space-y-3">
+            <!-- Opciones inyectadas dinámicamente -->
+          </div>
+        </div>
+
+        <!-- Retroalimentación / Explicación del Docente (Oculta hasta responder) -->
+        <div id="feedbackContainer" class="hidden mt-6 p-4 rounded-xl border text-sm leading-relaxed transition-all">
+          <div class="font-bold flex items-center gap-2 mb-1" id="feedbackTitle">
+            <!-- Icono y estado -->
+          </div>
+          <div id="feedbackText" class="text-slate-700">
+            <!-- Explicación técnica -->
+          </div>
+        </div>
+
+        <!-- Barra inferior de navegación -->
+        <div class="pt-6 mt-6 border-t border-slate-200 flex flex-wrap items-center justify-between gap-3">
+          <button id="btnPrev"
+            class="px-4 py-2 text-xs sm:text-sm font-semibold rounded-lg border border-slate-300 text-slate-600 hover:bg-slate-100 transition disabled:opacity-40 disabled:cursor-not-allowed">
+            ← Anterior
+          </button>
+
+          <div class="flex items-center space-x-2">
+            <button id="btnCheckAnswer"
+              class="px-5 py-2 text-xs sm:text-sm font-bold rounded-lg bg-sky-900 hover:bg-sky-800 text-white shadow transition disabled:opacity-50 disabled:cursor-not-allowed">
+              Confirmar Respuesta
+            </button>
+            <button id="btnNext"
+              class="px-4 py-2 text-xs sm:text-sm font-semibold rounded-lg bg-slate-800 hover:bg-slate-700 text-white shadow transition">
+              Siguiente →
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- MODAL: GESTOR DE PREGUNTAS (AGREGAR / EXPORTAR / IMPORTAR) -->
+  <div id="managerModal"
+    class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] flex flex-col border border-slate-300">
+
+      <div class="px-6 py-4 border-b border-slate-200 flex justify-between items-center bg-slate-50 rounded-t-2xl">
+        <div>
+          <h3 class="font-bold text-slate-800 text-lg">Banco de Preguntas Dinámico</h3>
+          <p class="text-xs text-slate-500">Agrega nuevas preguntas o complementa fuentes sin borrar las ya existentes.
+          </p>
+        </div>
+        <button id="btnCloseModal"
+          class="text-slate-400 hover:text-slate-700 text-2xl font-bold leading-none">&times;</button>
+      </div>
+
+      <div class="p-6 overflow-y-auto custom-scrollbar space-y-6 text-xs sm:text-sm">
+
+        <!-- PESTAÑAS DEL MODAL -->
+        <div class="flex border-b border-slate-200 space-x-4">
+          <button id="tabBtnAdd" class="pb-2 font-bold text-sky-900 border-b-2 border-sky-900">Añadir Pregunta</button>
+          <button id="tabBtnImport" class="pb-2 font-medium text-slate-500 hover:text-slate-800">Importar / Exportar
+            JSON</button>
+          <button id="tabBtnStats" class="pb-2 font-medium text-slate-500 hover:text-slate-800">Resumen del
+            Banco</button>
+        </div>
+
+        <!-- CONTENIDO PESTAÑA: AÑADIR PREGUNTA INDIVIDUAL -->
+        <div id="tabContentAdd" class="space-y-4">
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Tema del Examen:</label>
+            <select id="newQTopic" class="w-full border border-slate-300 rounded-lg p-2.5 bg-white">
+              <option value="TEMA1">1. Diferenciar problema, oportunidad, idea y solución (6 pts)</option>
+              <option value="TEMA2">2. Corregir preguntas según Mom Test (8 pts)</option>
+              <option value="TEMA3">3. Analizar entrevistas y falsos positivos (6 pts)</option>
+              <option value="TEMA4">4. Formular una hipótesis (5 pts)</option>
+              <option value="TEMA5">5. Proponer experimento Lean Startup y métrica (5 pts)</option>
+              <option value="TEMA6">6. Tipos de Problemas (4 pts)</option>
+              <option value="TEMA7">7. Actores del Problema (4 pts)</option>
+              <option value="TEMA8">8. Tipos de PMV (4 pts)</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Enunciado de la Pregunta (Estilo Situado):</label>
+            <textarea id="newQStem" rows="3" class="w-full border border-slate-300 rounded-lg p-2.5"
+              placeholder="Ej: Un equipo identifica que, al revisar su modelo de negocio, decidieron..."></textarea>
+          </div>
+
+          <div class="space-y-2">
+            <label class="block font-semibold text-slate-700">Opciones de Respuesta (Cuidar simetría de
+              longitud):</label>
+
+            <div class="flex items-center gap-2">
+              <input type="radio" name="newCorrectOption" value="0" checked class="text-sky-600">
+              <input type="text" id="newOpt0" class="flex-1 border border-slate-300 rounded-lg p-2 text-xs"
+                placeholder="Opción A (Marca el radio si es la correcta)">
+            </div>
+            <div class="flex items-center gap-2">
+              <input type="radio" name="newCorrectOption" value="1" class="text-sky-600">
+              <input type="text" id="newOpt1" class="flex-1 border border-slate-300 rounded-lg p-2 text-xs"
+                placeholder="Opción B (Marca el radio si es la correcta)">
+            </div>
+            <div class="flex items-center gap-2">
+              <input type="radio" name="newCorrectOption" value="2" class="text-sky-600">
+              <input type="text" id="newOpt2" class="flex-1 border border-slate-300 rounded-lg p-2 text-xs"
+                placeholder="Opción C (Marca el radio si es la correcta)">
+            </div>
+            <div class="flex items-center gap-2">
+              <input type="radio" name="newCorrectOption" value="3" class="text-sky-600">
+              <input type="text" id="newOpt3" class="flex-1 border border-slate-300 rounded-lg p-2 text-xs"
+                placeholder="Opción D (Marca el radio si es la correcta)">
+            </div>
+          </div>
+
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Retroalimentación / Justificación Conceptual:</label>
+            <textarea id="newQRationale" rows="2" class="w-full border border-slate-300 rounded-lg p-2.5"
+              placeholder="Explicación del principio metodológico y por qué las demás opciones son incorrectas..."></textarea>
+          </div>
+
+          <button id="btnSaveSingleQuestion"
+            class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2.5 rounded-lg transition shadow-sm">
+            Guardar Pregunta en el Banco
+          </button>
+        </div>
+
+        <!-- CONTENIDO PESTAÑA: IMPORTAR / EXPORTAR JSON -->
+        <div id="tabContentImport" class="space-y-4 hidden">
+          <p class="text-slate-600 text-xs leading-relaxed">
+            Puedes pegar un bloque de preguntas en formato JSON para cargarlas masivamente sin borrar las que ya tienes.
+            Las preguntas se fusionan en el banco de tu navegador (LocalStorage).
+          </p>
+          <textarea id="jsonImportArea" rows="7"
+            class="w-full font-mono text-xs border border-slate-300 rounded-lg p-2.5 bg-slate-50"
+            placeholder='[ { "id": "custom_1", "topic": "TEMA1", "question": "...", "options": ["..."], "correctIndex": 0, "rationale": "..." } ]'></textarea>
+
+          <div class="flex gap-2">
+            <button id="btnExecuteImport"
+              class="flex-1 bg-sky-900 hover:bg-sky-800 text-white font-bold py-2 rounded-lg transition text-xs">
+              Fusionar / Añadir Preguntas al Banco
+            </button>
+            <button id="btnExportJSON"
+              class="flex-1 bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold py-2 rounded-lg transition text-xs">
+              Copiar Banco Completo (JSON)
+            </button>
+          </div>
+          <div class="pt-2 border-t border-slate-200">
+            <button id="btnRestoreDefaults" class="text-rose-600 hover:text-rose-800 text-xs font-semibold underline">
+              Restablecer al banco original de clase (50 preguntas oficiales)
+            </button>
+          </div>
+        </div>
+
+        <!-- CONTENIDO PESTAÑA: RESUMEN DEL BANCO -->
+        <div id="tabContentStats" class="space-y-3 hidden">
+          <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 space-y-1.5 text-xs text-slate-700">
+            <div class="flex justify-between"><span>Total de preguntas en memoria:</span> <strong
+                id="modalStatTotal">0</strong></div>
+            <div class="flex justify-between"><span>1. Problema vs Solución:</span> <strong id="modalStatT1">0</strong>
+            </div>
+            <div class="flex justify-between"><span>2. The Mom Test:</span> <strong id="modalStatT2">0</strong></div>
+            <div class="flex justify-between"><span>3. Entrevistas y Falsos Positivos:</span> <strong
+                id="modalStatT3">0</strong></div>
+            <div class="flex justify-between"><span>4. Formulación de Hipótesis:</span> <strong
+                id="modalStatT4">0</strong></div>
+            <div class="flex justify-between"><span>5. Experimentos Lean y Métricas:</span> <strong
+                id="modalStatT5">0</strong></div>
+            <div class="flex justify-between"><span>6. Tipos de Problemas:</span> <strong
+                id="modalStatT6">0</strong></div>
+            <div class="flex justify-between"><span>7. Actores del Problema:</span> <strong
+                id="modalStatT7">0</strong></div>
+            <div class="flex justify-between"><span>8. Tipos de PMV:</span> <strong
+                id="modalStatT8">0</strong></div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SCRIPT CON EL BANCO MAESTRO Y EL MOTOR DEL EXAMEN -->
+  <script>
+    // -------------------------------------------------------------
+    // 1. BANCO MAESTRO OFICIAL DE PREGUNTAS (ESTILO GUIA PUCE)
+    // Redacción idéntica a 'preguntasGUIA.md' y diapositivas de clase.
+    const MASTER_QUESTIONS = [
+      // TEMA 1
+      {
+        id: "t1_01", topic: "TEMA1", points: 6, topicName: "1. Problemas e Ideas",
+        question: "Un equipo propone crear 'la picantería número 20 del barrio', asegurando que ganarán clientes ofreciendo precios más bajos. Basado en los conceptos de Peter Thiel (De cero a uno) enseñados en clase, ¿cómo se clasifica esta iniciativa?",
+        options: [
+          "Progreso vertical (de 0 a 1), porque introduce una mejora incremental en los márgenes de beneficio.",
+          "Progreso horizontal (de 1 a n), una idea que entra a un océano rojo a competir solo por precio, destruyendo valor.",
+          "Una oportunidad validada, ya que la existencia de 19 picanterías demuestra que el segmento es rentable.",
+          "Un problema funcional, porque la comida es una necesidad básica y la alta competencia valida la demanda."
+        ],
+        correctIndex: 1,
+        rationale: "Copiar lo que ya funciona y pelear por precio en un mercado saturado es progreso horizontal (1 a n). El progreso vertical (0 a 1) exige crear un monopolio creativo haciendo algo nuevo."
+      },
+      {
+        id: "t1_02", topic: "TEMA1", points: 6, topicName: "1. Problemas e Ideas",
+        question: "Analiza la afirmación de un equipo durante su pitch: «Los dueños de tiendas de abarrotes de barrio en Quito no cuentan con acceso a tecnologías digitales modernas». ¿Cuál es la falla estructural que comete este enunciado?",
+        options: [
+          "Constituye una idea vaga o queja abstracta sin momento específico ni consecuencia medible en tiempo o dinero.",
+          "Omite especificar si el software funcionará con conexión al SRI o de forma desconectada.",
+          "Describe un problema de intensidad crítica que obligatoriamente debió clasificarse como emergencia.",
+          "Confunde el rol del comprador institucional con el del usuario final."
+        ],
+        correctIndex: 0,
+        rationale: "La queja general «no tienen acceso a tecnología» no posee sujeto observable, momento concreto ni consecuencia cuantificable. Un problema real exige cuantificar la pérdida (ej. pierde 3 horas al cierre de caja)."
+      },
+      {
+        id: "t1_03", topic: "TEMA1", points: 6, topicName: "1. Problemas e Ideas",
+        question: "De acuerdo con la «prueba de fuego» enseñada para formular un problema real, ¿cuál de los siguientes enunciados cumple rigurosamente con los tres criterios indispensables?",
+        options: [
+          "Los usuarios de transporte necesitan una app para pagar sin usar dinero físico.",
+          "Existe una oportunidad de hacer un marketplace para ferreterías con entregas en 24 horas.",
+          "El productor de arroz de Daule pierde hasta el 20% de su cosecha porque decide cuándo fumigar de memoria.",
+          "Las clínicas independientes carecen de herramientas modernas de IA para gestionar su agenda."
+        ],
+        correctIndex: 2,
+        rationale: "Cumple con sujeto concreto (productor de Daule), situación repetible (fumiga de memoria) y consecuencia medible (pierde 20%). Las demás son soluciones encubiertas."
+      },
+      {
+        id: "t1_04", topic: "TEMA1", points: 6, topicName: "1. Problemas e Ideas",
+        question: "Un equipo visita una escuela y observa que la secretaria anota asistencia en hojas volantes y luego pasa 4 horas diarias transcribiéndolas a un Excel con 15 pestañas. ¿A qué fuente de problemas corresponde este hallazgo?",
+        options: [
+          "A un cambio de contexto regulatorio.",
+          "A un dolor propio de los fundadores.",
+          "A una solución frankenstein.",
+          "A un acceso privilegiado del equipo."
+        ],
+        correctIndex: 2,
+        rationale: "El uso de Excel con múltiples pestañas y parches manuales es una 'solución frankenstein'. Cada parche manual declara que el problema realmente importa."
+      },
+      {
+        id: "t1_05", topic: "TEMA1", points: 6, topicName: "1. Problemas e Ideas",
+        question: "Un equipo dice: 'Deberíamos hacer una app con IA para que los estudiantes hagan sus tareas más rápido'. ¿Qué concepto representa esta frase?",
+        options: [
+          "Una solución en busca de un problema.",
+          "Una oportunidad validada por el mercado.",
+          "Un problema de funcionalidad.",
+          "Un dolor propio del estudiante."
+        ],
+        correctIndex: 0,
+        rationale: "Plantear primero la tecnología (App con IA) sin haber definido a quién le duele qué cosa y cuánto le cuesta hoy, es el clásico error de enamorarse de la solución."
+      },
+      {
+        id: "t1_06", topic: "TEMA1", points: 6, topicName: "1. Problemas e Ideas",
+        question: "En el caso del consultorio, el equipo descartó «los pacientes esperan mucho en la sala» y eligió «el paciente no llega ni avisa». ¿Cuál es la razón de fondo para descartar el primer problema?",
+        options: [
+          "El tiempo de espera es una métrica de vanidad inmedible.",
+          "Quien padece la espera es el paciente, pero quien compra el sistema es el médico, a quien le perjudica financieramente la cita vacía.",
+          "La sala de espera requiere sensores IoT fuera del alcance del curso.",
+          "El paciente es considerado un influenciador negativo."
+        ],
+        correctIndex: 1,
+        rationale: "Hay desalineación entre quien sufre y quien paga: al médico no le duele económicamente que el paciente espere, pero sí le impacta que un paciente falte y deje el sillón vacío sin facturar."
+      },
+      {
+        id: "t1_07", topic: "TEMA1", points: 6, topicName: "1. Problemas e Ideas",
+        question: "Al investigar talleres, el dueño dice: «Sería simpático tener una app para repuestos, pero hoy no llevamos nada por escrito porque el negocio marcha bien así». Según las 4 señales de oportunidad, ¿qué diagnóstico corresponde?",
+        options: [
+          "Es un monopolio natural sin competidores.",
+          "Evidencia ausencia de dolor cuantificable: si no deja huella económica ni genera parches, no es un dolor prioritario.",
+          "Es un problema de Zona de oro que requiere un PMV rápido.",
+          "Demuestra la presencia de un saboteador corporativo."
+        ],
+        correctIndex: 1,
+        rationale: "La ausencia de registros y sustitutos demuestra que el evento no es grave. Si no hay sustituto, casi nunca es un mercado virgen esperándote, suele ser un problema que a nadie le importa."
+      },
+      // TEMA 2
+      {
+        id: "t2_01", topic: "TEMA2", points: 8, topicName: "2. The Mom Test",
+        question: "Durante una entrevista, preguntas: «¿Pagarías 20 dólares al mes por una plataforma que calcule tus impuestos?». ¿Por qué está prohibida según The Mom Test?",
+        options: [
+          "El precio está por debajo del mercado.",
+          "Utiliza un verbo condicional orientado al futuro que induce a la cortesía y genera respuestas optimistas falsas.",
+          "El precio solo debe negociarse con el decisor final.",
+          "Divulga el funcionamiento del software prematuramente."
+        ],
+        correctIndex: 1,
+        rationale: "El condicional («¿pagarías...?») provoca que la gente sea optimista para ser amable. La opinión hipotética sobre el futuro no predice el comportamiento."
+      },
+      {
+        id: "t2_02", topic: "TEMA2", points: 8, topicName: "2. The Mom Test",
+        question: "Un emprendedor quiere validar un banco de recursos. Pregunta: '¿Utilizaría una plataforma donde pueda descargar material para sus clases?'. ¿Cuál es la mejor reescritura?",
+        options: [
+          "«¿Cuánto pagaría mensualmente por acceder a esta biblioteca?»",
+          "«¿Le parece una buena idea tener un repositorio centralizado?»",
+          "«¿Cómo preparó su clase la última vez que le tocó enseñar un tema nuevo desde cero?»",
+          "«¿Qué características debería tener la plataforma para que usted la use?»"
+        ],
+        correctIndex: 2,
+        rationale: "Esta opción ancla la conversación en hechos del pasado y explora cómo el usuario ya resuelve el problema hoy. Las demás piden opiniones hipotéticas o buscan validación de la idea."
+      },
+      {
+        id: "t2_03", topic: "TEMA2", points: 8, topicName: "2. The Mom Test",
+        question: "El entrevistado dice: «Nosotros normalmente nunca tenemos problemas con nuestros proveedores». ¿Qué maniobra debes realizar?",
+        options: [
+          "Dar por validado que no existe oportunidad en ese segmento.",
+          "Aterrizar la generalización en un hecho: «¿Cuándo fue la última vez que un pedido llegó tarde y qué hiciste?».",
+          "Mostrarle estadísticas que demuestren que las fallas son comunes.",
+          "Preguntar sobre su presupuesto de TI."
+        ],
+        correctIndex: 1,
+        rationale: "Cuando el entrevistado usa términos genéricos como «normalmente» o «nunca», debes forzar el anclaje a un hecho histórico específico para descubrir la verdad operativa."
+      },
+      {
+        id: "t2_04", topic: "TEMA2", points: 8, topicName: "2. The Mom Test",
+        question: "De acuerdo con la Regla 3 («Habla menos de la mitad del tiempo»), ¿cuál es el diagnóstico si hablaste 13 minutos en una sesión de 20?",
+        options: [
+          "Fue productiva porque capacitaste al usuario.",
+          "Es indistinto si lograste anotar citas textuales.",
+          "No fue una entrevista de descubrimiento sino un monólogo de ventas o búsqueda de aprobación.",
+          "El cliente era muy introvertido y requería mayor estímulo."
+        ],
+        correctIndex: 2,
+        rationale: "Si hablaste más del 50% del tiempo, te dedicaste a vender tu idea y justificarla, impidiendo que el cliente te cuente sus problemas reales."
+      },
+      {
+        id: "t2_05", topic: "TEMA2", points: 8, topicName: "2. The Mom Test",
+        question: "Un cliente sugiere: «Sería ideal que la app exporte a PDF con gráficos 3D». Siguiendo a Fitzpatrick, ¿cómo debes actuar?",
+        options: [
+          "Añadirlo al backlog inmediatamente por ser pedido del cliente.",
+          "Ignorarlo porque Lean Startup prohíbe funciones complejas al inicio.",
+          "Indagar la causa: «¿Para qué necesitas ese reporte exactamente y cómo lo preparas hoy?».",
+          "Pedirle que pague por adelantado el desarrollo de esa función."
+        ],
+        correctIndex: 2,
+        rationale: "«Las peticiones de funcionalidades deben ser investigadas, no obedecidas». Hay que descubrir qué intentan lograr realmente (ej. impresionar a su jefe) para entender el problema subyacente."
+      },
+      {
+        id: "t2_06", topic: "TEMA2", points: 8, topicName: "2. The Mom Test",
+        question: "Para calibrar precios sin contaminar la entrevista, ¿cuál es «el truco del precio»?",
+        options: [
+          "Preguntar el monto máximo que pagaría en suscripción.",
+          "Preguntar cuánto ha gastado en el pasado o cuánto paga hoy por sus soluciones parche.",
+          "Mostrar 3 planes tarifarios para que elija uno.",
+          "Calcular los costos del servidor y sumar 30%."
+        ],
+        correctIndex: 1,
+        rationale: "Indagar lo que el cliente ya desembolsa hoy por solucionar el problema revela el valor real que le asigna a resolverlo."
+      },
+      {
+        id: "t2_07", topic: "TEMA2", points: 8, topicName: "2. The Mom Test",
+        question: "¿Por qué la primera regla exige «Habla de su vida, no de tu idea»?",
+        options: [
+          "Porque al escuchar tu idea, la gente activa el sesgo de cortesía e intentará elogiarte para no herirte.",
+          "Porque arruinas tu ventaja competitiva frente a clones.",
+          "Porque el cliente no sabe de ingeniería de software.",
+          "Porque Lean Startup exige mantener el producto en secreto."
+        ],
+        correctIndex: 0,
+        rationale: "«Si mencionas tu idea, la gente va a intentar proteger tus sentimientos». Te darán cumplidos vacíos que te harán creer falsamente que tienes un negocio."
+      },
+      // TEMA 3
+      {
+        id: "t3_01", topic: "TEMA3", points: 6, topicName: "3. Análisis de Entrevistas",
+        question: "Un directivo te dice: «Me encanta la idea, resolvería un gran problema. Envíame un folleto y avísame cuando esté lista». ¿Qué tipo de señal es?",
+        options: [
+          "Un compromiso de reputación al pedir información para difundir.",
+          "Un falso positivo (cumplido + táctica de bloqueo) para salir del paso sin comprometerse.",
+          "Una validación positiva del problema que amerita programar el MVP.",
+          "Evidencia de encaje problema-solución."
+        ],
+        correctIndex: 1,
+        rationale: "«Me encanta» es un cumplido. «Envíame información» es una táctica de bloqueo amable. No aportó tiempo, dinero ni contactos."
+      },
+      {
+        id: "t3_02", topic: "TEMA3", points: 6, topicName: "3. Análisis de Entrevistas",
+        question: "¿Cuáles son las tres únicas monedas de cambio que demuestran validación y compromiso real?",
+        options: [
+          "Tiempo, reputación y dinero.",
+          "Ideas, felicitaciones y seguidores.",
+          "Encuestas, cartas de apoyo y opiniones.",
+          "Descargas gratuitas, visitas web y correos."
+        ],
+        correctIndex: 0,
+        rationale: "El compromiso requiere renunciar a algo de valor: su tiempo (una reunión larga observándolo), su dinero (un anticipo) o su reputación (presentarte a su jefe)."
+      },
+      {
+        id: "t3_03", topic: "TEMA3", points: 6, topicName: "3. Análisis de Entrevistas",
+        question: "Un gerente accede a reunirse una hora con su equipo técnico y te muestra sus Excels confidenciales. ¿Qué moneda entregó?",
+        options: [
+          "Dinero, por el costo del equipo.",
+          "Un falso positivo transaccional.",
+          "Tiempo y reputación, al dedicar horas laborales y exponer datos internos.",
+          "Sabotaje corporativo."
+        ],
+        correctIndex: 2,
+        rationale: "Ceder una hora de su equipo y dar acceso a datos confidenciales es un riesgo reputacional y de tiempo valioso."
+      },
+      {
+        id: "t3_04", topic: "TEMA3", points: 6, topicName: "3. Análisis de Entrevistas",
+        question: "La recepcionista jura que usará tu app clínica todos los días, pero el proyecto se cae al venderlo. ¿Qué error de actores ocurrió?",
+        options: [
+          "Confundiste al Usuario Operativo (la secretaria) con el Decisor/Pagador (el dueño de la clínica).",
+          "La secretaria era una Saboteadora.",
+          "Hubo un error de factibilidad técnica.",
+          "Se usaron métricas de vanidad en la entrevista."
+        ],
+        correctIndex: 0,
+        rationale: "En B2B, quien sufre el problema (usuario) rara vez es quien decide o paga. Ambos deben estar convencidos."
+      },
+      {
+        id: "t3_05", topic: "TEMA3", points: 6, topicName: "3. Análisis de Entrevistas",
+        question: "Al vender software B2B, el jefe de TI interno bloquea la compra. ¿Por qué asume este rol de 'Saboteador'?",
+        options: [
+          "Es el pagador oficial por ley.",
+          "Percibe la herramienta externa como amenaza a su puesto o evidencia de su incapacidad.",
+          "Sigue metodologías ágiles estrictas.",
+          "Quiere forzar un PMV tipo Conserje."
+        ],
+        correctIndex: 1,
+        rationale: "TI suele ver software externo como cuestionamiento («pudimos hacerlo nosotros») o teme volverse prescindible."
+      },
+      {
+        id: "t3_06", topic: "TEMA3", points: 6, topicName: "3. Análisis de Entrevistas",
+        question: "Realizas 15 entrevistas y reportas: «A todos les fascinó la idea, no hubo quejas y prometen comprarla». ¿Cuál es el diagnóstico?",
+        options: [
+          "Has encontrado un monopolio natural.",
+          "Bandera roja: caíste en complacencia, hiciste un pitch de ventas y recolectaste cumplidos.",
+          "Evidencia de que debes escalar el producto masivamente.",
+          "Validación perfecta de tu hipótesis."
+        ],
+        correctIndex: 1,
+        rationale: "Cero objeciones significa que no investigaste la realidad, solo pediste validación de tu idea. Es el síntoma clásico de haber violado el Mom Test."
+      },
+      // TEMA 4
+      {
+        id: "t4_01", topic: "TEMA4", points: 5, topicName: "4. Formular Hipótesis",
+        question: "El equipo redacta: 'Creemos que los docentes pierden tiempo. Lo sabremos en 2 semanas. Si no, cambiamos de segmento'. ¿Qué falta?",
+        options: [
+          "Implementar Inteligencia Artificial.",
+          "Un umbral numérico específico y medible (ej. si al menos 8 de 10).",
+          "Firmar acuerdos de confidencialidad.",
+          "Construir un Mago de Oz."
+        ],
+        correctIndex: 1,
+        rationale: "Sin un número exacto antes del experimento, cualquier resultado te parecerá bueno y te autoengañarás. Necesitas la condición de fallo explícita."
+      },
+      {
+        id: "t4_02", topic: "TEMA4", points: 5, topicName: "4. Formular Hipótesis",
+        question: "En la clase se comparó una hipótesis con un 'assert' en código. ¿Qué significa esto?",
+        options: [
+          "Deben programarse como pruebas unitarias.",
+          "Si no puedes escribir la condición exacta que la haría fallar, es solo un comentario.",
+          "Garantizan que el código compila en producción.",
+          "Son inmutables."
+        ],
+        correctIndex: 1,
+        rationale: "Un assert detiene el programa si algo es falso. Una hipótesis que no puede fallar y refutar tu idea es un simple comentario, no una prueba válida."
+      },
+      {
+        id: "t4_03", topic: "TEMA4", points: 5, topicName: "4. Formular Hipótesis",
+        question: "Segmento: 'Todos los que usan el transporte público urbano'. Según la clase («Segmento = tipado fuerte»), ¿cuál es el error?",
+        options: [
+          "Es declarar el segmento como tipo 'any': es demasiado amplio y heterogéneo para poder encontrar patrones comunes.",
+          "No cumple con regulaciones de tránsito.",
+          "Cae en el cuadrante de problemas ignorados.",
+          "Obliga a hacer experimentos caros."
+        ],
+        correctIndex: 0,
+        rationale: "Declarar a todos es no definir a nadie. Tendrás información contradictoria porque una madre con niños y un oficinista solitario no tienen los mismos dolores en el bus."
+      },
+      {
+        id: "t4_04", topic: "TEMA4", points: 5, topicName: "4. Formular Hipótesis",
+        question: "¿Qué supuesto debe validarse obligatoriamente primero (Zona 1 del mapa de Bland/Osterwalder)?",
+        options: [
+          "Alta importancia y poca evidencia: si es falso, el negocio muere.",
+          "Baja importancia y mucha evidencia: para ganar moral.",
+          "Supuestos de factibilidad técnica del servidor.",
+          "Supuestos de propiedad intelectual."
+        ],
+        correctIndex: 0,
+        rationale: "La Zona 1 contiene los riesgos de deseabilidad más letales. No tiene sentido probar si el servidor aguanta (factibilidad) si aún no sabes si alguien quiere el producto."
+      },
+      {
+        id: "t4_05", topic: "TEMA4", points: 5, topicName: "4. Formular Hipótesis",
+        question: "Un equipo quiere validar primero 'si la API de WhatsApp se conecta al servidor Node.js'. ¿Qué error cometen?",
+        options: [
+          "Enfocarse en factibilidad técnica (Zona 3) antes de validar deseabilidad (Zona 1).",
+          "Violar las reglas del Conserje.",
+          "Falta de umbral porcentual.",
+          "Generar métricas de vanidad técnica."
+        ],
+        correctIndex: 0,
+        rationale: "Saber que puedes programarlo no significa que debas hacerlo. Validar la tecnología antes que la existencia del problema es la principal causa de fracaso en ingeniería."
+      },
+      {
+        id: "t4_06", topic: "TEMA4", points: 5, topicName: "4. Formular Hipótesis",
+        question: "¿Cuál formulación de la primera línea de la hipótesis cumple los estándares de clase?",
+        options: [
+          "Creemos que los negocios necesitan IA para ganar más.",
+          "Creemos que los dueños de 3 a 8 mesas en Urdesa pierden dinero por comida caducada cuando usan cuadernos.",
+          "Creemos que nuestra app será amada por su diseño intuitivo.",
+          "Creemos que hay un mercado insatisfecho en sistemas contables."
+        ],
+        correctIndex: 1,
+        rationale: "Define segmento tipado (dueños 3-8 mesas en Urdesa), problema (pierden dinero por caducidad) y situación (al usar cuadernos)."
+      },
+      // TEMA 5
+      {
+        id: "t5_01", topic: "TEMA5", points: 5, topicName: "5. Experimentos Lean",
+        question: "Un equipo quiere probar si los padres pagarían por recordatorios médicos por WhatsApp en 10 días. ¿Cuál es el PMV más adecuado?",
+        options: [
+          "Programar una app nativa con Firebase.",
+          "Un Conserje: ofrecer el servicio a 5 padres y enviar los recordatorios manualmente desde su propio WhatsApp.",
+          "Crear un modelo predictivo de IA.",
+          "Esperar capital semilla."
+        ],
+        correctIndex: 1,
+        rationale: "El PMV ('spike') no es código a medias, es el experimento más rápido. Enviar a mano valida el valor entregado sin costo técnico."
+      },
+      {
+        id: "t5_02", topic: "TEMA5", points: 5, topicName: "5. Experimentos Lean",
+        question: "¿Cuál es la diferencia entre un PMV tipo Conserje y un Mago de Oz?",
+        options: [
+          "En Conserje el cliente sabe que es un humano; en Mago de Oz el cliente cree que es un sistema automático.",
+          "Conserje es hardware, Mago de Oz es software.",
+          "Conserje usa métricas de vanidad, Mago de Oz no.",
+          "Mago de Oz exige programar 80% del código."
+        ],
+        correctIndex: 0,
+        rationale: "Zappos era Mago de Oz (parecía web, era manual detrás). Tipti empezó como Conserje (un comprador personal haciéndote las compras explícitamente)."
+      },
+      {
+        id: "t5_03", topic: "TEMA5", points: 5, topicName: "5. Experimentos Lean",
+        question: "Quibi fracasó tras gastar 1.750 millones de dólares construyendo su plataforma de series cortas. ¿Qué principio Lean violaron?",
+        options: [
+          "No optimizaron para pantallas grandes.",
+          "Construyeron todo antes de validar la deseabilidad con un experimento de bajo costo.",
+          "No invirtieron suficiente en marketing de influencers.",
+          "Pusieron el precio demasiado bajo."
+        ],
+        correctIndex: 1,
+        rationale: "Violaron el ciclo de Lean Startup: asumieron la demanda y construyeron el producto final sin probar antes si la gente pagaría por ver series cortas en el móvil (pudieron validarlo con una simple Landing page)."
+      },
+      {
+        id: "t5_04", topic: "TEMA5", points: 5, topicName: "5. Experimentos Lean",
+        question: "En las metáforas de ingeniería, ¿por qué una métrica de vanidad equivale a un «log de nivel INFO»?",
+        options: [
+          "Porque detiene la ejecución del servidor.",
+          "Porque solo dice que el sistema sigue encendido; tranquiliza el ego pero no informa si el negocio funciona.",
+          "Porque detecta inyecciones SQL.",
+          "Porque consume mucha memoria."
+        ],
+        correctIndex: 1,
+        rationale: "Los likes, descargas y seguidores solo te hacen sentir bien (vanidad), pero no te indican si el usuario retiene o paga, que es la métrica accionable."
+      },
+      {
+        id: "t5_05", topic: "TEMA5", points: 5, topicName: "5. Experimentos Lean",
+        question: "El ciclo Lean Startup es 'Construir - Medir - Aprender'. ¿Cómo debe ser el orden lógico para su PLANIFICACIÓN?",
+        options: [
+          "Construir completo, medir al final y aprender en un año.",
+          "Al revés: planificar qué quiero Aprender, definir qué Métrica lo prueba, y al final decidir qué mínimo Construir.",
+          "Simultáneo entre programación y ventas.",
+          "Programar en sprints sin métricas definidas."
+        ],
+        correctIndex: 1,
+        rationale: "Aunque se ejecuta Construir->Medir->Aprender, el diseño del experimento se piensa desde la meta: primero defines la hipótesis a aprender, luego la métrica, y el artefacto es lo último."
+      },
+      {
+        id: "t5_06", topic: "TEMA5", points: 5, topicName: "5. Experimentos Lean",
+        question: "¿Cuál de estos indicadores representa una MÉTRICA ACCIONABLE?",
+        options: [
+          "20.000 vistas de un video en Facebook.",
+          "El porcentaje de docentes que, tras probar el formulario 5 días, aceptan que lo implementemos oficialmente en su clase.",
+          "El número total de usuarios registrados en la base de datos.",
+          "10,000 visitas únicas a la página de aterrizaje."
+        ],
+        correctIndex: 1,
+        rationale: "La conversión con compromiso real de uso continuo demuestra tracción y deseabilidad. Las vistas y visitas son métricas de vanidad que suben solas."
+      },
+      // TEMA 6
+      {
+        id: "t6_01", topic: "TEMA6", points: 4, topicName: "6. Tipos de Problemas",
+        question: "Un docente te dice: 'Odio pasar notas, me toma 6 horas transcribir los datos de mis 5 cursos a fin de mes'. ¿Qué tipo de problema es este principalmente?",
+        options: [
+          "Emocional, porque dice que lo 'odia'.",
+          "Funcional, porque es una tarea operativa lenta cuyo impacto principal es tiempo perdido.",
+          "Social, porque afecta su estatus ante los alumnos.",
+          "De Información, porque desconoce cómo calificar."
+        ],
+        correctIndex: 1,
+        rationale: "Aunque exprese molestia, el dolor raíz es funcional: un proceso ineficiente y repetitivo que consume tiempo cuantificable."
+      },
+      {
+        id: "t6_02", topic: "TEMA6", points: 4, topicName: "6. Tipos de Problemas",
+        question: "Estudiantes de zonas rurales deben caminar para encontrar señal porque en sus casas no hay cobertura para descargar deberes. ¿Qué tipo de problema es?",
+        options: [
+          "De Acceso",
+          "Financiero",
+          "Funcional",
+          "De Información"
+        ],
+        correctIndex: 0,
+        rationale: "El problema es la imposibilidad física o técnica de acceder al servicio (internet), lo cual exige un producto que funcione offline."
+      },
+      {
+        id: "t6_03", topic: "TEMA6", points: 4, topicName: "6. Tipos de Problemas",
+        question: "El rector afirma: 'Me entero que un estudiante va a desertar cuando ya dejó de venir hace un mes'. ¿A qué categoría corresponde?",
+        options: [
+          "Social",
+          "Emocional",
+          "De Información",
+          "Funcional"
+        ],
+        correctIndex: 2,
+        rationale: "El problema radica en la falta de datos oportunos y alertas tempranas para poder tomar decisiones correctivas."
+      },
+      {
+        id: "t6_04", topic: "TEMA6", points: 4, topicName: "6. Tipos de Problemas",
+        question: "El colegio gasta $1,500 mensuales en pagar horas extra a los docentes para poder cerrar el sistema de calificaciones. ¿Qué dolor es este?",
+        options: [
+          "Financiero",
+          "De Acceso",
+          "Emocional",
+          "Social"
+        ],
+        correctIndex: 0,
+        rationale: "El dolor impacta directamente al presupuesto de la institución, generando pérdidas económicas directas y cuantificables."
+      },
+      {
+        id: "t6_05", topic: "TEMA6", points: 4, topicName: "6. Tipos de Problemas",
+        question: "Un profesor veterano evita la plataforma digital porque tiene miedo de cometer errores al proyectar en clase y que sus alumnos se rían. ¿Qué problema enfrenta?",
+        options: [
+          "Financiero",
+          "De Información",
+          "Emocional / Social",
+          "De Acceso"
+        ],
+        correctIndex: 2,
+        rationale: "La barrera principal es el miedo a la humillación pública (dolor emocional y social), no la capacidad del software."
+      },
+      // TEMA 7
+      {
+        id: "t7_01", topic: "TEMA7", points: 4, topicName: "7. Actores del Problema",
+        question: "En un software para el tratamiento de dislexia infantil, los niños juegan en la app. ¿Qué rol de negocio cumplen los niños?",
+        options: [
+          "Pagadores",
+          "Usuarios",
+          "Decisores",
+          "Saboteadores"
+        ],
+        correctIndex: 1,
+        rationale: "El niño es quien utiliza (usa) el producto a diario y experimenta la interfaz, pero no es quien decide la compra ni quien la paga."
+      },
+      {
+        id: "t7_02", topic: "TEMA7", points: 4, topicName: "7. Actores del Problema",
+        question: "Ofreces un sistema de gestión a un colegio. Las secretarias lo aman, pero el Director de TI lo bloquea aduciendo fallas de seguridad. ¿Qué rol asumió TI?",
+        options: [
+          "Influenciador Negativo / Saboteador",
+          "Pagador",
+          "Usuario Final",
+          "Cliente Evangelista"
+        ],
+        correctIndex: 0,
+        rationale: "El departamento interno de sistemas a menudo actúa como saboteador para frenar la adopción de herramientas externas."
+      },
+      {
+        id: "t7_03", topic: "TEMA7", points: 4, topicName: "7. Actores del Problema",
+        question: "El Ministerio de Educación publica una norma que obliga a reportar notas en un formato XML. ¿Qué actor es el Ministerio para tu empresa de software escolar?",
+        options: [
+          "Usuario Final",
+          "Pagador",
+          "Influenciador / Restricción de entorno",
+          "Decisor técnico"
+        ],
+        correctIndex: 2,
+        rationale: "El Ministerio no usa tu app ni te paga, pero sus regulaciones condicionan el mercado y a tus verdaderos clientes."
+      },
+      {
+        id: "t7_04", topic: "TEMA7", points: 4, topicName: "7. Actores del Problema",
+        question: "Vendes tu solución al Rector del colegio, quien da la autorización para que empiece el piloto en secundaria. ¿Qué rol tiene el Rector?",
+        options: [
+          "Usuario diario",
+          "Pagador corporativo",
+          "Decisor",
+          "Influenciador"
+        ],
+        correctIndex: 2,
+        rationale: "El decisor es quien tiene la autoridad para decir 'sí' a la implementación, aunque no necesariamente sea él quien desembolse los fondos."
+      },
+      {
+        id: "t7_05", topic: "TEMA7", points: 4, topicName: "7. Actores del Problema",
+        question: "¿Por qué confundir al Usuario con el Decisor es fatal en ventas B2B?",
+        options: [
+          "Porque el usuario evalúa comodidad, mientras el decisor evalúa presupuesto y ROI. Convencer al usuario no garantiza la venta.",
+          "Porque el decisor nunca usa la computadora.",
+          "Porque el usuario tiene el dinero pero no el poder.",
+          "Porque ambos firman el contrato simultáneamente."
+        ],
+        correctIndex: 0,
+        rationale: "El problema que resuelve el usuario (hacer clics más rápido) rara vez es el problema por el cual el decisor paga (ahorrar dinero o evitar multas)."
+      },
+      // TEMA 8
+      {
+        id: "t8_01", topic: "TEMA8", points: 4, topicName: "8. Tipos de PMV",
+        question: "Armas una página promocionando 'Una app que redacta informes'. Al hacer clic en 'Comprar $10', sale un mensaje: 'Aún en desarrollo, déjanos tu correo'. ¿Qué PMV es?",
+        options: [
+          "Prueba de Humo (Landing Page / Puerta Falsa)",
+          "Mago de Oz",
+          "Conserje",
+          "Producto Funcional Mínimo"
+        ],
+        correctIndex: 0,
+        rationale: "La prueba de humo promociona algo inexistente para medir la intención real de compra sin construir el producto detrás."
+      },
+      {
+        id: "t8_02", topic: "TEMA8", points: 4, topicName: "8. Tipos de PMV",
+        question: "Lanzas un bot en Telegram que dice tener IA para recomendar libros. En realidad, tú estás detrás respondiendo cada mensaje manualmente. ¿Qué PMV es?",
+        options: [
+          "Conserje",
+          "Mago de Oz",
+          "Prototipo Clicable",
+          "Prueba de Humo"
+        ],
+        correctIndex: 1,
+        rationale: "En el Mago de Oz el cliente cree que está interactuando con un sistema automatizado, pero la lógica trasera es manual."
+      },
+      {
+        id: "t8_03", topic: "TEMA8", points: 4, topicName: "8. Tipos de PMV",
+        question: "Para probar una idea de supermercado a domicilio, el fundador anota los pedidos por WhatsApp, va al súper, compra la comida y la entrega él mismo al cliente. ¿Qué PMV es?",
+        options: [
+          "Mago de Oz",
+          "Concierge (Conserje)",
+          "Landing Page",
+          "Prototipo Clicable"
+        ],
+        correctIndex: 1,
+        rationale: "En el PMV Conserje, el servicio se presta de forma manual y transparente. El cliente sabe que es una persona brindando el servicio de forma artesanal."
+      },
+      {
+        id: "t8_04", topic: "TEMA8", points: 4, topicName: "8. Tipos de PMV",
+        question: "Construyes pantallas en Figma y le pides a un usuario que intente 'usarlas' en tu tablet para ver si entiende dónde hacer clic, aunque no guarda datos reales. ¿Qué PMV es?",
+        options: [
+          "Prototipo Clicable",
+          "Mago de Oz",
+          "Prueba de Humo",
+          "Funcional Mínimo"
+        ],
+        correctIndex: 0,
+        rationale: "El prototipo clicable valida el flujo de usuario y la interfaz (UI/UX) sin gastar tiempo en escribir código backend."
+      },
+      {
+        id: "t8_05", topic: "TEMA8", points: 4, topicName: "8. Tipos de PMV",
+        question: "¿Cuál es la principal ventaja de ejecutar un PMV tipo Conserje antes de programar una plataforma automatizada?",
+        options: [
+          "Se puede reutilizar el código escrito.",
+          "Te obliga a interactuar cara a cara con el usuario, permitiendo descubrir dolores reales y ajustar el valor antes de automatizar.",
+          "No requiere de un equipo comercial.",
+          "Genera un crecimiento viral (1 a n)."
+        ],
+        correctIndex: 1,
+        rationale: "Hacer las cosas manualmente te brinda un feedback cualitativo riquísimo y cercanía total con el cliente, ideal para las etapas tempranas de descubrimiento."
+      }
+    ];
+    
+    // -------------------------------------------------------------
+    // 2. GESTIÓN DEL ESTADO Y PERSISTENCIA (LOCALSTORAGE)
+    // Permite aumentar preguntas sin borrar las existentes
+    // -------------------------------------------------------------
+    const STORAGE_KEY_QUESTIONS = "puce_exam_questions_master_v4";
+    const STORAGE_KEY_USER_ANSWERS = "puce_exam_user_answers_v4";
+
+    let allQuestions = [];
+    let currentFilteredQuestions = [];
+    let currentIndex = 0;
+    let selectedTopic = "ALL";
+    let onlyErrorsMode = false;
+    let onlyFlaggedMode = false;
+    let userAnswers = {}; // { questionId: { selectedOption: number, isCorrect: boolean, checked: boolean, flagged: boolean } }
+
+    // Cargar preguntas (LocalStorage o Banco Maestro)
+    function loadQuestions() {
+      const stored = localStorage.getItem(STORAGE_KEY_QUESTIONS);
+      if (stored) {
+        try {
+          allQuestions = JSON.parse(stored);
+        } catch (e) {
+          allQuestions = [...MASTER_QUESTIONS];
+        }
+      } else {
+        allQuestions = [...MASTER_QUESTIONS];
+        saveQuestions();
+      }
+
+      // Cargar respuestas de usuario
+      const storedAnswers = localStorage.getItem(STORAGE_KEY_USER_ANSWERS);
+      if (storedAnswers) {
+        try {
+          userAnswers = JSON.parse(storedAnswers);
+        } catch (e) {
+          userAnswers = {};
+        }
+      }
+    }
+
+    function saveQuestions() {
+      localStorage.setItem(STORAGE_KEY_QUESTIONS, JSON.stringify(allQuestions));
+      updateTopicCounts();
+    }
+
+    function saveUserAnswers() {
+      localStorage.setItem(STORAGE_KEY_USER_ANSWERS, JSON.stringify(userAnswers));
+    }
+
+    // -------------------------------------------------------------
+    // 3. MOTOR DEL CUESTIONARIO Y FILTROS
+    // -------------------------------------------------------------
+    function filterQuestions() {
+      let list = allQuestions;
+
+      // Filtrar por tema
+      if (selectedTopic !== "ALL") {
+        list = list.filter(q => q.topic === selectedTopic);
+      }
+
+      // Filtrar solo errores si está activado
+      if (onlyErrorsMode) {
+        list = list.filter(q => {
+          const ans = userAnswers[q.id];
+          return ans && ans.checked && !ans.isCorrect;
+        });
+      }
+
+      // Filtrar solo marcadas si está activado
+      if (onlyFlaggedMode) {
+        list = list.filter(q => {
+          const ans = userAnswers[q.id];
+          return ans && ans.flagged;
+        });
+      }
+
+      currentFilteredQuestions = list;
+
+      // Ajustar índice actual
+      if (currentIndex >= currentFilteredQuestions.length) {
+        currentIndex = Math.max(0, currentFilteredQuestions.length - 1);
+      }
+
+      updateUI();
+    }
+
+    function updateTopicCounts() {
+      const counts = {
+        ALL: allQuestions.length,
+        TEMA1: allQuestions.filter(q => q.topic === "TEMA1").length,
+        TEMA2: allQuestions.filter(q => q.topic === "TEMA2").length,
+        TEMA3: allQuestions.filter(q => q.topic === "TEMA3").length,
+        TEMA4: allQuestions.filter(q => q.topic === "TEMA4").length,
+        TEMA5: allQuestions.filter(q => q.topic === "TEMA5").length,
+        TEMA6: allQuestions.filter(q => q.topic === "TEMA6").length,
+        TEMA7: allQuestions.filter(q => q.topic === "TEMA7").length,
+        TEMA8: allQuestions.filter(q => q.topic === "TEMA8").length,
+      };
+
+      document.getElementById("count-ALL").textContent = counts.ALL;
+      document.getElementById("count-TEMA1").textContent = counts.TEMA1;
+      document.getElementById("count-TEMA2").textContent = counts.TEMA2;
+      document.getElementById("count-TEMA3").textContent = counts.TEMA3;
+      document.getElementById("count-TEMA4").textContent = counts.TEMA4;
+      document.getElementById("count-TEMA5").textContent = counts.TEMA5;
+      document.getElementById("count-TEMA6").textContent = counts.TEMA6;
+      document.getElementById("count-TEMA7").textContent = counts.TEMA7;
+      document.getElementById("count-TEMA8").textContent = counts.TEMA8;
+
+      document.getElementById("badgeQuestionCount").textContent = `${counts.ALL} preguntas`;
+
+      // Resumen modal
+      document.getElementById("modalStatTotal").textContent = counts.ALL;
+      document.getElementById("modalStatT1").textContent = counts.TEMA1;
+      document.getElementById("modalStatT2").textContent = counts.TEMA2;
+      document.getElementById("modalStatT3").textContent = counts.TEMA3;
+      document.getElementById("modalStatT4").textContent = counts.TEMA4;
+      document.getElementById("modalStatT5").textContent = counts.TEMA5;
+      document.getElementById("modalStatT6").textContent = counts.TEMA6;
+      document.getElementById("modalStatT7").textContent = counts.TEMA7;
+      document.getElementById("modalStatT8").textContent = counts.TEMA8;
+    }
+
+    function updateStats() {
+      let totalAnswered = 0;
+      let correct = 0;
+      let incorrect = 0;
+
+      Object.keys(userAnswers).forEach(qId => {
+        const item = userAnswers[qId];
+        if (item && item.checked) {
+          totalAnswered++;
+          if (item.isCorrect) correct++;
+          else incorrect++;
+        }
+      });
+
+      document.getElementById("statTotalAnswered").textContent = totalAnswered;
+      document.getElementById("statCorrect").textContent = correct;
+      document.getElementById("statIncorrect").textContent = incorrect;
+
+      const accuracy = totalAnswered > 0 ? Math.round((correct / totalAnswered) * 100) : 0;
+      document.getElementById("statAccuracy").textContent = `${accuracy}%`;
+
+      const totalPool = allQuestions.length;
+      const progressPercent = totalPool > 0 ? Math.round((totalAnswered / totalPool) * 100) : 0;
+      document.getElementById("progressBar").style.width = `${progressPercent}%`;
+      document.getElementById("statProgressText").textContent = `${totalAnswered} de ${totalPool} respondidas`;
+    }
+
+    function renderCurrentQuestion() {
+      const container = document.getElementById("optionsContainer");
+      const feedbackBox = document.getElementById("feedbackContainer");
+      const btnCheck = document.getElementById("btnCheckAnswer");
+
+      if (currentFilteredQuestions.length === 0) {
+        document.getElementById("questionStem").textContent = "No hay preguntas disponibles bajo el filtro actual.";
+        document.getElementById("lblTopicBadge").textContent = "Vacío";
+        document.getElementById("lblQuestionPoints").textContent = "0 pts";
+        document.getElementById("lblQuestionIndex").textContent = "0";
+        document.getElementById("lblQuestionTotal").textContent = "0";
+        container.innerHTML = `<div class="p-6 text-center text-slate-500 bg-slate-50 rounded-xl border border-dashed border-slate-300">No hay preguntas que coincidan con los criterios seleccionados.</div>`;
+        feedbackBox.classList.add("hidden");
+        btnCheck.disabled = true;
+        return;
+      }
+
+      const q = currentFilteredQuestions[currentIndex];
+      const saved = userAnswers[q.id] || { selectedOption: null, isCorrect: false, checked: false, flagged: false };
+
+      // Encabezados
+      document.getElementById("lblTopicBadge").textContent = q.topicName || q.topic;
+      document.getElementById("lblQuestionPoints").textContent = `${q.points || 5} pts`;
+      document.getElementById("lblQuestionIndex").textContent = currentIndex + 1;
+      document.getElementById("lblQuestionTotal").textContent = currentFilteredQuestions.length;
+      document.getElementById("questionStem").textContent = q.question;
+
+      // Estado del botón de marcar
+      const btnFlag = document.getElementById("btnToggleFlag");
+      if (saved.flagged) {
+        btnFlag.classList.remove("text-slate-300");
+        btnFlag.classList.add("text-amber-500");
+        btnFlag.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor"><path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z" /></svg>`;
+      } else {
+        btnFlag.classList.add("text-slate-300");
+        btnFlag.classList.remove("text-amber-500");
+        btnFlag.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" /></svg>`;
+      }
+      
+      const newBtnFlag = btnFlag.cloneNode(true);
+      btnFlag.parentNode.replaceChild(newBtnFlag, btnFlag);
+      newBtnFlag.addEventListener("click", () => {
+        if (!userAnswers[q.id]) {
+          userAnswers[q.id] = { selectedOption: null, isCorrect: false, checked: false, flagged: false };
+        }
+        userAnswers[q.id].flagged = !userAnswers[q.id].flagged;
+        saveUserAnswers();
+        renderCurrentQuestion();
+      });
+
+      // Opciones
+      container.innerHTML = "";
+      q.options.forEach((optText, idx) => {
+        const isSelected = saved.selectedOption === idx;
+        let borderClasses = "border-slate-200 hover:border-slate-300 bg-white";
+        let markerClasses = "border-slate-300 text-slate-600";
+
+        if (saved.checked) {
+          if (idx === q.correctIndex) {
+            borderClasses = "border-emerald-500 bg-emerald-50/80 ring-1 ring-emerald-400";
+            markerClasses = "border-emerald-600 bg-emerald-600 text-white font-bold";
+          } else if (isSelected && !saved.isCorrect) {
+            borderClasses = "border-rose-500 bg-rose-50/80 ring-1 ring-rose-400";
+            markerClasses = "border-rose-600 bg-rose-600 text-white font-bold";
+          } else {
+            borderClasses = "border-slate-200 bg-slate-50 opacity-60";
+          }
+        } else if (isSelected) {
+          borderClasses = "border-sky-600 bg-sky-50 ring-1 ring-sky-500";
+          markerClasses = "border-sky-700 bg-sky-700 text-white";
+        }
+
+        const letter = String.fromCharCode(65 + idx); // A, B, C, D
+
+        const optDiv = document.createElement("div");
+        optDiv.className = `border rounded-xl p-3.5 transition flex items-start space-x-3 cursor-pointer select-none ${borderClasses}`;
+        optDiv.innerHTML = `
+          <div class="w-6 h-6 rounded-full border flex items-center justify-center text-xs font-semibold shrink-0 mt-0.5 ${markerClasses}">
+            ${letter}
+          </div>
+          <div class="text-xs sm:text-sm text-slate-800 leading-relaxed font-normal flex-1">
+            ${optText}
+          </div>
+        `;
+
+        if (!saved.checked) {
+          optDiv.addEventListener("click", () => {
+            userAnswers[q.id] = { selectedOption: idx, isCorrect: false, checked: false, flagged: saved.flagged };
+            saveUserAnswers();
+            renderCurrentQuestion();
+          });
+        }
+
+        container.appendChild(optDiv);
+      });
+
+      // Estado del botón Comprobar
+      btnCheck.disabled = saved.selectedOption === null || saved.checked;
+
+      // Retroalimentación
+      if (saved.checked) {
+        feedbackBox.classList.remove("hidden");
+        const fbTitle = document.getElementById("feedbackTitle");
+        const fbText = document.getElementById("feedbackText");
+
+        if (saved.isCorrect) {
+          feedbackBox.className = "mt-6 p-4 rounded-xl border border-emerald-300 bg-emerald-50 text-sm leading-relaxed text-emerald-950";
+          fbTitle.innerHTML = `<span class="text-emerald-700 text-base">✓</span> <span class="text-emerald-800 font-bold">¡Respuesta Correcta! Justificación:</span>`;
+        } else {
+          feedbackBox.className = "mt-6 p-4 rounded-xl border border-rose-300 bg-rose-50 text-sm leading-relaxed text-rose-950";
+          fbTitle.innerHTML = `<span class="text-rose-700 text-base">✗</span> <span class="text-rose-800 font-bold">Respuesta Incorrecta. Justificación:</span>`;
+        }
+        fbText.textContent = q.rationale;
+      } else {
+        feedbackBox.classList.add("hidden");
+      }
+
+      // Navegación
+      document.getElementById("btnPrev").disabled = currentIndex === 0;
+      document.getElementById("btnNext").disabled = currentIndex === currentFilteredQuestions.length - 1;
+    }
+
+    function checkCurrentAnswer() {
+      if (currentFilteredQuestions.length === 0) return;
+      const q = currentFilteredQuestions[currentIndex];
+      const saved = userAnswers[q.id];
+      if (!saved || saved.selectedOption === null) return;
+
+      const isCorrect = saved.selectedOption === q.correctIndex;
+      userAnswers[q.id] = {
+        selectedOption: saved.selectedOption,
+        isCorrect: isCorrect,
+        checked: true,
+        flagged: saved.flagged
+      };
+
+      saveUserAnswers();
+      updateStats();
+      renderCurrentQuestion();
+    }
+
+    function updateUI() {
+      updateTopicCounts();
+      updateStats();
+      renderCurrentQuestion();
+    }
+
+    // -------------------------------------------------------------
+    // 4. EVENT LISTENERS Y CONTROLADORES
+    // -------------------------------------------------------------
+    document.addEventListener("DOMContentLoaded", () => {
+      loadQuestions();
+      filterQuestions();
+
+      // Botón comprobar
+      document.getElementById("btnCheckAnswer").addEventListener("click", checkCurrentAnswer);
+
+      // Botones navegación
+      document.getElementById("btnPrev").addEventListener("click", () => {
+        if (currentIndex > 0) {
+          currentIndex--;
+          renderCurrentQuestion();
+        }
+      });
+      document.getElementById("btnNext").addEventListener("click", () => {
+        if (currentIndex < currentFilteredQuestions.length - 1) {
+          currentIndex++;
+          renderCurrentQuestion();
+        }
+      });
+
+      // Filtros de temas
+      document.querySelectorAll(".topic-btn").forEach(btn => {
+        btn.addEventListener("click", (e) => {
+          document.querySelectorAll(".topic-btn").forEach(b => {
+            b.className = "topic-btn w-full text-left px-3 py-2 rounded-lg font-medium transition flex justify-between items-center text-slate-700 hover:bg-slate-100";
+          });
+          const target = e.currentTarget;
+          target.className = "topic-btn w-full text-left px-3 py-2 rounded-lg font-medium transition flex justify-between items-center bg-sky-900 text-white shadow-sm";
+
+          selectedTopic = target.getAttribute("data-topic");
+          currentIndex = 0;
+          filterQuestions();
+        });
+      });
+
+      // Filtro solo errores
+      document.getElementById("chkOnlyErrors").addEventListener("change", (e) => {
+        onlyErrorsMode = e.target.checked;
+        currentIndex = 0;
+        filterQuestions();
+      });
+
+      // Filtro solo marcadas
+      document.getElementById("chkOnlyFlagged").addEventListener("change", (e) => {
+        onlyFlaggedMode = e.target.checked;
+        currentIndex = 0;
+        filterQuestions();
+      });
+
+      // Reiniciar examen
+      document.getElementById("btnResetQuiz").addEventListener("click", () => {
+        if (confirm("¿Deseas reiniciar todas tus respuestas de esta sesión? (Las preguntas marcadas se conservarán)")) {
+          Object.keys(userAnswers).forEach(qId => {
+             userAnswers[qId].selectedOption = null;
+             userAnswers[qId].isCorrect = false;
+             userAnswers[qId].checked = false;
+          });
+          saveUserAnswers();
+          currentIndex = 0;
+          filterQuestions();
+        }
+      });
+
+      // Modal Gestor de Preguntas
+      const modal = document.getElementById("managerModal");
+      document.getElementById("btnOpenManager").addEventListener("click", () => {
+        modal.classList.remove("hidden");
+      });
+      document.getElementById("btnCloseModal").addEventListener("click", () => {
+        modal.classList.add("hidden");
+      });
+
+      // Tabs del Modal
+      const tabAdd = document.getElementById("tabBtnAdd");
+      const tabImport = document.getElementById("tabBtnImport");
+      const tabStats = document.getElementById("tabBtnStats");
+      const cAdd = document.getElementById("tabContentAdd");
+      const cImport = document.getElementById("tabContentImport");
+      const cStats = document.getElementById("tabContentStats");
+
+      function setTab(activeBtn, activeContent) {
+        [tabAdd, tabImport, tabStats].forEach(b => {
+          b.className = "pb-2 font-medium text-slate-500 hover:text-slate-800";
+        });
+        [cAdd, cImport, cStats].forEach(c => c.classList.add("hidden"));
+        activeBtn.className = "pb-2 font-bold text-sky-900 border-b-2 border-sky-900";
+        activeContent.classList.remove("hidden");
+      }
+
+      tabAdd.addEventListener("click", () => setTab(tabAdd, cAdd));
+      tabImport.addEventListener("click", () => setTab(tabImport, cImport));
+      tabStats.addEventListener("click", () => setTab(tabStats, cStats));
+
+      // Guardar Pregunta Individual
+      document.getElementById("btnSaveSingleQuestion").addEventListener("click", () => {
+        const topic = document.getElementById("newQTopic").value;
+        const stem = document.getElementById("newQStem").value.trim();
+        const opt0 = document.getElementById("newOpt0").value.trim();
+        const opt1 = document.getElementById("newOpt1").value.trim();
+        const opt2 = document.getElementById("newOpt2").value.trim();
+        const opt3 = document.getElementById("newOpt3").value.trim();
+        const rationale = document.getElementById("newQRationale").value.trim();
+        const correctRadio = document.querySelector('input[name="newCorrectOption"]:checked');
+
+        if (!stem || !opt0 || !opt1 || !opt2 || !opt3 || !rationale) {
+          alert("Por favor completa el enunciado, las 4 opciones y la retroalimentación.");
+          return;
+        }
+
+        const pointsMap = { TEMA1: 6, TEMA2: 8, TEMA3: 6, TEMA4: 5, TEMA5: 5, TEMA6: 4, TEMA7: 4, TEMA8: 4 };
+        const nameMap = {
+          TEMA1: "1. Problema vs Solución",
+          TEMA2: "2. The Mom Test (Corrección)",
+          TEMA3: "3. Entrevistas y Falsos Positivos",
+          TEMA4: "4. Formulación de Hipótesis",
+          TEMA5: "5. Experimentos Lean y Métricas",
+          TEMA6: "6. Tipos de Problemas",
+          TEMA7: "7. Actores del Problema",
+          TEMA8: "8. Tipos de PMV"
+        };
+
+        const newQ = {
+          id: `custom_${Date.now()}`,
+          topic: topic,
+          points: pointsMap[topic] || 5,
+          topicName: nameMap[topic] || topic,
+          question: stem,
+          options: [opt0, opt1, opt2, opt3],
+          correctIndex: parseInt(correctRadio.value, 10),
+          rationale: rationale
+        };
+
+        allQuestions.push(newQ);
+        saveQuestions();
+        filterQuestions();
+
+        // Limpiar formulario
+        document.getElementById("newQStem").value = "";
+        document.getElementById("newOpt0").value = "";
+        document.getElementById("newOpt1").value = "";
+        document.getElementById("newOpt2").value = "";
+        document.getElementById("newOpt3").value = "";
+        document.getElementById("newQRationale").value = "";
+
+        alert("¡Pregunta añadida exitosamente al banco sin alterar las existentes!");
+        modal.classList.add("hidden");
+      });
+
+      // Importar JSON
+      document.getElementById("btnExecuteImport").addEventListener("click", () => {
+        const text = document.getElementById("jsonImportArea").value.trim();
+        if (!text) {
+          alert("Pega un array JSON con las preguntas que deseas fusionar.");
+          return;
+        }
+        try {
+          const parsed = JSON.parse(text);
+          if (!Array.isArray(parsed)) {
+            alert("El formato debe ser un arreglo de objetos JSON: [ { ... }, { ... } ]");
+            return;
+          }
+
+          let addedCount = 0;
+          parsed.forEach((item, i) => {
+            if (item.question && item.options && item.options.length === 4 && item.correctIndex !== undefined) {
+              const newQ = {
+                id: item.id || `import_${Date.now()}_${i}`,
+                topic: item.topic || "TEMA1",
+                points: item.points || 5,
+                topicName: item.topicName || item.topic || "Tema",
+                question: item.question,
+                options: item.options,
+                correctIndex: item.correctIndex,
+                rationale: item.rationale || "Sin retroalimentación documentada."
+              };
+              allQuestions.push(newQ);
+              addedCount++;
+            }
+          });
+
+          saveQuestions();
+          filterQuestions();
+          alert(`Se fusionaron exitosamente ${addedCount} preguntas al banco actual.`);
+          document.getElementById("jsonImportArea").value = "";
+          modal.classList.add("hidden");
+        } catch (err) {
+          alert("Error de sintaxis en el JSON proporcionado: " + err.message);
+        }
+      });
+
+      // Exportar JSON
+      document.getElementById("btnExportJSON").addEventListener("click", () => {
+        const jsonStr = JSON.stringify(allQuestions, null, 2);
+        navigator.clipboard.writeText(jsonStr).then(() => {
+          alert("¡Banco completo de preguntas copiado al portapapeles en formato JSON!");
+        }).catch(() => {
+          document.getElementById("jsonImportArea").value = jsonStr;
+          alert("Se ha colocado el JSON en el área de texto para que lo copies manualmente.");
+        });
+      });
+
+      // Restablecer valores por defecto
+      document.getElementById("btnRestoreDefaults").addEventListener("click", () => {
+        if (confirm("¿Estás seguro de restablecer el banco al repertorio inicial de 50 preguntas oficiales de la PUCE?")) {
+          allQuestions = [...MASTER_QUESTIONS];
+          userAnswers = {};
+          saveQuestions();
+          saveUserAnswers();
+          filterQuestions();
+          alert("Banco restablecido con éxito.");
+          modal.classList.add("hidden");
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
