@@ -516,6 +516,30 @@
         correctIndex: 1,
         rationale: "La ausencia de registros y sustitutos demuestra que el evento no es grave. Si no hay sustituto, casi nunca es un mercado virgen esperándote, suele ser un problema que a nadie le importa."
       },
+      {
+        id: "t1_08", topic: "TEMA1", points: 6, topicName: "1. Problemas e Ideas",
+        question: "Completa la plantilla OBLIGATORIA de problema: '[Quién] necesita [qué] porque [por qué le duele]. Hoy lo resuelve con ________, lo que le cuesta ________.'",
+        options: [
+          "[software] / [dinero]",
+          "[alternativa actual] / [tiempo, dinero o riesgo]",
+          "[una app] / [esfuerzo]",
+          "[ayuda] / [paciencia]"
+        ],
+        correctIndex: 1,
+        rationale: "La plantilla exige identificar cómo sobrevive el usuario hoy (su alternativa actual o parche) y cuantificar ese dolor en recursos medibles (tiempo, dinero o riesgo)."
+      },
+      {
+        id: "t1_09", topic: "TEMA1", points: 6, topicName: "1. Problemas e Ideas",
+        question: "Analiza el siguiente llenado de plantilla: 'Los oficinistas necesitan [una app de inteligencia artificial] porque [pierden tiempo buscando archivos]. Hoy lo resuelven con [búsqueda manual], lo que les cuesta [2 horas al día]'. ¿Qué error crítico tiene?",
+        options: [
+          "No hay error, es una plantilla perfecta.",
+          "El costo de 2 horas al día no es cuantificable.",
+          "En el bloque [qué necesita] introdujeron una solución (una app de IA) en lugar de la necesidad subyacente (organización instantánea).",
+          "La alternativa actual no puede ser un proceso manual."
+        ],
+        correctIndex: 2,
+        rationale: "El bloque '[qué necesita]' no es para meter tu producto/solución, sino para describir la capacidad o necesidad de negocio que requiere el usuario. Enamorarse de la solución arruina la plantilla."
+      },
       // TEMA 2
       {
         id: "t2_01", topic: "TEMA2", points: 8, topicName: "2. The Mom Test",
@@ -735,6 +759,30 @@
         correctIndex: 1,
         rationale: "Define segmento tipado (dueños 3-8 mesas en Urdesa), problema (pierden dinero por caducidad) y situación (al usar cuadernos)."
       },
+      {
+        id: "t4_07", topic: "TEMA4", points: 5, topicName: "4. Formular Hipótesis",
+        question: "Revisa la plantilla: 'Creemos que los panaderos tienen el problema de mermas porque calculan mal los ingredientes. Lo sabremos cuando el 80% acepte usar nuestra balanza digital en 7 días'. ¿Qué componente OBLIGATORIO falta?",
+        options: [
+          "El segmento acotado.",
+          "La causa raíz.",
+          "Si eso no ocurre, [qué haremos].",
+          "La señal observable."
+        ],
+        correctIndex: 2,
+        rationale: "Toda hipótesis debe tener una condición de fallo. Falta declarar las consecuencias de que el experimento falle (ej: 'Si eso no ocurre, cambiaremos de segmento')."
+      },
+      {
+        id: "t4_08", topic: "TEMA4", points: 5, topicName: "4. Formular Hipótesis",
+        question: "Selecciona la hipótesis que esté llenada CORRECTAMENTE siguiendo la plantilla vista en clase:",
+        options: [
+          "Creemos que [todos] tienen el problema de [estrés] porque [trabajan mucho]. Lo sabremos [cuando estemos listos].",
+          "Creemos que [los dueños de mascotas] necesitan [nuestra app] porque [quieren]. Lo sabremos cuando [tengamos 10,000 descargas]. Si eso no ocurre, [cerramos].",
+          "Creemos que [los gerentes de HR en Quito] tienen el problema de [alta rotación] porque [los sueldos no son transparentes]. Lo sabremos cuando [3 de 5 gerentes firmen una carta de intención] en [14 días]. Si eso no ocurre, [entrevistaremos a empleados].",
+          "Creemos que [los estudiantes] tienen el problema de [las matemáticas]. Lo sabremos cuando [saquen buenas notas] en [un mes]. Si eso no ocurre, [lloramos]."
+        ],
+        correctIndex: 2,
+        rationale: "Cumple con el segmento acotado, problema en su lenguaje, causa raíz identificada, señal observable cuantificable, plazo y un plan de acción si falla."
+      },
       // TEMA 5
       {
         id: "t5_01", topic: "TEMA5", points: 5, topicName: "5. Experimentos Lean",
@@ -796,66 +844,90 @@
         correctIndex: 1,
         rationale: "La conversión con compromiso real de uso continuo demuestra tracción y deseabilidad. Las vistas y visitas son métricas de vanidad que suben solas."
       },
+      {
+        id: "t5_07", topic: "TEMA5", points: 5, topicName: "5. Experimentos Lean",
+        question: "Completa la plantilla de métrica accionable: 'Sabremos que vamos bien si ____ de ____ personas del segmento ____ dentro de ____.'",
+        options: [
+          "[x] / [y] / [objetivo] / [nuestro presupuesto]",
+          "[una cantidad específica] / [un total evaluado] / [acotado] / [un plazo en días]",
+          "[muchas] / [todas las] / [general] / [un año]",
+          "[el 100%] / [los registrados] / [premium] / [una semana]"
+        ],
+        correctIndex: 1,
+        rationale: "La plantilla requiere rigor científico: necesitas un numerador (x), un denominador (y total de evaluados), un segmento bien definido (acotado) y un tiempo límite (plazo en días)."
+      },
+      {
+        id: "t5_08", topic: "TEMA5", points: 5, topicName: "5. Experimentos Lean",
+        question: "Un equipo propone esta métrica: 'Sabremos que vamos bien si muchos de los usuarios del sistema nos dan like en Facebook dentro de un par de meses'. ¿Por qué esta métrica es inútil según la plantilla?",
+        options: [
+          "Porque usa Facebook en lugar de Instagram.",
+          "Porque viola el rigor numérico ('muchos' en lugar de X de Y), usa un segmento indefinido ('usuarios') y un plazo ambiguo ('un par de meses').",
+          "Porque no incluye métricas financieras de retorno de inversión.",
+          "Porque el experimento es demasiado corto."
+        ],
+        correctIndex: 1,
+        rationale: "Sin números exactos y plazos estrictos, la métrica no es accionable y solo servirá para autoengañarse (métrica de vanidad)."
+      },
       // TEMA 6
       {
         id: "t6_01", topic: "TEMA6", points: 4, topicName: "6. Tipos de Problemas",
-        question: "Un docente te dice: 'Odio pasar notas, me toma 6 horas transcribir los datos de mis 5 cursos a fin de mes'. ¿Qué tipo de problema es este principalmente?",
+        question: "Un docente te dice: 'Odio pasar notas, me toma 6 horas transcribir los datos de mis 5 cursos a fin de mes'. En el examen debes clasificarlo y proponer una métrica. ¿Cuál es la opción correcta?",
         options: [
-          "Emocional, porque dice que lo 'odia'.",
-          "Funcional, porque es una tarea operativa lenta cuyo impacto principal es tiempo perdido.",
-          "Social, porque afecta su estatus ante los alumnos.",
-          "De Información, porque desconoce cómo calificar."
+          "Tipo: Emocional | Justificación: El usuario declara que 'odia' la tarea | Métrica: Nivel de estrés reportado en una encuesta de 1 a 10.",
+          "Tipo: Funcional | Justificación: Es una tarea operativa repetitiva cuyo principal impacto es el tiempo perdido | Métrica: Sabremos que vamos bien si reducimos el tiempo de transcripción de 6 horas a 1 hora en 30 días.",
+          "Tipo: Social | Justificación: Afecta su estatus de autoridad ante los alumnos | Métrica: Número de quejas recibidas por los estudiantes al mes.",
+          "Tipo: De Información | Justificación: El docente carece de los datos exactos para pasar la nota | Métrica: Porcentaje de notas correctas ingresadas en el sistema."
         ],
         correctIndex: 1,
-        rationale: "Aunque exprese molestia, el dolor raíz es funcional: un proceso ineficiente y repetitivo que consume tiempo cuantificable."
+        rationale: "Aunque exprese molestia (odio), el dolor raíz es funcional (un proceso ineficiente). La métrica propuesta sigue el estándar de medir la reducción del impacto negativo (tiempo)."
       },
       {
         id: "t6_02", topic: "TEMA6", points: 4, topicName: "6. Tipos de Problemas",
-        question: "Estudiantes de zonas rurales deben caminar para encontrar señal porque en sus casas no hay cobertura para descargar deberes. ¿Qué tipo de problema es?",
+        question: "Estudiantes de zonas rurales deben caminar 2 km para encontrar señal porque en sus casas no hay cobertura para descargar deberes. Identifica el tipo, justificación y métrica apropiada.",
         options: [
-          "De Acceso",
-          "Financiero",
-          "Funcional",
-          "De Información"
+          "Tipo: De Acceso | Justificación: Hay una imposibilidad física/técnica para obtener el servicio | Métrica: Sabremos que vamos bien si el 80% de los estudiantes rurales logran descargar sus tareas desde casa (offline) en 15 días.",
+          "Tipo: Financiero | Justificación: Los estudiantes no pueden pagar un plan de datos más caro | Métrica: Ahorro de $15 mensuales en recargas de saldo.",
+          "Tipo: Funcional | Justificación: Descargar deberes toma mucho tiempo | Métrica: Reducción del tiempo de descarga de 30 minutos a 5 minutos.",
+          "Tipo: De Información | Justificación: No saben cuándo se envían los deberes | Métrica: Aumento de notificaciones leídas en un 50%."
         ],
         correctIndex: 0,
-        rationale: "El problema es la imposibilidad física o técnica de acceder al servicio (internet), lo cual exige un producto que funcione offline."
+        rationale: "El problema es la barrera física de conectividad (Acceso). La métrica correcta debe medir cuántos estudiantes logran sortear esa barrera usando tu solución (ej. app offline)."
       },
       {
         id: "t6_03", topic: "TEMA6", points: 4, topicName: "6. Tipos de Problemas",
-        question: "El rector afirma: 'Me entero que un estudiante va a desertar cuando ya dejó de venir hace un mes'. ¿A qué categoría corresponde?",
+        question: "El rector afirma: 'Me entero que un estudiante va a desertar cuando ya dejó de venir hace un mes'. Clasifica el problema y propón la métrica correcta.",
         options: [
-          "Social",
-          "Emocional",
-          "De Información",
-          "Funcional"
+          "Tipo: Social | Justificación: El estudiante se aísla de la comunidad educativa | Métrica: Número de eventos de integración realizados al mes.",
+          "Tipo: Emocional | Justificación: El rector siente frustración e impotencia | Métrica: Nivel de satisfacción laboral del rector.",
+          "Tipo: De Información | Justificación: Falta de datos oportunos y alertas tempranas para tomar decisiones correctivas | Métrica: Sabremos que vamos bien si el 90% de los rectores reciben una alerta de riesgo 15 días antes de la deserción.",
+          "Tipo: Funcional | Justificación: El sistema de asistencia es muy lento | Métrica: Tiempo de carga del reporte de asistencia menor a 2 segundos."
         ],
         correctIndex: 2,
-        rationale: "El problema radica en la falta de datos oportunos y alertas tempranas para poder tomar decisiones correctivas."
+        rationale: "El dolor radica en la carencia de información oportuna (asimetría o retraso de datos). La métrica debe medir la rapidez o efectividad con la que se entrega esa información ahora."
       },
       {
         id: "t6_04", topic: "TEMA6", points: 4, topicName: "6. Tipos de Problemas",
-        question: "El colegio gasta $1,500 mensuales en pagar horas extra a los docentes para poder cerrar el sistema de calificaciones. ¿Qué dolor es este?",
+        question: "El colegio gasta $1,500 mensuales en pagar horas extra a los docentes para poder cerrar el sistema de calificaciones. ¿Cuál es el diagnóstico completo?",
         options: [
-          "Financiero",
-          "De Acceso",
-          "Emocional",
-          "Social"
+          "Tipo: Financiero | Justificación: Impacta directamente el presupuesto generando pérdidas cuantificables | Métrica: Sabremos que vamos bien si reducimos el gasto en horas extra de $1,500 a $300 en el primer mes de uso.",
+          "Tipo: De Acceso | Justificación: Los docentes no tienen acceso al sistema desde sus casas | Métrica: 100% de los docentes conectados remotamente.",
+          "Tipo: Emocional | Justificación: Los docentes sufren agotamiento por trabajar horas extra | Métrica: Reducción del índice de burnout en un 40%.",
+          "Tipo: Social | Justificación: Se generan conflictos entre el departamento contable y el académico | Métrica: Cero quejas interdepartamentales."
         ],
         correctIndex: 0,
-        rationale: "El dolor impacta directamente al presupuesto de la institución, generando pérdidas económicas directas y cuantificables."
+        rationale: "El dolor explícito es la pérdida de dinero (Financiero). La métrica debe atarse a detener esa hemorragia financiera (reducir el gasto a $300)."
       },
       {
         id: "t6_05", topic: "TEMA6", points: 4, topicName: "6. Tipos de Problemas",
-        question: "Un profesor veterano evita la plataforma digital porque tiene miedo de cometer errores al proyectar en clase y que sus alumnos se rían. ¿Qué problema enfrenta?",
+        question: "Un profesor veterano evita usar la pizarra digital porque tiene miedo de cometer errores y que sus alumnos se rían de él. Evalúa el caso:",
         options: [
-          "Financiero",
-          "De Información",
-          "Emocional / Social",
-          "De Acceso"
+          "Tipo: Financiero | Justificación: La pizarra digital costó mucho dinero y no se usa | Métrica: Retorno de inversión (ROI) de la pizarra en 6 meses.",
+          "Tipo: De Información | Justificación: El profesor no sabe usar el manual de la pizarra | Métrica: 100% de lectura del manual de usuario.",
+          "Tipo: Emocional/Social | Justificación: La barrera principal es el miedo a la humillación pública y pérdida de estatus | Métrica: Sabremos que vamos bien si 8 de cada 10 profesores veteranos usan la pizarra al menos 3 veces por semana sin asistencia.",
+          "Tipo: De Acceso | Justificación: El profesor no tiene las llaves del aula | Métrica: Entrega del 100% de las llaves a tiempo."
         ],
         correctIndex: 2,
-        rationale: "La barrera principal es el miedo a la humillación pública (dolor emocional y social), no la capacidad del software."
+        rationale: "El miedo a lucir incompetente (Emocional/Social) es más fuerte que la funcionalidad de la pizarra. La métrica debe reflejar la adopción voluntaria superando ese miedo."
       },
       // TEMA 7
       {
@@ -961,8 +1033,8 @@
     // 2. GESTIÓN DEL ESTADO Y PERSISTENCIA (LOCALSTORAGE)
     // Permite aumentar preguntas sin borrar las existentes
     // -------------------------------------------------------------
-    const STORAGE_KEY_QUESTIONS = "puce_exam_questions_master_v5";
-    const STORAGE_KEY_USER_ANSWERS = "puce_exam_user_answers_v5";
+    const STORAGE_KEY_QUESTIONS = "puce_exam_questions_master_v6";
+    const STORAGE_KEY_USER_ANSWERS = "puce_exam_user_answers_v6";
 
     let allQuestions = [];
     let currentFilteredQuestions = [];
