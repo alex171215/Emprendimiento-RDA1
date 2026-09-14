@@ -712,18 +712,6 @@
         rationale: "Declarar a todos es no definir a nadie. Tendrás información contradictoria porque una madre con niños y un oficinista solitario no tienen los mismos dolores en el bus."
       },
       {
-        id: "t4_04", topic: "TEMA4", points: 5, topicName: "4. Formular Hipótesis",
-        question: "¿Qué supuesto debe validarse obligatoriamente primero (Zona 1 del mapa de Bland/Osterwalder)?",
-        options: [
-          "Alta importancia y poca evidencia: si es falso, el negocio muere.",
-          "Baja importancia y mucha evidencia: para ganar moral.",
-          "Supuestos de factibilidad técnica del servidor.",
-          "Supuestos de propiedad intelectual."
-        ],
-        correctIndex: 0,
-        rationale: "La Zona 1 contiene los riesgos de deseabilidad más letales. No tiene sentido probar si el servidor aguanta (factibilidad) si aún no sabes si alguien quiere el producto."
-      },
-      {
         id: "t4_05", topic: "TEMA4", points: 5, topicName: "4. Formular Hipótesis",
         question: "Un equipo quiere validar primero 'si la API de WhatsApp se conecta al servidor Node.js'. ¿Qué error cometen?",
         options: [
@@ -759,18 +747,6 @@
         ],
         correctIndex: 1,
         rationale: "El PMV ('spike') no es código a medias, es el experimento más rápido. Enviar a mano valida el valor entregado sin costo técnico."
-      },
-      {
-        id: "t5_02", topic: "TEMA5", points: 5, topicName: "5. Experimentos Lean",
-        question: "¿Cuál es la diferencia entre un PMV tipo Conserje y un Mago de Oz?",
-        options: [
-          "En Conserje el cliente sabe que es un humano; en Mago de Oz el cliente cree que es un sistema automático.",
-          "Conserje es hardware, Mago de Oz es software.",
-          "Conserje usa métricas de vanidad, Mago de Oz no.",
-          "Mago de Oz exige programar 80% del código."
-        ],
-        correctIndex: 0,
-        rationale: "Zappos era Mago de Oz (parecía web, era manual detrás). Tipti empezó como Conserje (un comprador personal haciéndote las compras explícitamente)."
       },
       {
         id: "t5_03", topic: "TEMA5", points: 5, topicName: "5. Experimentos Lean",
@@ -895,18 +871,6 @@
         rationale: "El niño es quien utiliza (usa) el producto a diario y experimenta la interfaz, pero no es quien decide la compra ni quien la paga."
       },
       {
-        id: "t7_02", topic: "TEMA7", points: 4, topicName: "7. Actores del Problema",
-        question: "Ofreces un sistema de gestión a un colegio. Las secretarias lo aman, pero el Director de TI lo bloquea aduciendo fallas de seguridad. ¿Qué rol asumió TI?",
-        options: [
-          "Influenciador Negativo / Saboteador",
-          "Pagador",
-          "Usuario Final",
-          "Cliente Evangelista"
-        ],
-        correctIndex: 0,
-        rationale: "El departamento interno de sistemas a menudo actúa como saboteador para frenar la adopción de herramientas externas."
-      },
-      {
         id: "t7_03", topic: "TEMA7", points: 4, topicName: "7. Actores del Problema",
         question: "El Ministerio de Educación publica una norma que obliga a reportar notas en un formato XML. ¿Qué actor es el Ministerio para tu empresa de software escolar?",
         options: [
@@ -929,18 +893,6 @@
         ],
         correctIndex: 2,
         rationale: "El decisor es quien tiene la autoridad para decir 'sí' a la implementación, aunque no necesariamente sea él quien desembolse los fondos."
-      },
-      {
-        id: "t7_05", topic: "TEMA7", points: 4, topicName: "7. Actores del Problema",
-        question: "¿Por qué confundir al Usuario con el Decisor es fatal en ventas B2B?",
-        options: [
-          "Porque el usuario evalúa comodidad, mientras el decisor evalúa presupuesto y ROI. Convencer al usuario no garantiza la venta.",
-          "Porque el decisor nunca usa la computadora.",
-          "Porque el usuario tiene el dinero pero no el poder.",
-          "Porque ambos firman el contrato simultáneamente."
-        ],
-        correctIndex: 0,
-        rationale: "El problema que resuelve el usuario (hacer clics más rápido) rara vez es el problema por el cual el decisor paga (ahorrar dinero o evitar multas)."
       },
       // TEMA 8
       {
@@ -1009,8 +961,8 @@
     // 2. GESTIÓN DEL ESTADO Y PERSISTENCIA (LOCALSTORAGE)
     // Permite aumentar preguntas sin borrar las existentes
     // -------------------------------------------------------------
-    const STORAGE_KEY_QUESTIONS = "puce_exam_questions_master_v4";
-    const STORAGE_KEY_USER_ANSWERS = "puce_exam_user_answers_v4";
+    const STORAGE_KEY_QUESTIONS = "puce_exam_questions_master_v5";
+    const STORAGE_KEY_USER_ANSWERS = "puce_exam_user_answers_v5";
 
     let allQuestions = [];
     let currentFilteredQuestions = [];
