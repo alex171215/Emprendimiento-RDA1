@@ -211,7 +211,7 @@
 
       <!-- CONTENEDOR DE TARJETA DE PREGUNTA -->
       <div id="questionCard"
-        class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 sm:p-7 flex-1 flex flex-col justify-between relative transition-all">
+        class="bg-white rounded-xl shadow-sm border border-slate-200 p-4 sm:p-5 flex-1 flex flex-col justify-between relative transition-all">
 
         <!-- Header de la pregunta actual -->
         <div>
@@ -238,8 +238,20 @@
             </div>
           </div>
 
+          <!-- Navegación Superior -->
+          <div class="flex flex-wrap items-center justify-between gap-3 mb-5">
+            <button id="btnPrev"
+              class="px-4 py-2 text-xs sm:text-sm font-semibold rounded-lg border border-slate-300 text-slate-600 hover:bg-slate-100 transition disabled:opacity-40 disabled:cursor-not-allowed">
+              ← Anterior
+            </button>
+            <button id="btnNext"
+              class="px-4 py-2 text-xs sm:text-sm font-semibold rounded-lg bg-slate-800 hover:bg-slate-700 text-white shadow transition">
+              Siguiente →
+            </button>
+          </div>
+
           <!-- Texto de la pregunta (Enunciado situado) -->
-          <div id="questionStem" class="text-base sm:text-lg font-medium text-slate-900 leading-relaxed mb-6">
+          <div id="questionStem" class="text-base sm:text-lg font-medium text-slate-900 leading-relaxed mb-5">
             Cargando pregunta...
           </div>
 
@@ -250,7 +262,7 @@
         </div>
 
         <!-- Retroalimentación / Explicación del Docente (Oculta hasta responder) -->
-        <div id="feedbackContainer" class="hidden mt-6 p-4 rounded-xl border text-sm leading-relaxed transition-all">
+        <div id="feedbackContainer" class="hidden mt-4 p-3 rounded-xl border text-sm leading-relaxed transition-all">
           <div class="font-bold flex items-center gap-2 mb-1" id="feedbackTitle">
             <!-- Icono y estado -->
           </div>
@@ -259,23 +271,6 @@
           </div>
         </div>
 
-        <!-- Barra inferior de navegación -->
-        <div class="pt-6 mt-6 border-t border-slate-200 flex flex-wrap items-center justify-between gap-3">
-          <button id="btnPrev"
-            class="px-4 py-2 text-xs sm:text-sm font-semibold rounded-lg border border-slate-300 text-slate-600 hover:bg-slate-100 transition disabled:opacity-40 disabled:cursor-not-allowed">
-            ← Anterior
-          </button>
-
-          <div class="flex items-center space-x-2">
-            <button id="btnCheckAnswer"
-              class="hidden px-5 py-2 text-xs sm:text-sm font-bold rounded-lg bg-sky-900 hover:bg-sky-800 text-white shadow transition disabled:opacity-50 disabled:cursor-not-allowed">
-              Confirmar Respuesta
-            </button>
-            <button id="btnNext"
-              class="px-4 py-2 text-xs sm:text-sm font-semibold rounded-lg bg-slate-800 hover:bg-slate-700 text-white shadow transition">
-              Siguiente →
-            </button>
-          </div>
         </div>
 
       </div>
@@ -1408,10 +1403,10 @@
         const fbText = document.getElementById("feedbackText");
 
         if (saved.isCorrect) {
-          feedbackBox.className = "mt-6 p-4 rounded-xl border border-emerald-300 bg-emerald-50 text-sm leading-relaxed text-emerald-950";
+          feedbackBox.className = "mt-4 p-3 rounded-xl border border-emerald-300 bg-emerald-50 text-sm leading-relaxed text-emerald-950";
           fbTitle.innerHTML = `<span class="text-emerald-700 text-base">✓</span> <span class="text-emerald-800 font-bold">¡Respuesta Correcta! Justificación:</span>`;
         } else {
-          feedbackBox.className = "mt-6 p-4 rounded-xl border border-rose-300 bg-rose-50 text-sm leading-relaxed text-rose-950";
+          feedbackBox.className = "mt-4 p-3 rounded-xl border border-rose-300 bg-rose-50 text-sm leading-relaxed text-rose-950";
           fbTitle.innerHTML = `<span class="text-rose-700 text-base">✗</span> <span class="text-rose-800 font-bold">Respuesta Incorrecta. Justificación:</span>`;
         }
         fbText.textContent = q.rationale;
