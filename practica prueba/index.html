@@ -1298,7 +1298,6 @@
     function renderCurrentQuestion() {
       const container = document.getElementById("optionsContainer");
       const feedbackBox = document.getElementById("feedbackContainer");
-      const btnCheck = document.getElementById("btnCheckAnswer");
 
       if (currentFilteredQuestions.length === 0) {
         document.getElementById("questionStem").textContent = "No hay preguntas disponibles bajo el filtro actual.";
@@ -1308,7 +1307,6 @@
         document.getElementById("lblQuestionTotal").textContent = "0";
         container.innerHTML = `<div class="p-6 text-center text-slate-500 bg-slate-50 rounded-xl border border-dashed border-slate-300">No hay preguntas que coincidan con los criterios seleccionados.</div>`;
         feedbackBox.classList.add("hidden");
-        btnCheck.disabled = true;
         return;
       }
 
@@ -1393,9 +1391,6 @@
         container.appendChild(optDiv);
       });
 
-      // Estado del botón Comprobar
-      btnCheck.disabled = saved.selectedOption === null || saved.checked;
-
       // Retroalimentación
       if (saved.checked) {
         feedbackBox.classList.remove("hidden");
@@ -1450,9 +1445,6 @@
     document.addEventListener("DOMContentLoaded", () => {
       loadQuestions();
       filterQuestions();
-
-      // Botón comprobar
-      document.getElementById("btnCheckAnswer").addEventListener("click", checkCurrentAnswer);
 
       // Botones navegación
       document.getElementById("btnPrev").addEventListener("click", () => {
