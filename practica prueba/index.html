@@ -540,6 +540,40 @@
         correctIndex: 2,
         rationale: "El bloque '[qué necesita]' no es para meter tu producto/solución, sino para describir la capacidad o necesidad de negocio que requiere el usuario. Enamorarse de la solución arruina la plantilla."
       },
+      {
+        id: "t1_10", topic: "TEMA1", points: 6, topicName: "1. Problemas e Ideas",
+        question: "El examen te pide CLASIFICAR cada frase en: Problema / Oportunidad / Idea / Solución.\n\n" +
+          "A) «Existe un mercado creciente de adultos mayores que no tienen acceso a servicios de telemedicina.»\n" +
+          "B) «Los adultos mayores solos pierden 2 horas al día intentando entender cómo usar las apps de salud actuales.»\n" +
+          "C) «Podríamos hacer una app de voz para adultos mayores.»\n" +
+          "D) «Un asistente de salud por voz, sin necesidad de leer texto, con recordatorios de medicamentos.»\n\n" +
+          "¿Cuál es la clasificación correcta en orden A – B – C – D?",
+        options: [
+          "Oportunidad – Problema – Idea – Solución",
+          "Problema – Solución – Oportunidad – Idea",
+          "Idea – Oportunidad – Problema – Solución",
+          "Oportunidad – Problema – Solución – Idea"
+        ],
+        correctIndex: 0,
+        rationale: "A) es la OPORTUNIDAD: describe un mercado con necesidad no satisfecha. B) es el PROBLEMA: situación específica con impacto cuantificable (2 horas perdidas). C) es la IDEA: propuesta vaga sin detallar cómo. D) es la SOLUCIÓN: la propuesta técnica concreta y detallada."
+      },
+      {
+        id: "t1_11", topic: "TEMA1", points: 6, topicName: "1. Problemas e Ideas",
+        question: "Clasifica cada frase en: Problema / Oportunidad / Idea / Solución.\n\n" +
+          "A) «Las PYMES en Ecuador que usan Excel para inventarios pierden el 15% de su stock por vencimientos no detectados a tiempo.»\n" +
+          "B) «Podríamos crear algo para que las tiendas manejen mejor su inventario.»\n" +
+          "C) «Un marketplace de gestión de inventario para PYMES.»\n" +
+          "D) «En Ecuador, el 70% de las PYMES aún gestiona su inventario en hojas de cálculo sin alertas automáticas.»\n\n" +
+          "¿Cuál es la clasificación correcta en orden A – B – C – D?",
+        options: [
+          "Oportunidad – Idea – Solución – Problema",
+          "Problema – Idea – Solución – Oportunidad",
+          "Solución – Problema – Idea – Oportunidad",
+          "Problema – Solución – Oportunidad – Idea"
+        ],
+        correctIndex: 1,
+        rationale: "A) PROBLEMA: sujeto concreto (PYMES), dolor medible (15% de stock perdido). B) IDEA: propuesta vaga, sin detallar a quién ni cómo. C) SOLUCIÓN: artefacto técnico concreto y definido. D) OPORTUNIDAD: estadística de mercado que revela un espacio sin cubrir."
+      },
       // TEMA 2
       {
         id: "t2_01", topic: "TEMA2", points: 8, topicName: "2. The Mom Test",
@@ -625,6 +659,30 @@
         correctIndex: 0,
         rationale: "«Si mencionas tu idea, la gente va a intentar proteger tus sentimientos». Te darán cumplidos vacíos que te harán creer falsamente que tienes un negocio."
       },
+      {
+        id: "t2_08", topic: "TEMA2", points: 8, topicName: "2. The Mom Test",
+        question: "Tu compañero hace esta pregunta en una entrevista: «¿Crees que una plataforma que automatice el cobro de pensiones escolares sería útil para los colegios?». Según el Mom Test, ¿cuál es la REESCRITURA correcta?",
+        options: [
+          "«¿Estaría dispuesto a pagar por una plataforma que automatice el cobro de pensiones?»",
+          "«¿Cuánto le cuesta al colegio actualmente gestionar el cobro de pensiones cada mes y qué pasa cuando un padre no paga a tiempo?»",
+          "«¿Le parece buena idea que automaticemos el cobro de pensiones?»",
+          "«¿Usaría nuestra plataforma de cobros si le damos un mes gratis?»"
+        ],
+        correctIndex: 1,
+        rationale: "La pregunta original viola el Mom Test: pide opinión hipotética sobre el futuro. La reescritura correcta ancla al pasado y la realidad: ¿cuánto le cuesta hoy? ¿qué consecuencias tiene? Esto revela si el problema es real y doloroso sin mencionar la solución."
+      },
+      {
+        id: "t2_09", topic: "TEMA2", points: 8, topicName: "2. The Mom Test",
+        question: "Lees en el guión de entrevista de tu equipo: «¿Le parece que los docentes de su institución necesitan más herramientas digitales para dar clases?». Identifica todos los errores y selecciona la reescritura que los corrige TODOS.",
+        options: [
+          "«¿Cuántas herramientas digitales usa su colegio actualmente?»",
+          "«¿Sus docentes estarían interesados en una capacitación digital?»",
+          "«Cuénteme: la última vez que un docente tuvo que preparar una clase con recursos digitales, ¿qué hizo exactamente y cuánto tiempo le tomó?»",
+          "«¿Qué herramientas digitales le gustaría que tuviesen sus docentes?»"
+        ],
+        correctIndex: 2,
+        rationale: "La pregunta original tiene 3 errores: (1) pide opinión sobre otros, no hechos propios; (2) usa 'le parece' = sesgo de cortesía; (3) habla del futuro. La opción C ancla en un evento pasado concreto, pide una narrativa de hechos reales y no menciona ninguna solución."
+      },
       // TEMA 3
       {
         id: "t3_01", topic: "TEMA3", points: 6, topicName: "3. Análisis de Entrevistas",
@@ -697,6 +755,44 @@
         ],
         correctIndex: 1,
         rationale: "Cero objeciones significa que no investigaste la realidad, solo pediste validación de tu idea. Es el síntoma clásico de haber violado el Mom Test."
+      },
+      {
+        id: "t3_07", topic: "TEMA3", points: 6, topicName: "3. Análisis de Entrevistas",
+        question: "Lee la siguiente transcripción de entrevista y diagnostica qué señales son FALSOS POSITIVOS y cuáles son compromisos reales.\n\n" +
+          "Emprendedor: «¿Ha tenido dificultades con el proceso de matrículas?»\n" +
+          "Rector: «¡Totalmente! Es un caos cada año, me encantaría una solución para eso.» [Señal A]\n" +
+          "Emprendedor: «¿Le interesaría pilotear nuestra herramienta el próximo quimestre?»\n" +
+          "Rector: «Sí claro, cuenten conmigo, cuando estén listos me llaman.» [Señal B]\n" +
+          "Emprendedor: «¿Podría presentarnos con la persona que maneja el presupuesto de TI?»\n" +
+          "Rector: «Mmm, déjenme ver... en realidad ese tema lo maneja el municipio, no yo.» [Señal C]\n\n" +
+          "¿Cuál es el diagnóstico correcto?",
+        options: [
+          "A=Compromiso real, B=Compromiso real, C=Falso positivo",
+          "A=Falso positivo (cumplido), B=Falso positivo (táctica de aplazamiento sin fecha ni acción), C=Dato útil (revela quién tiene el poder real)",
+          "A=Dato útil, B=Compromiso real, C=Falso positivo",
+          "Todos son compromisos reales porque el rector confirmó interés en los tres casos"
+        ],
+        correctIndex: 1,
+        rationale: "Señal A: 'Me encantaría' es un cumplido, no un compromiso. Señal B: 'Cuando estén listos me llaman' es una táctica de bloqueo: no puso fecha, no agendó nada, no cedió nada de valor. Señal C: es información ÚTIL porque revela que el decisor real es el municipio, lo que reorienta tu estrategia de venta."
+      },
+      {
+        id: "t3_08", topic: "TEMA3", points: 6, topicName: "3. Análisis de Entrevistas",
+        question: "Analiza esta segunda transcripción y detecta los errores del emprendedor + las señales reales.\n\n" +
+          "Emprendedor: «Hola, venimos a hablar de nuestra app para gestionar inventario. ¿Le parece útil algo así?» [Acción E]\n" +
+          "Dueño: «Suena interesante, con gusto lo vería.» [Señal F]\n" +
+          "Emprendedor: «¡Genial! ¿Y si hacemos una demo la próxima semana, el martes a las 10am?»\n" +
+          "Dueño: «Sí, apúntame.» [Señal G]\n" +
+          "Emprendedor: «Por cierto, ¿cuánto dinero pierde al mes por vencimientos de producto?»\n" +
+          "Dueño: «Uff, el mes pasado botamos como $400 en lácteos. Y eso pasa casi cada mes.» [Señal H]\n\n" +
+          "¿Cuál es el análisis más preciso?",
+        options: [
+          "E=Error grave (mencionó la solución al inicio); F=Falso positivo; G=Compromiso real de tiempo; H=Dato de oro (dolor cuantificado con dinero y frecuencia)",
+          "E=Buena apertura; F=Compromiso real; G=Falso positivo; H=Dato irrelevante",
+          "E=Error menor; F=Compromiso real; G=Compromiso real; H=Falso positivo porque el dueño puede exagerar",
+          "Todos los datos son válidos porque el dueño fue colaborativo"
+        ],
+        correctIndex: 0,
+        rationale: "E es un ERROR GRAVE: el emprendedor presentó su solución al inicio, activando el sesgo de cortesía (F es sospechoso por eso). G es un COMPROMISO REAL: el dueño cedió tiempo específico (martes 10am). H es el DATO MÁS VALIOSO de toda la entrevista: problema cuantificado en dinero ($400) con frecuencia ('casi cada mes')."
       },
       // TEMA 4
       {
@@ -929,6 +1025,31 @@
         correctIndex: 2,
         rationale: "El miedo a lucir incompetente (Emocional/Social) es más fuerte que la funcionalidad de la pizarra. La métrica debe reflejar la adopción voluntaria superando ese miedo."
       },
+      {
+        id: "t6_06", topic: "TEMA6", points: 4, topicName: "6. Tipos de Problemas",
+        question: "El coordinador escolar te comenta: 'Los padres de familia no asisten a las reuniones bimestrales. Luego nos enteramos de que no fueron porque la circular estaba en un lenguaje muy técnico y jurídico y ellos sintieron que no la entendían bien, lo que les generaba vergüenza preguntar'. Identifica el tipo, justificación y métrica:",
+        options: [
+          "Tipo: De Información | Justificación: Los padres no recibieron la circular a tiempo | Métrica: Tasa de apertura de la circular",
+          "Tipo: Funcional | Justificación: La circular tarda mucho en redactarse | Métrica: Tiempo de redacción de circulares",
+          "Tipo: Social | Justificación: La barrera no es que no tengan la información, sino la vergüenza de quedar mal ante otros por no entenderla | Métrica: Sabremos que vamos bien si el porcentaje de asistencia a reuniones sube del 30% al 70% en 2 quimestres",
+          "Tipo: Emocional | Justificación: Los padres sienten miedo de ir a la reunión | Métrica: Nivel de ansiedad reportado en encuesta"
+        ],
+        correctIndex: 2,
+        rationale: "Este es un PROBLEMA SOCIAL clásico: la barrera es la imagen propia frente a la comunidad (vergüenza de parecer ignorante). Es distinto al Emocional puro (miedo interno) porque depende de la percepción de OTROS. La métrica correcta mide el impacto social: la participación."
+      },
+      {
+        id: "t6_07", topic: "TEMA6", points: 4, topicName: "6. Tipos de Problemas",
+        question: "Un docente evita usar la nueva plataforma de calificaciones. Al hacer las entrevistas (Mom Test) descubres que: (1) la plataforma tarda 8 segundos en cargar cada nota, (2) el docente teme que sus alumnos lo vean como 'el profe que no sabe tecnología'. ¿Cuál es el tipo de problema que DEBES resolver PRIMERO y por qué?",
+        options: [
+          "Emocional/Social, porque el miedo es más difícil de cambiar que la velocidad del sistema",
+          "Funcional, porque si la plataforma carga rápido (1 seg), el docente no tendrá tiempo para sentir vergüenza frente al curso. Resolver lo funcional elimina la causa del miedo social",
+          "De Información, porque el docente no sabe que existe un manual de usuario",
+          "Financiero, porque el colegio desperdicia dinero en licencias de una plataforma que nadie usa"
+        ],
+        correctIndex: 1,
+        rationale: "Este caso ilustra que un mismo hecho tiene múltiples tipos. El Mom Test reveló DOS dolores. Debes resolver el FUNCIONAL primero porque es la causa raíz: si la plataforma responde en 1 segundo, la incomodidad frente al curso desaparece. Resolver lo Emocional/Social sin arreglar lo Funcional sería parchar los síntomas."
+      },
+      
       // TEMA 7
       {
         id: "t7_01", topic: "TEMA7", points: 4, topicName: "7. Actores del Problema",
@@ -1033,8 +1154,8 @@
     // 2. GESTIÓN DEL ESTADO Y PERSISTENCIA (LOCALSTORAGE)
     // Permite aumentar preguntas sin borrar las existentes
     // -------------------------------------------------------------
-    const STORAGE_KEY_QUESTIONS = "puce_exam_questions_master_v6";
-    const STORAGE_KEY_USER_ANSWERS = "puce_exam_user_answers_v6";
+    const STORAGE_KEY_QUESTIONS = "puce_exam_questions_master_v7";
+    const STORAGE_KEY_USER_ANSWERS = "puce_exam_user_answers_v7";
 
     let allQuestions = [];
     let currentFilteredQuestions = [];
