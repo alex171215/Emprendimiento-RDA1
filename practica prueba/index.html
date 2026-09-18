@@ -268,7 +268,7 @@
 
           <div class="flex items-center space-x-2">
             <button id="btnCheckAnswer"
-              class="px-5 py-2 text-xs sm:text-sm font-bold rounded-lg bg-sky-900 hover:bg-sky-800 text-white shadow transition disabled:opacity-50 disabled:cursor-not-allowed">
+              class="hidden px-5 py-2 text-xs sm:text-sm font-bold rounded-lg bg-sky-900 hover:bg-sky-800 text-white shadow transition disabled:opacity-50 disabled:cursor-not-allowed">
               Confirmar Respuesta
             </button>
             <button id="btnNext"
@@ -1387,8 +1387,10 @@
 
         if (!saved.checked) {
           optDiv.addEventListener("click", () => {
-            userAnswers[q.id] = { selectedOption: idx, isCorrect: false, checked: false, flagged: saved.flagged };
+            const isCorrect = idx === q.correctIndex;
+            userAnswers[q.id] = { selectedOption: idx, isCorrect: isCorrect, checked: true, flagged: saved.flagged };
             saveUserAnswers();
+            updateStats();
             renderCurrentQuestion();
           });
         }
