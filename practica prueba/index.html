@@ -425,723 +425,861 @@
     // -------------------------------------------------------------
     // 1. BANCO MAESTRO OFICIAL DE PREGUNTAS (ESTILO GUIA PUCE)
     // Redacción idéntica a 'preguntasGUIA.md' y diapositivas de clase.
-    const MASTER_QUESTIONS = [
-      // TEMA 1
+    const MASTER_QUESTIONS =                 [
       {
-        id: "t1_01", topic: "TEMA1", points: 6, topicName: "1. Problemas e Ideas",
-        question: "Un equipo propone crear 'la picantería número 20 del barrio', asegurando que ganarán clientes ofreciendo precios más bajos. Basado en los conceptos de Peter Thiel (De cero a uno) enseñados en clase, ¿cómo se clasifica esta iniciativa?",
-        options: [
+        "id": "t1_01",
+        "topic": "TEMA1",
+        "points": 6,
+        "topicName": "1. Problemas e Ideas",
+        "question": "Un equipo propone crear 'la picantería número 20 del barrio', asegurando que ganarán clientes ofreciendo precios más bajos. Basado en los conceptos de Peter Thiel (De cero a uno) enseñados en clase, ¿cómo se clasifica esta iniciativa?",
+        "options": [
           "Progreso vertical (de 0 a 1), porque introduce una mejora incremental en los márgenes de beneficio.",
           "Progreso horizontal (de 1 a n), una idea que entra a un océano rojo a competir solo por precio, destruyendo valor.",
           "Una oportunidad validada, ya que la existencia de 19 picanterías demuestra que el segmento es rentable.",
           "Un problema funcional, porque la comida es una necesidad básica y la alta competencia valida la demanda."
         ],
-        correctIndex: 1,
-        rationale: "Copiar lo que ya funciona y pelear por precio en un mercado saturado es progreso horizontal (1 a n). El progreso vertical (0 a 1) exige crear un monopolio creativo haciendo algo nuevo."
+        "correctIndex": 1,
+        "rationale": "Copiar lo que ya funciona y pelear por precio en un mercado saturado es progreso horizontal (1 a n), destruyendo valor y entrando a un océano rojo. El progreso vertical (0 a 1) exige crear un monopolio creativo haciendo algo nuevo. Opciones A y D son engañosas porque mezclan conceptos. La C es una trampa mortal: mucha competencia no significa oportunidad, significa saturación."
       },
       {
-        id: "t1_02", topic: "TEMA1", points: 6, topicName: "1. Problemas e Ideas",
-        question: "Analiza la afirmación de un equipo durante su pitch: «Los dueños de tiendas de abarrotes de barrio en Quito no cuentan con acceso a tecnologías digitales modernas». ¿Cuál es la falla estructural que comete este enunciado?",
-        options: [
+        "id": "t1_02",
+        "topic": "TEMA1",
+        "points": 6,
+        "topicName": "1. Problemas e Ideas",
+        "question": "Analiza la afirmación de un equipo durante su pitch: «Los dueños de tiendas de abarrotes de barrio en Quito no cuentan con acceso a tecnologías digitales modernas». ¿Cuál es la falla estructural que comete este enunciado?",
+        "options": [
           "Constituye una idea vaga o queja abstracta sin momento específico ni consecuencia medible en tiempo o dinero.",
           "Omite especificar si el software funcionará con conexión al SRI o de forma desconectada.",
           "Describe un problema de intensidad crítica que obligatoriamente debió clasificarse como emergencia.",
           "Confunde el rol del comprador institucional con el del usuario final."
         ],
-        correctIndex: 0,
-        rationale: "La queja general «no tienen acceso a tecnología» no posee sujeto observable, momento concreto ni consecuencia cuantificable. Un problema real exige cuantificar la pérdida (ej. pierde 3 horas al cierre de caja)."
+        "correctIndex": 0,
+        "rationale": "El mercado total no es tu cliente inicial. Una idea se convierte en oportunidad solo cuando identificas un segmento acotado con un dolor específico, no cuando asumes que 'todo el mundo' te comprará. Las opciones A y B son falsas porque el enunciado ni siquiera menciona un problema claro, solo una masa informe de clientes."
       },
       {
-        id: "t1_03", topic: "TEMA1", points: 6, topicName: "1. Problemas e Ideas",
-        question: "De acuerdo con la «prueba de fuego» enseñada para formular un problema real, ¿cuál de los siguientes enunciados cumple rigurosamente con los tres criterios indispensables?",
-        options: [
+        "id": "t1_03",
+        "topic": "TEMA1",
+        "points": 6,
+        "topicName": "1. Problemas e Ideas",
+        "question": "De acuerdo con la «prueba de fuego» enseñada para formular un problema real, ¿cuál de los siguientes enunciados cumple rigurosamente con los tres criterios indispensables?",
+        "options": [
           "Los usuarios de transporte necesitan una app para pagar sin usar dinero físico.",
           "Existe una oportunidad de hacer un marketplace para ferreterías con entregas en 24 horas.",
           "El productor de arroz de Daule pierde hasta el 20% de su cosecha porque decide cuándo fumigar de memoria.",
           "Las clínicas independientes carecen de herramientas modernas de IA para gestionar su agenda."
         ],
-        correctIndex: 2,
-        rationale: "Cumple con sujeto concreto (productor de Daule), situación repetible (fumiga de memoria) y consecuencia medible (pierde 20%). Las demás son soluciones encubiertas."
+        "correctIndex": 2,
+        "rationale": "La regla de oro exige tres cosas: sujeto concreto (ej: productor), situación repetible (fumiga de memoria), y consecuencia medible (pierde 20%). Las demás opciones fallan porque disfrazan soluciones como problemas (ej: 'necesitan una app'), lo cual es el error clásico de enamorarse de la solución."
       },
       {
-        id: "t1_04", topic: "TEMA1", points: 6, topicName: "1. Problemas e Ideas",
-        question: "Un equipo visita una escuela y observa que la secretaria anota asistencia en hojas volantes y luego pasa 4 horas diarias transcribiéndolas a un Excel con 15 pestañas. ¿A qué fuente de problemas corresponde este hallazgo?",
-        options: [
+        "id": "t1_04",
+        "topic": "TEMA1",
+        "points": 6,
+        "topicName": "1. Problemas e Ideas",
+        "question": "Un equipo visita una escuela y observa que la secretaria anota asistencia en hojas volantes y luego pasa 4 horas diarias transcribiéndolas a un Excel con 15 pestañas. ¿A qué fuente de problemas corresponde este hallazgo?",
+        "options": [
           "A un cambio de contexto regulatorio.",
           "A un dolor propio de los fundadores.",
           "A una solución frankenstein.",
           "A un acceso privilegiado del equipo."
         ],
-        correctIndex: 2,
-        rationale: "El uso de Excel con múltiples pestañas y parches manuales es una 'solución frankenstein'. Cada parche manual declara que el problema realmente importa."
+        "correctIndex": 2,
+        "rationale": "El uso de múltiples herramientas improvisadas (hojas, transcripción a Excel) es una 'solución frankenstein'. Esto demuestra que el problema duele tanto que el usuario gasta tiempo y energía armando un parche temporal. No es un 'dolor de los fundadores' (porque lo vive la secretaria), y menos una ventaja."
       },
       {
-        id: "t1_05", topic: "TEMA1", points: 6, topicName: "1. Problemas e Ideas",
-        question: "Un equipo dice: 'Deberíamos hacer una app con IA para que los estudiantes hagan sus tareas más rápido'. ¿Qué concepto representa esta frase?",
-        options: [
+        "id": "t1_05",
+        "topic": "TEMA1",
+        "points": 6,
+        "topicName": "1. Problemas e Ideas",
+        "question": "Un equipo dice: 'Deberíamos hacer una app con IA para que los estudiantes hagan sus tareas más rápido'. ¿Qué concepto representa esta frase?",
+        "options": [
           "Una solución en busca de un problema.",
           "Una oportunidad validada por el mercado.",
           "Un problema de funcionalidad.",
           "Un dolor propio del estudiante."
         ],
-        correctIndex: 0,
-        rationale: "Plantear primero la tecnología (App con IA) sin haber definido a quién le duele qué cosa y cuánto le cuesta hoy, es el clásico error de enamorarse de la solución."
+        "correctIndex": 0,
+        "rationale": "Este es el error más común: enamorarse de la solución. El equipo partió de la tecnología ('app con IA') antes de entender el problema real y a quién le duele. Las opciones B, C y D intentan validar la idea usando términos elegantes, pero si no hay problema claro, no hay progreso vertical."
       },
       {
-        id: "t1_06", topic: "TEMA1", points: 6, topicName: "1. Problemas e Ideas",
-        question: "En el caso del consultorio, el equipo descartó «los pacientes esperan mucho en la sala» y eligió «el paciente no llega ni avisa». ¿Cuál es la razón de fondo para descartar el primer problema?",
-        options: [
+        "id": "t1_06",
+        "topic": "TEMA1",
+        "points": 6,
+        "topicName": "1. Problemas e Ideas",
+        "question": "En el caso del consultorio, el equipo descartó «los pacientes esperan mucho en la sala» y eligió «el paciente no llega ni avisa». ¿Cuál es la razón de fondo para descartar el primer problema?",
+        "options": [
           "El tiempo de espera es una métrica de vanidad inmedible.",
           "Quien padece la espera es el paciente, pero quien compra el sistema es el médico, a quien le perjudica financieramente la cita vacía.",
           "La sala de espera requiere sensores IoT fuera del alcance del curso.",
           "El paciente es considerado un influenciador negativo."
         ],
-        correctIndex: 1,
-        rationale: "Hay desalineación entre quien sufre y quien paga: al médico no le duele económicamente que el paciente espere, pero sí le impacta que un paciente falte y deje el sillón vacío sin facturar."
+        "correctIndex": 1,
+        "rationale": "El verdadero problema en modelos B2B es identificar a quién le afecta económicamente. Al médico no le duele el tiempo del paciente (su tiempo ya está pagado), pero sí le afecta financieramente que el sillón quede vacío (lucro cesante). Las otras opciones asumen equivocadamente que la comodidad del usuario paga las facturas."
       },
       {
-        id: "t1_07", topic: "TEMA1", points: 6, topicName: "1. Problemas e Ideas",
-        question: "Al investigar talleres, el dueño dice: «Sería simpático tener una app para repuestos, pero hoy no llevamos nada por escrito porque el negocio marcha bien así». Según las 4 señales de oportunidad, ¿qué diagnóstico corresponde?",
-        options: [
+        "id": "t1_07",
+        "topic": "TEMA1",
+        "points": 6,
+        "topicName": "1. Problemas e Ideas",
+        "question": "Al investigar talleres, el dueño dice: «Sería simpático tener una app para repuestos, pero hoy no llevamos nada por escrito porque el negocio marcha bien así». Según las 4 señales de oportunidad, ¿qué diagnóstico corresponde?",
+        "options": [
           "Es un monopolio natural sin competidores.",
           "Evidencia ausencia de dolor cuantificable: si no deja huella económica ni genera parches, no es un dolor prioritario.",
           "Es un problema de Zona de oro que requiere un PMV rápido.",
           "Demuestra la presencia de un saboteador corporativo."
         ],
-        correctIndex: 1,
-        rationale: "La ausencia de registros y sustitutos demuestra que el evento no es grave. Si no hay sustituto, casi nunca es un mercado virgen esperándote, suele ser un problema que a nadie le importa."
+        "correctIndex": 1,
+        "rationale": "Si el usuario no ha intentado resolver el problema y no lleva registros, el dolor no es lo suficientemente grande. Es una señal de que el problema no importa. Creer que la inacción es un 'mercado virgen' es la trampa principal en la que caen los emprendedores novatos."
       },
       {
-        id: "t1_08", topic: "TEMA1", points: 6, topicName: "1. Problemas e Ideas",
-        question: "Completa la plantilla OBLIGATORIA de problema: '[Quién] necesita [qué] porque [por qué le duele]. Hoy lo resuelve con ________, lo que le cuesta ________.'",
-        options: [
+        "id": "t1_08",
+        "topic": "TEMA1",
+        "points": 6,
+        "topicName": "1. Problemas e Ideas",
+        "question": "Completa la plantilla OBLIGATORIA de problema: '[Quién] necesita [qué] porque [por qué le duele]. Hoy lo resuelve con ________, lo que le cuesta ________.'",
+        "options": [
           "[software] / [dinero]",
           "[alternativa actual] / [tiempo, dinero o riesgo]",
           "[una app] / [esfuerzo]",
           "[ayuda] / [paciencia]"
         ],
-        correctIndex: 1,
-        rationale: "La plantilla exige identificar cómo sobrevive el usuario hoy (su alternativa actual o parche) y cuantificar ese dolor en recursos medibles (tiempo, dinero o riesgo)."
+        "correctIndex": 1,
+        "rationale": "La plantilla estricta de problema exige identificar cómo sobrevive el usuario hoy (su alternativa actual o parche) y cuantificar el dolor en recursos tangibles (tiempo, dinero o riesgo). Las otras opciones usan palabras vagas como 'software' o 'esfuerzo', que no son ni comprobables ni universales."
       },
       {
-        id: "t1_09", topic: "TEMA1", points: 6, topicName: "1. Problemas e Ideas",
-        question: "Analiza el siguiente llenado de plantilla: 'Los oficinistas necesitan [una app de inteligencia artificial] porque [pierden tiempo buscando archivos]. Hoy lo resuelven con [búsqueda manual], lo que les cuesta [2 horas al día]'. ¿Qué error crítico tiene?",
-        options: [
+        "id": "t1_09",
+        "topic": "TEMA1",
+        "points": 6,
+        "topicName": "1. Problemas e Ideas",
+        "question": "Analiza el siguiente llenado de plantilla: 'Los oficinistas necesitan [una app de inteligencia artificial] porque [pierden tiempo buscando archivos]. Hoy lo resuelven con [búsqueda manual], lo que les cuesta [2 horas al día]'. ¿Qué error crítico tiene?",
+        "options": [
           "No hay error, es una plantilla perfecta.",
           "El costo de 2 horas al día no es cuantificable.",
           "En el bloque [qué necesita] introdujeron una solución (una app de IA) en lugar de la necesidad subyacente (organización instantánea).",
           "La alternativa actual no puede ser un proceso manual."
         ],
-        correctIndex: 2,
-        rationale: "El bloque '[qué necesita]' no es para meter tu producto/solución, sino para describir la capacidad o necesidad de negocio que requiere el usuario. Enamorarse de la solución arruina la plantilla."
+        "correctIndex": 2,
+        "rationale": "El bloque '[qué necesita]' sirve para describir la capacidad o necesidad de negocio (ej: organización instantánea), NO tu producto. Al poner 'una app de IA', introdujeron la solución prematuramente. Las demás opciones fallan porque 2 horas al día SÍ es cuantificable y los procesos manuales SÍ son alternativas válidas."
       },
       {
-        id: "t1_10", topic: "TEMA1", points: 6, topicName: "1. Problemas e Ideas",
-        question: "El examen te pide CLASIFICAR cada frase en: Problema / Oportunidad / Idea / Solución.\n\n" +
-          "A) «Existe un mercado creciente de adultos mayores que no tienen acceso a servicios de telemedicina.»\n" +
-          "B) «Los adultos mayores solos pierden 2 horas al día intentando entender cómo usar las apps de salud actuales.»\n" +
-          "C) «Podríamos hacer una app de voz para adultos mayores.»\n" +
-          "D) «Un asistente de salud por voz, sin necesidad de leer texto, con recordatorios de medicamentos.»\n\n" +
-          "¿Cuál es la clasificación correcta en orden A – B – C – D?",
-        options: [
+        "id": "t1_10",
+        "topic": "TEMA1",
+        "points": 6,
+        "topicName": "1. Problemas e Ideas",
+        "question": "El examen te pide CLASIFICAR cada frase en: Problema / Oportunidad / Idea / Solución.\n\nA) «Existe un mercado creciente de adultos mayores que no tienen acceso a servicios de telemedicina.»\nB) «Los adultos mayores solos pierden 2 horas al día intentando entender cómo usar las apps de salud actuales.»\nC) «Podríamos hacer una app de voz para adultos mayores.»\nD) «Un asistente de salud por voz, sin necesidad de leer texto, con recordatorios de medicamentos.»\n\n¿Cuál es la clasificación correcta en orden A – B – C – D?",
+        "options": [
           "Oportunidad – Problema – Idea – Solución",
           "Problema – Solución – Oportunidad – Idea",
           "Idea – Oportunidad – Problema – Solución",
           "Oportunidad – Problema – Solución – Idea"
         ],
-        correctIndex: 0,
-        rationale: "A) es la OPORTUNIDAD: describe un mercado con necesidad no satisfecha. B) es el PROBLEMA: situación específica con impacto cuantificable (2 horas perdidas). C) es la IDEA: propuesta vaga sin detallar cómo. D) es la SOLUCIÓN: la propuesta técnica concreta y detallada."
+        "correctIndex": 0,
+        "rationale": "A es la OPORTUNIDAD (mercado macro no atendido), B es el PROBLEMA (situación concreta con dolor medible de 2h), C es la IDEA (concepto vago sin ejecución) y D es la SOLUCIÓN (especificación técnica). Las opciones incorrectas mezclan este orden, confundiendo por ejemplo las ideas vagas con soluciones detalladas."
       },
       {
-        id: "t1_11", topic: "TEMA1", points: 6, topicName: "1. Problemas e Ideas",
-        question: "Clasifica cada frase en: Problema / Oportunidad / Idea / Solución.\n\n" +
-          "A) «Las PYMES en Ecuador que usan Excel para inventarios pierden el 15% de su stock por vencimientos no detectados a tiempo.»\n" +
-          "B) «Podríamos crear algo para que las tiendas manejen mejor su inventario.»\n" +
-          "C) «Un marketplace de gestión de inventario para PYMES.»\n" +
-          "D) «En Ecuador, el 70% de las PYMES aún gestiona su inventario en hojas de cálculo sin alertas automáticas.»\n\n" +
-          "¿Cuál es la clasificación correcta en orden A – B – C – D?",
-        options: [
+        "id": "t1_11",
+        "topic": "TEMA1",
+        "points": 6,
+        "topicName": "1. Problemas e Ideas",
+        "question": "Clasifica cada frase en: Problema / Oportunidad / Idea / Solución.\n\nA) «Las PYMES en Ecuador que usan Excel para inventarios pierden el 15% de su stock por vencimientos no detectados a tiempo.»\nB) «Podríamos crear algo para que las tiendas manejen mejor su inventario.»\nC) «Un marketplace de gestión de inventario para PYMES.»\nD) «En Ecuador, el 70% de las PYMES aún gestiona su inventario en hojas de cálculo sin alertas automáticas.»\n\n¿Cuál es la clasificación correcta en orden A – B – C – D?",
+        "options": [
           "Oportunidad – Idea – Solución – Problema",
           "Problema – Idea – Solución – Oportunidad",
           "Solución – Problema – Idea – Oportunidad",
           "Problema – Solución – Oportunidad – Idea"
         ],
-        correctIndex: 1,
-        rationale: "A) PROBLEMA: sujeto concreto (PYMES), dolor medible (15% de stock perdido). B) IDEA: propuesta vaga, sin detallar a quién ni cómo. C) SOLUCIÓN: artefacto técnico concreto y definido. D) OPORTUNIDAD: estadística de mercado que revela un espacio sin cubrir."
+        "correctIndex": 1,
+        "rationale": "A es el PROBLEMA (sujeto: Pymes, dolor: 15% pérdida). B es la IDEA (propuesta abstracta). C es la SOLUCIÓN (artefacto técnico). D es la OPORTUNIDAD (estadística macro del 70%). Las demás opciones caen en la trampa de llamar 'Problema' a una simple estadística general."
       },
-      // TEMA 2
       {
-        id: "t2_01", topic: "TEMA2", points: 8, topicName: "2. The Mom Test",
-        question: "Durante una entrevista, preguntas: «¿Pagarías 20 dólares al mes por una plataforma que calcule tus impuestos?». ¿Por qué está prohibida según The Mom Test?",
-        options: [
+        "id": "t2_01",
+        "topic": "TEMA2",
+        "points": 8,
+        "topicName": "2. The Mom Test",
+        "question": "Durante una entrevista, preguntas: «¿Pagarías 20 dólares al mes por una plataforma que calcule tus impuestos?». ¿Por qué está prohibida según The Mom Test?",
+        "options": [
           "El precio está por debajo del mercado.",
           "Utiliza un verbo condicional orientado al futuro que induce a la cortesía y genera respuestas optimistas falsas.",
           "El precio solo debe negociarse con el decisor final.",
           "Divulga el funcionamiento del software prematuramente."
         ],
-        correctIndex: 1,
-        rationale: "El condicional («¿pagarías...?») provoca que la gente sea optimista para ser amable. La opinión hipotética sobre el futuro no predice el comportamiento."
+        "correctIndex": 1,
+        "rationale": "El condicional ('¿pagarías...?') invita al usuario a mentir por cortesía para proteger tus sentimientos. Las opciones A, C y D inventan reglas inexistentes; no es malo decir precios, el error crítico es obligar al cliente a predecir hipotéticamente sus acciones futuras."
       },
       {
-        id: "t2_02", topic: "TEMA2", points: 8, topicName: "2. The Mom Test",
-        question: "Un emprendedor quiere validar un banco de recursos. Pregunta: '¿Utilizaría una plataforma donde pueda descargar material para sus clases?'. ¿Cuál es la mejor reescritura?",
-        options: [
+        "id": "t2_02",
+        "topic": "TEMA2",
+        "points": 8,
+        "topicName": "2. The Mom Test",
+        "question": "Un emprendedor quiere validar un banco de recursos. Pregunta: '¿Utilizaría una plataforma donde pueda descargar material para sus clases?'. ¿Cuál es la mejor reescritura?",
+        "options": [
           "«¿Cuánto pagaría mensualmente por acceder a esta biblioteca?»",
           "«¿Le parece una buena idea tener un repositorio centralizado?»",
           "«¿Cómo preparó su clase la última vez que le tocó enseñar un tema nuevo desde cero?»",
           "«¿Qué características debería tener la plataforma para que usted la use?»"
         ],
-        correctIndex: 2,
-        rationale: "Esta opción ancla la conversación en hechos del pasado y explora cómo el usuario ya resuelve el problema hoy. Las demás piden opiniones hipotéticas o buscan validación de la idea."
+        "correctIndex": 2,
+        "rationale": "El Mom Test exige anclar las preguntas en el pasado o presente real. Por eso '¿Cómo preparó su última clase?' descubre comportamientos verdaderos. Las opciones A, B y D son incorrectas porque preguntan por el futuro hipotético ('utilizaría') o buscan la validación prematura de la idea."
       },
       {
-        id: "t2_03", topic: "TEMA2", points: 8, topicName: "2. The Mom Test",
-        question: "El entrevistado dice: «Nosotros normalmente nunca tenemos problemas con nuestros proveedores». ¿Qué maniobra debes realizar?",
-        options: [
+        "id": "t2_03",
+        "topic": "TEMA2",
+        "points": 8,
+        "topicName": "2. The Mom Test",
+        "question": "El entrevistado dice: «Nosotros normalmente nunca tenemos problemas con nuestros proveedores». ¿Qué maniobra debes realizar?",
+        "options": [
           "Dar por validado que no existe oportunidad en ese segmento.",
           "Aterrizar la generalización en un hecho: «¿Cuándo fue la última vez que un pedido llegó tarde y qué hiciste?».",
           "Mostrarle estadísticas que demuestren que las fallas son comunes.",
           "Preguntar sobre su presupuesto de TI."
         ],
-        correctIndex: 1,
-        rationale: "Cuando el entrevistado usa términos genéricos como «normalmente» o «nunca», debes forzar el anclaje a un hecho histórico específico para descubrir la verdad operativa."
+        "correctIndex": 1,
+        "rationale": "Cuando el usuario usa términos genéricos ('normalmente', 'nunca'), está idealizando su vida. Tu trabajo es anclar la conversación pidiendo que te cuente un evento específico ('cuénteme sobre la última entrega'). Las otras opciones asumen que el cliente tiene la razón absoluta o se ponen a la defensiva."
       },
       {
-        id: "t2_04", topic: "TEMA2", points: 8, topicName: "2. The Mom Test",
-        question: "De acuerdo con la Regla 3 («Habla menos de la mitad del tiempo»), ¿cuál es el diagnóstico si hablaste 13 minutos en una sesión de 20?",
-        options: [
+        "id": "t2_04",
+        "topic": "TEMA2",
+        "points": 8,
+        "topicName": "2. The Mom Test",
+        "question": "De acuerdo con la Regla 3 («Habla menos de la mitad del tiempo»), ¿cuál es el diagnóstico si hablaste 13 minutos en una sesión de 20?",
+        "options": [
           "Fue productiva porque capacitaste al usuario.",
           "Es indistinto si lograste anotar citas textuales.",
           "No fue una entrevista de descubrimiento sino un monólogo de ventas o búsqueda de aprobación.",
           "El cliente era muy introvertido y requería mayor estímulo."
         ],
-        correctIndex: 2,
-        rationale: "Si hablaste más del 50% del tiempo, te dedicaste a vender tu idea y justificarla, impidiendo que el cliente te cuente sus problemas reales."
+        "correctIndex": 2,
+        "rationale": "Hablar más del 50% significa que dejaste de investigar y empezaste a vender tu idea. Las opciones B, C y D buscan excusas para hablar mucho, pero la regla es clara: en esta fase tu único trabajo es escuchar y descubrir los dolores del cliente, no convencerlo."
       },
       {
-        id: "t2_05", topic: "TEMA2", points: 8, topicName: "2. The Mom Test",
-        question: "Un cliente sugiere: «Sería ideal que la app exporte a PDF con gráficos 3D». Siguiendo a Fitzpatrick, ¿cómo debes actuar?",
-        options: [
+        "id": "t2_05",
+        "topic": "TEMA2",
+        "points": 8,
+        "topicName": "2. The Mom Test",
+        "question": "Un cliente sugiere: «Sería ideal que la app exporte a PDF con gráficos 3D». Siguiendo a Fitzpatrick, ¿cómo debes actuar?",
+        "options": [
           "Añadirlo al backlog inmediatamente por ser pedido del cliente.",
           "Ignorarlo porque Lean Startup prohíbe funciones complejas al inicio.",
           "Indagar la causa: «¿Para qué necesitas ese reporte exactamente y cómo lo preparas hoy?».",
           "Pedirle que pague por adelantado el desarrollo de esa función."
         ],
-        correctIndex: 2,
-        rationale: "«Las peticiones de funcionalidades deben ser investigadas, no obedecidas». Hay que descubrir qué intentan lograr realmente (ej. impresionar a su jefe) para entender el problema subyacente."
+        "correctIndex": 2,
+        "rationale": "Según Rob Fitzpatrick, 'Las peticiones de funcionalidades deben ser investigadas, no obedecidas'. Cuando piden algo específico, debes indagar el POR QUÉ lo necesitan. Construirlo inmediatamente (A) o prometerlo (B) te llevará a desperdiciar recursos en soluciones inútiles."
       },
       {
-        id: "t2_06", topic: "TEMA2", points: 8, topicName: "2. The Mom Test",
-        question: "Para calibrar precios sin contaminar la entrevista, ¿cuál es «el truco del precio»?",
-        options: [
+        "id": "t2_06",
+        "topic": "TEMA2",
+        "points": 8,
+        "topicName": "2. The Mom Test",
+        "question": "Para calibrar precios sin contaminar la entrevista, ¿cuál es «el truco del precio»?",
+        "options": [
           "Preguntar el monto máximo que pagaría en suscripción.",
           "Preguntar cuánto ha gastado en el pasado o cuánto paga hoy por sus soluciones parche.",
           "Mostrar 3 planes tarifarios para que elija uno.",
           "Calcular los costos del servidor y sumar 30%."
         ],
-        correctIndex: 1,
-        rationale: "Indagar lo que el cliente ya desembolsa hoy por solucionar el problema revela el valor real que le asigna a resolverlo."
+        "correctIndex": 1,
+        "rationale": "El 'truco del precio' no es preguntar directamente 'cuánto pagarías', sino investigar cuánto ya están gastando hoy (en dinero, horas extra o multas) para solucionar ese dolor. Las opciones A, C y D caen en tácticas de manipulación y preguntas condicionales inválidas."
       },
       {
-        id: "t2_07", topic: "TEMA2", points: 8, topicName: "2. The Mom Test",
-        question: "¿Por qué la primera regla exige «Habla de su vida, no de tu idea»?",
-        options: [
+        "id": "t2_07",
+        "topic": "TEMA2",
+        "points": 8,
+        "topicName": "2. The Mom Test",
+        "question": "¿Por qué la primera regla exige «Habla de su vida, no de tu idea»?",
+        "options": [
           "Porque al escuchar tu idea, la gente activa el sesgo de cortesía e intentará elogiarte para no herirte.",
           "Porque arruinas tu ventaja competitiva frente a clones.",
           "Porque el cliente no sabe de ingeniería de software.",
           "Porque Lean Startup exige mantener el producto en secreto."
         ],
-        correctIndex: 0,
-        rationale: "«Si mencionas tu idea, la gente va a intentar proteger tus sentimientos». Te darán cumplidos vacíos que te harán creer falsamente que tienes un negocio."
+        "correctIndex": 0,
+        "rationale": "Si mencionas tu idea al inicio, activas el 'sesgo de cortesía': la gente te mentirá para no herir tus sentimientos y te dirán 'suena genial' aunque jamás lo compren. Las otras opciones inventan miedos falsos como el robo de ideas, lo cual casi nunca es el problema real."
       },
       {
-        id: "t2_08", topic: "TEMA2", points: 8, topicName: "2. The Mom Test",
-        question: "Tu compañero hace esta pregunta en una entrevista: «¿Crees que una plataforma que automatice el cobro de pensiones escolares sería útil para los colegios?». Según el Mom Test, ¿cuál es la REESCRITURA correcta?",
-        options: [
+        "id": "t2_08",
+        "topic": "TEMA2",
+        "points": 8,
+        "topicName": "2. The Mom Test",
+        "question": "Tu compañero hace esta pregunta en una entrevista: «¿Crees que una plataforma que automatice el cobro de pensiones escolares sería útil para los colegios?». Según el Mom Test, ¿cuál es la REESCRITURA correcta?",
+        "options": [
           "«¿Estaría dispuesto a pagar por una plataforma que automatice el cobro de pensiones?»",
           "«¿Cuánto le cuesta al colegio actualmente gestionar el cobro de pensiones cada mes y qué pasa cuando un padre no paga a tiempo?»",
           "«¿Le parece buena idea que automaticemos el cobro de pensiones?»",
           "«¿Usaría nuestra plataforma de cobros si le damos un mes gratis?»"
         ],
-        correctIndex: 1,
-        rationale: "La pregunta original viola el Mom Test: pide opinión hipotética sobre el futuro. La reescritura correcta ancla al pasado y la realidad: ¿cuánto le cuesta hoy? ¿qué consecuencias tiene? Esto revela si el problema es real y doloroso sin mencionar la solución."
+        "correctIndex": 1,
+        "rationale": "La pregunta original pide una opinión condicional sobre una idea futura. La reescritura correcta (B) ancla en la realidad presente y busca el impacto económico real ('¿cuánto le cuesta hoy?'). Las opciones A, C y D repiten el pecado de pedir validaciones hipotéticas del futuro."
       },
       {
-        id: "t2_09", topic: "TEMA2", points: 8, topicName: "2. The Mom Test",
-        question: "Lees en el guión de entrevista de tu equipo: «¿Le parece que los docentes de su institución necesitan más herramientas digitales para dar clases?». Identifica todos los errores y selecciona la reescritura que los corrige TODOS.",
-        options: [
+        "id": "t2_09",
+        "topic": "TEMA2",
+        "points": 8,
+        "topicName": "2. The Mom Test",
+        "question": "Lees en el guión de entrevista de tu equipo: «¿Le parece que los docentes de su institución necesitan más herramientas digitales para dar clases?». Identifica todos los errores y selecciona la reescritura que los corrige TODOS.",
+        "options": [
           "«¿Cuántas herramientas digitales usa su colegio actualmente?»",
           "«¿Sus docentes estarían interesados en una capacitación digital?»",
           "«Cuénteme: la última vez que un docente tuvo que preparar una clase con recursos digitales, ¿qué hizo exactamente y cuánto tiempo le tomó?»",
           "«¿Qué herramientas digitales le gustaría que tuviesen sus docentes?»"
         ],
-        correctIndex: 2,
-        rationale: "La pregunta original tiene 3 errores: (1) pide opinión sobre otros, no hechos propios; (2) usa 'le parece' = sesgo de cortesía; (3) habla del futuro. La opción C ancla en un evento pasado concreto, pide una narrativa de hechos reales y no menciona ninguna solución."
+        "correctIndex": 2,
+        "rationale": "La pregunta original tiene 3 errores: pide opinar por terceros ('los docentes'), usa cortesía ('le parece') y enfoca a futuro. La opción C es la única que fuerza una narrativa de hechos pasados comprobables. Las opciones A, B y D mantienen el tono especulativo e inútil."
       },
-      // TEMA 3
       {
-        id: "t3_01", topic: "TEMA3", points: 6, topicName: "3. Análisis de Entrevistas",
-        question: "Un directivo te dice: «Me encanta la idea, resolvería un gran problema. Envíame un folleto y avísame cuando esté lista». ¿Qué tipo de señal es?",
-        options: [
+        "id": "t3_01",
+        "topic": "TEMA3",
+        "points": 6,
+        "topicName": "3. Análisis de Entrevistas",
+        "question": "Un directivo te dice: «Me encanta la idea, resolvería un gran problema. Envíame un folleto y avísame cuando esté lista». ¿Qué tipo de señal es?",
+        "options": [
           "Un compromiso de reputación al pedir información para difundir.",
           "Un falso positivo (cumplido + táctica de bloqueo) para salir del paso sin comprometerse.",
           "Una validación positiva del problema que amerita programar el MVP.",
           "Evidencia de encaje problema-solución."
         ],
-        correctIndex: 1,
-        rationale: "«Me encanta» es un cumplido. «Envíame información» es una táctica de bloqueo amable. No aportó tiempo, dinero ni contactos."
+        "correctIndex": 1,
+        "rationale": "'Me encanta' es un cumplido inútil que no predice la compra. 'Envíame un folleto y avísame' es una táctica de bloqueo amable para terminar la reunión sin ceder nada. Las otras opciones fallan porque asumen que la amabilidad verbal equivale a validación de negocio, el error número uno en B2B."
       },
       {
-        id: "t3_02", topic: "TEMA3", points: 6, topicName: "3. Análisis de Entrevistas",
-        question: "¿Cuáles son las tres únicas monedas de cambio que demuestran validación y compromiso real?",
-        options: [
+        "id": "t3_02",
+        "topic": "TEMA3",
+        "points": 6,
+        "topicName": "3. Análisis de Entrevistas",
+        "question": "¿Cuáles son las tres únicas monedas de cambio que demuestran validación y compromiso real?",
+        "options": [
           "Tiempo, reputación y dinero.",
           "Ideas, felicitaciones y seguidores.",
           "Encuestas, cartas de apoyo y opiniones.",
           "Descargas gratuitas, visitas web y correos."
         ],
-        correctIndex: 0,
-        rationale: "El compromiso requiere renunciar a algo de valor: su tiempo (una reunión larga observándolo), su dinero (un anticipo) o su reputación (presentarte a su jefe)."
+        "correctIndex": 0,
+        "rationale": "El compromiso real exige que el cliente renuncie a algo de valor inmediato: su tiempo (una reunión de 2 horas con su equipo), su dinero (un anticipo) o su reputación (presentarte a su jefe). Las opciones incorrectas incluyen métricas de vanidad, 'likes' o 'intenciones' verbales que no cuestan nada."
       },
       {
-        id: "t3_03", topic: "TEMA3", points: 6, topicName: "3. Análisis de Entrevistas",
-        question: "Un gerente accede a reunirse una hora con su equipo técnico y te muestra sus Excels confidenciales. ¿Qué moneda entregó?",
-        options: [
+        "id": "t3_03",
+        "topic": "TEMA3",
+        "points": 6,
+        "topicName": "3. Análisis de Entrevistas",
+        "question": "Un gerente accede a reunirse una hora con su equipo técnico y te muestra sus Excels confidenciales. ¿Qué moneda entregó?",
+        "options": [
           "Dinero, por el costo del equipo.",
           "Un falso positivo transaccional.",
           "Tiempo y reputación, al dedicar horas laborales y exponer datos internos.",
           "Sabotaje corporativo."
         ],
-        correctIndex: 2,
-        rationale: "Ceder una hora de su equipo y dar acceso a datos confidenciales es un riesgo reputacional y de tiempo valioso."
+        "correctIndex": 2,
+        "rationale": "Ceder una hora de su equipo clave y darte acceso a la 'cocina interna' (datos confidenciales en Excel) es un compromiso de tiempo y de riesgo reputacional sumamente alto. Las demás opciones subestiman el valor de esta acción, llamándola falsamente táctica de bloqueo."
       },
       {
-        id: "t3_04", topic: "TEMA3", points: 6, topicName: "3. Análisis de Entrevistas",
-        question: "La recepcionista jura que usará tu app clínica todos los días, pero el proyecto se cae al venderlo. ¿Qué error de actores ocurrió?",
-        options: [
+        "id": "t3_04",
+        "topic": "TEMA3",
+        "points": 6,
+        "topicName": "3. Análisis de Entrevistas",
+        "question": "La recepcionista jura que usará tu app clínica todos los días, pero el proyecto se cae al venderlo. ¿Qué error de actores ocurrió?",
+        "options": [
           "Confundiste al Usuario Operativo (la secretaria) con el Decisor/Pagador (el dueño de la clínica).",
           "La secretaria era una Saboteadora.",
           "Hubo un error de factibilidad técnica.",
           "Se usaron métricas de vanidad en la entrevista."
         ],
-        correctIndex: 0,
-        rationale: "En B2B, quien sufre el problema (usuario) rara vez es quien decide o paga. Ambos deben estar convencidos."
+        "correctIndex": 0,
+        "rationale": "En ventas B2B, quien sufre el problema (usuario) rara vez es quien decide o paga. Puedes tener a la recepcionista enamorada de tu app, pero si no convences al decisor (el dueño/gerente) del retorno de inversión, no hay venta. Las demás opciones ignoran la dinámica de poder institucional."
       },
       {
-        id: "t3_05", topic: "TEMA3", points: 6, topicName: "3. Análisis de Entrevistas",
-        question: "Al vender software B2B, el jefe de TI interno bloquea la compra. ¿Por qué asume este rol de 'Saboteador'?",
-        options: [
+        "id": "t3_05",
+        "topic": "TEMA3",
+        "points": 6,
+        "topicName": "3. Análisis de Entrevistas",
+        "question": "Al vender software B2B, el jefe de TI interno bloquea la compra. ¿Por qué asume este rol de 'Saboteador'?",
+        "options": [
           "Es el pagador oficial por ley.",
           "Percibe la herramienta externa como amenaza a su puesto o evidencia de su incapacidad.",
           "Sigue metodologías ágiles estrictas.",
           "Quiere forzar un PMV tipo Conserje."
         ],
-        correctIndex: 1,
-        rationale: "TI suele ver software externo como cuestionamiento («pudimos hacerlo nosotros») o teme volverse prescindible."
+        "correctIndex": 1,
+        "rationale": "TI suele asumir el rol de 'Saboteador' porque perciben el software externo como un cuestionamiento a su competencia ('eso lo hacíamos nosotros en una semana') o temen perder poder. Las otras opciones asumen motivos puramente técnicos o nobles, ignorando la política y el ego en las empresas."
       },
       {
-        id: "t3_06", topic: "TEMA3", points: 6, topicName: "3. Análisis de Entrevistas",
-        question: "Realizas 15 entrevistas y reportas: «A todos les fascinó la idea, no hubo quejas y prometen comprarla». ¿Cuál es el diagnóstico?",
-        options: [
+        "id": "t3_06",
+        "topic": "TEMA3",
+        "points": 6,
+        "topicName": "3. Análisis de Entrevistas",
+        "question": "Realizas 15 entrevistas y reportas: «A todos les fascinó la idea, no hubo quejas y prometen comprarla». ¿Cuál es el diagnóstico?",
+        "options": [
           "Has encontrado un monopolio natural.",
           "Bandera roja: caíste en complacencia, hiciste un pitch de ventas y recolectaste cumplidos.",
           "Evidencia de que debes escalar el producto masivamente.",
           "Validación perfecta de tu hipótesis."
         ],
-        correctIndex: 1,
-        rationale: "Cero objeciones significa que no investigaste la realidad, solo pediste validación de tu idea. Es el síntoma clásico de haber violado el Mom Test."
+        "correctIndex": 1,
+        "rationale": "Si tienes 15 entrevistas y cero objeciones, no investigaste la realidad: te dedicaste a vender ('pitchear'). La gente, por cortesía, te dio la razón. Es el síntoma de haber violado las reglas del Mom Test. Las demás opciones celebran un 'éxito' falso que terminará en fracaso de ventas."
       },
       {
-        id: "t3_07", topic: "TEMA3", points: 6, topicName: "3. Análisis de Entrevistas",
-        question: "Lee la siguiente transcripción de entrevista y diagnostica qué señales son FALSOS POSITIVOS y cuáles son compromisos reales.\n\n" +
-          "Emprendedor: «¿Ha tenido dificultades con el proceso de matrículas?»\n" +
-          "Rector: «¡Totalmente! Es un caos cada año, me encantaría una solución para eso.» [Señal A]\n" +
-          "Emprendedor: «¿Le interesaría pilotear nuestra herramienta el próximo quimestre?»\n" +
-          "Rector: «Sí claro, cuenten conmigo, cuando estén listos me llaman.» [Señal B]\n" +
-          "Emprendedor: «¿Podría presentarnos con la persona que maneja el presupuesto de TI?»\n" +
-          "Rector: «Mmm, déjenme ver... en realidad ese tema lo maneja el municipio, no yo.» [Señal C]\n\n" +
-          "¿Cuál es el diagnóstico correcto?",
-        options: [
+        "id": "t3_07",
+        "topic": "TEMA3",
+        "points": 6,
+        "topicName": "3. Análisis de Entrevistas",
+        "question": "Lee la siguiente transcripción de entrevista y diagnostica qué señales son FALSOS POSITIVOS y cuáles son compromisos reales.\n\nEmprendedor: «¿Ha tenido dificultades con el proceso de matrículas?»\nRector: «¡Totalmente! Es un caos cada año, me encantaría una solución para eso.» [Señal A]\nEmprendedor: «¿Le interesaría pilotear nuestra herramienta el próximo quimestre?»\nRector: «Sí claro, cuenten conmigo, cuando estén listos me llaman.» [Señal B]\nEmprendedor: «¿Podría presentarnos con la persona que maneja el presupuesto de TI?»\nRector: «Mmm, déjenme ver... en realidad ese tema lo maneja el municipio, no yo.» [Señal C]\n\n¿Cuál es el diagnóstico correcto?",
+        "options": [
           "A=Compromiso real, B=Compromiso real, C=Falso positivo",
           "A=Falso positivo (cumplido), B=Falso positivo (táctica de aplazamiento sin fecha ni acción), C=Dato útil (revela quién tiene el poder real)",
           "A=Dato útil, B=Compromiso real, C=Falso positivo",
           "Todos son compromisos reales porque el rector confirmó interés en los tres casos"
         ],
-        correctIndex: 1,
-        rationale: "Señal A: 'Me encantaría' es un cumplido, no un compromiso. Señal B: 'Cuando estén listos me llaman' es una táctica de bloqueo: no puso fecha, no agendó nada, no cedió nada de valor. Señal C: es información ÚTIL porque revela que el decisor real es el municipio, lo que reorienta tu estrategia de venta."
+        "correctIndex": 1,
+        "rationale": "A es un FALSO POSITIVO ('me encantaría' es cumplido). B es FALSO POSITIVO ('cuando estén listos me llaman' no fija fecha ni esfuerzo). C es un DATO ÚTIL porque revela la jerarquía de poder (el municipio). Las otras opciones confunden las evasivas amables con intenciones de compra."
       },
       {
-        id: "t3_08", topic: "TEMA3", points: 6, topicName: "3. Análisis de Entrevistas",
-        question: "Analiza esta segunda transcripción y detecta los errores del emprendedor + las señales reales.\n\n" +
-          "Emprendedor: «Hola, venimos a hablar de nuestra app para gestionar inventario. ¿Le parece útil algo así?» [Acción E]\n" +
-          "Dueño: «Suena interesante, con gusto lo vería.» [Señal F]\n" +
-          "Emprendedor: «¡Genial! ¿Y si hacemos una demo la próxima semana, el martes a las 10am?»\n" +
-          "Dueño: «Sí, apúntame.» [Señal G]\n" +
-          "Emprendedor: «Por cierto, ¿cuánto dinero pierde al mes por vencimientos de producto?»\n" +
-          "Dueño: «Uff, el mes pasado botamos como $400 en lácteos. Y eso pasa casi cada mes.» [Señal H]\n\n" +
-          "¿Cuál es el análisis más preciso?",
-        options: [
+        "id": "t3_08",
+        "topic": "TEMA3",
+        "points": 6,
+        "topicName": "3. Análisis de Entrevistas",
+        "question": "Analiza esta segunda transcripción y detecta los errores del emprendedor + las señales reales.\n\nEmprendedor: «Hola, venimos a hablar de nuestra app para gestionar inventario. ¿Le parece útil algo así?» [Acción E]\nDueño: «Suena interesante, con gusto lo vería.» [Señal F]\nEmprendedor: «¡Genial! ¿Y si hacemos una demo la próxima semana, el martes a las 10am?»\nDueño: «Sí, apúntame.» [Señal G]\nEmprendedor: «Por cierto, ¿cuánto dinero pierde al mes por vencimientos de producto?»\nDueño: «Uff, el mes pasado botamos como $400 en lácteos. Y eso pasa casi cada mes.» [Señal H]\n\n¿Cuál es el análisis más preciso?",
+        "options": [
           "E=Error grave (mencionó la solución al inicio); F=Falso positivo; G=Compromiso real de tiempo; H=Dato de oro (dolor cuantificado con dinero y frecuencia)",
           "E=Buena apertura; F=Compromiso real; G=Falso positivo; H=Dato irrelevante",
           "E=Error menor; F=Compromiso real; G=Compromiso real; H=Falso positivo porque el dueño puede exagerar",
           "Todos los datos son válidos porque el dueño fue colaborativo"
         ],
-        correctIndex: 0,
-        rationale: "E es un ERROR GRAVE: el emprendedor presentó su solución al inicio, activando el sesgo de cortesía (F es sospechoso por eso). G es un COMPROMISO REAL: el dueño cedió tiempo específico (martes 10am). H es el DATO MÁS VALIOSO de toda la entrevista: problema cuantificado en dinero ($400) con frecuencia ('casi cada mes')."
+        "correctIndex": 0,
+        "rationale": "E es un ERROR GRAVE: presentar la solución al inicio activa el sesgo de cortesía (por eso F no es de fiar). G es compromiso real de tiempo (agendó cita). H es oro puro: cuantificó el dolor en dólares ($400) y frecuencia. Las opciones incorrectas justifican el error del emprendedor."
       },
-      // TEMA 4
       {
-        id: "t4_01", topic: "TEMA4", points: 5, topicName: "4. Formular Hipótesis",
-        question: "El equipo redacta: 'Creemos que los docentes pierden tiempo. Lo sabremos en 2 semanas. Si no, cambiamos de segmento'. ¿Qué falta?",
-        options: [
+        "id": "t4_01",
+        "topic": "TEMA4",
+        "points": 5,
+        "topicName": "4. Formular Hipótesis",
+        "question": "El equipo redacta: 'Creemos que los docentes pierden tiempo. Lo sabremos en 2 semanas. Si no, cambiamos de segmento'. ¿Qué falta?",
+        "options": [
           "Implementar Inteligencia Artificial.",
           "Un umbral numérico específico y medible (ej. si al menos 8 de 10).",
           "Firmar acuerdos de confidencialidad.",
           "Construir un Mago de Oz."
         ],
-        correctIndex: 1,
-        rationale: "Sin un número exacto antes del experimento, cualquier resultado te parecerá bueno y te autoengañarás. Necesitas la condición de fallo explícita."
+        "correctIndex": 1,
+        "rationale": "Sin una señal observable fijada ANTES del experimento (ej: 'lograr 3 de 5 firmas'), cualquier resultado te parecerá bueno y justificarás el fracaso. La condición de fallo evita el autoengaño. Las opciones A, C y D olvidan el rigor científico que diferencia una hipótesis de una corazonada."
       },
       {
-        id: "t4_02", topic: "TEMA4", points: 5, topicName: "4. Formular Hipótesis",
-        question: "En la clase se comparó una hipótesis con un 'assert' en código. ¿Qué significa esto?",
-        options: [
+        "id": "t4_02",
+        "topic": "TEMA4",
+        "points": 5,
+        "topicName": "4. Formular Hipótesis",
+        "question": "En la clase se comparó una hipótesis con un 'assert' en código. ¿Qué significa esto?",
+        "options": [
           "Deben programarse como pruebas unitarias.",
           "Si no puedes escribir la condición exacta que la haría fallar, es solo un comentario.",
           "Garantizan que el código compila en producción.",
           "Son inmutables."
         ],
-        correctIndex: 1,
-        rationale: "Un assert detiene el programa si algo es falso. Una hipótesis que no puede fallar y refutar tu idea es un simple comentario, no una prueba válida."
+        "correctIndex": 1,
+        "rationale": "En programación, un 'assert' aborta la ejecución si una condición es falsa. En Lean Startup, una hipótesis debe poder fallar estrepitosamente ('falsabilidad'). Si no hay forma de que tu experimento falle, estás haciendo teatro, no validando. Las otras opciones no entienden este rigor empírico."
       },
       {
-        id: "t4_03", topic: "TEMA4", points: 5, topicName: "4. Formular Hipótesis",
-        question: "Segmento: 'Todos los que usan el transporte público urbano'. Según la clase («Segmento = tipado fuerte»), ¿cuál es el error?",
-        options: [
+        "id": "t4_03",
+        "topic": "TEMA4",
+        "points": 5,
+        "topicName": "4. Formular Hipótesis",
+        "question": "Segmento: 'Todos los que usan el transporte público urbano'. Según la clase («Segmento = tipado fuerte»), ¿cuál es el error?",
+        "options": [
           "Es declarar el segmento como tipo 'any': es demasiado amplio y heterogéneo para poder encontrar patrones comunes.",
           "No cumple con regulaciones de tránsito.",
           "Cae en el cuadrante de problemas ignorados.",
           "Obliga a hacer experimentos caros."
         ],
-        correctIndex: 0,
-        rationale: "Declarar a todos es no definir a nadie. Tendrás información contradictoria porque una madre con niños y un oficinista solitario no tienen los mismos dolores en el bus."
+        "correctIndex": 0,
+        "rationale": "Declarar 'todos los que usan el bus' es un segmento sin tipado. Tendrás datos ruidosos porque un estudiante y un jubilado no tienen los mismos dolores ni presupuesto en el bus. Las opciones incorrectas inventan reglas macroeconómicas que no aplican a la validación temprana."
       },
       {
-        id: "t4_05", topic: "TEMA4", points: 5, topicName: "4. Formular Hipótesis",
-        question: "Un equipo quiere validar primero 'si la API de WhatsApp se conecta al servidor Node.js'. ¿Qué error cometen?",
-        options: [
+        "id": "t4_05",
+        "topic": "TEMA4",
+        "points": 5,
+        "topicName": "4. Formular Hipótesis",
+        "question": "Un equipo quiere validar primero 'si la API de WhatsApp se conecta al servidor Node.js'. ¿Qué error cometen?",
+        "options": [
           "Enfocarse en factibilidad técnica (Zona 3) antes de validar deseabilidad (Zona 1).",
           "Violar las reglas del Conserje.",
           "Falta de umbral porcentual.",
           "Generar métricas de vanidad técnica."
         ],
-        correctIndex: 0,
-        rationale: "Saber que puedes programarlo no significa que debas hacerlo. Validar la tecnología antes que la existencia del problema es la principal causa de fracaso en ingeniería."
+        "correctIndex": 0,
+        "rationale": "El mayor riesgo rara vez es técnico, sino de mercado. Validar si 'la API funciona' (riesgo técnico) antes de validar si 'alguien quiere usar la app' (riesgo de mercado) es la causa principal de fracaso. Las otras opciones promueven el desarrollo prematuro y el perfeccionismo ciego."
       },
       {
-        id: "t4_06", topic: "TEMA4", points: 5, topicName: "4. Formular Hipótesis",
-        question: "¿Cuál formulación de la primera línea de la hipótesis cumple los estándares de clase?",
-        options: [
+        "id": "t4_06",
+        "topic": "TEMA4",
+        "points": 5,
+        "topicName": "4. Formular Hipótesis",
+        "question": "¿Cuál formulación de la primera línea de la hipótesis cumple los estándares de clase?",
+        "options": [
           "Creemos que los negocios necesitan IA para ganar más.",
           "Creemos que los dueños de 3 a 8 mesas en Urdesa pierden dinero por comida caducada cuando usan cuadernos.",
           "Creemos que nuestra app será amada por su diseño intuitivo.",
           "Creemos que hay un mercado insatisfecho en sistemas contables."
         ],
-        correctIndex: 1,
-        rationale: "Define segmento tipado (dueños 3-8 mesas en Urdesa), problema (pierden dinero por caducidad) y situación (al usar cuadernos)."
+        "correctIndex": 1,
+        "rationale": "La opción B es la única con un segmento fuertemente tipado ('dueños de 3-8 mesas en Urdesa') y un dolor cuantificable ('pierden dinero por caducidad'). Las otras opciones usan segmentos vagos ('los restaurantes') o dolores inmedibles e irreales ('quieren ser más modernos')."
       },
       {
-        id: "t4_07", topic: "TEMA4", points: 5, topicName: "4. Formular Hipótesis",
-        question: "Revisa la plantilla: 'Creemos que los panaderos tienen el problema de mermas porque calculan mal los ingredientes. Lo sabremos cuando el 80% acepte usar nuestra balanza digital en 7 días'. ¿Qué componente OBLIGATORIO falta?",
-        options: [
+        "id": "t4_07",
+        "topic": "TEMA4",
+        "points": 5,
+        "topicName": "4. Formular Hipótesis",
+        "question": "Revisa la plantilla: 'Creemos que los panaderos tienen el problema de mermas porque calculan mal los ingredientes. Lo sabremos cuando el 80% acepte usar nuestra balanza digital en 7 días'. ¿Qué componente OBLIGATORIO falta?",
+        "options": [
           "El segmento acotado.",
           "La causa raíz.",
           "Si eso no ocurre, [qué haremos].",
           "La señal observable."
         ],
-        correctIndex: 2,
-        rationale: "Toda hipótesis debe tener una condición de fallo. Falta declarar las consecuencias de que el experimento falle (ej: 'Si eso no ocurre, cambiaremos de segmento')."
+        "correctIndex": 2,
+        "rationale": "Toda hipótesis debe tener un 'Plan B' o condición de fallo explícita ('Si eso no ocurre, haremos X'). Esto evita 'mover los postes' cuando el experimento fracasa. Las opciones incorrectas se refieren a elementos (segmento, causa, señal) que la plantilla del enunciado ya poseía."
       },
       {
-        id: "t4_08", topic: "TEMA4", points: 5, topicName: "4. Formular Hipótesis",
-        question: "Selecciona la hipótesis que esté llenada CORRECTAMENTE siguiendo la plantilla vista en clase:",
-        options: [
+        "id": "t4_08",
+        "topic": "TEMA4",
+        "points": 5,
+        "topicName": "4. Formular Hipótesis",
+        "question": "Selecciona la hipótesis que esté llenada CORRECTAMENTE siguiendo la plantilla vista en clase:",
+        "options": [
           "Creemos que [todos] tienen el problema de [estrés] porque [trabajan mucho]. Lo sabremos [cuando estemos listos].",
           "Creemos que [los dueños de mascotas] necesitan [nuestra app] porque [quieren]. Lo sabremos cuando [tengamos 10,000 descargas]. Si eso no ocurre, [cerramos].",
           "Creemos que [los gerentes de HR en Quito] tienen el problema de [alta rotación] porque [los sueldos no son transparentes]. Lo sabremos cuando [3 de 5 gerentes firmen una carta de intención] en [14 días]. Si eso no ocurre, [entrevistaremos a empleados].",
           "Creemos que [los estudiantes] tienen el problema de [las matemáticas]. Lo sabremos cuando [saquen buenas notas] en [un mes]. Si eso no ocurre, [lloramos]."
         ],
-        correctIndex: 2,
-        rationale: "Cumple con el segmento acotado, problema en su lenguaje, causa raíz identificada, señal observable cuantificable, plazo y un plan de acción si falla."
+        "correctIndex": 2,
+        "rationale": "La opción C ('Creemos que gerentes de HR...') es perfecta: segmento acotado, problema real ('alta rotación'), causa ('sueldos no transparentes'), señal medible ('3 de 5 firmen'), plazo y un plan si falla. Las demás carecen de números, plazos o incluyen acciones ridículas en caso de fallo."
       },
-      // TEMA 5
       {
-        id: "t5_01", topic: "TEMA5", points: 5, topicName: "5. Experimentos Lean",
-        question: "Un equipo quiere probar si los padres pagarían por recordatorios médicos por WhatsApp en 10 días. ¿Cuál es el PMV más adecuado?",
-        options: [
+        "id": "t5_01",
+        "topic": "TEMA5",
+        "points": 5,
+        "topicName": "5. Experimentos Lean",
+        "question": "Un equipo quiere probar si los padres pagarían por recordatorios médicos por WhatsApp en 10 días. ¿Cuál es el PMV más adecuado?",
+        "options": [
           "Programar una app nativa con Firebase.",
           "Un Conserje: ofrecer el servicio a 5 padres y enviar los recordatorios manualmente desde su propio WhatsApp.",
           "Crear un modelo predictivo de IA.",
           "Esperar capital semilla."
         ],
-        correctIndex: 1,
-        rationale: "El PMV ('spike') no es código a medias, es el experimento más rápido. Enviar a mano valida el valor entregado sin costo técnico."
+        "correctIndex": 1,
+        "rationale": "El PMV ('Producto Mínimo Viable') tipo 'Conserje' es realizar la tarea manualmente para el cliente sin que él se entere. Enviar recordatorios a mano valida si hay deseabilidad sin gastar desarrollo. Las demás opciones (programar bots o contratar ingenieros) son ejemplos de despilfarro y desarrollo prematuro."
       },
       {
-        id: "t5_03", topic: "TEMA5", points: 5, topicName: "5. Experimentos Lean",
-        question: "Quibi fracasó tras gastar 1.750 millones de dólares construyendo su plataforma de series cortas. ¿Qué principio Lean violaron?",
-        options: [
+        "id": "t5_03",
+        "topic": "TEMA5",
+        "points": 5,
+        "topicName": "5. Experimentos Lean",
+        "question": "Quibi fracasó tras gastar 1.750 millones de dólares construyendo su plataforma de series cortas. ¿Qué principio Lean violaron?",
+        "options": [
           "No optimizaron para pantallas grandes.",
           "Construyeron todo antes de validar la deseabilidad con un experimento de bajo costo.",
           "No invirtieron suficiente en marketing de influencers.",
           "Pusieron el precio demasiado bajo."
         ],
-        correctIndex: 1,
-        rationale: "Violaron el ciclo de Lean Startup: asumieron la demanda y construyeron el producto final sin probar antes si la gente pagaría por ver series cortas en el móvil (pudieron validarlo con una simple Landing page)."
+        "correctIndex": 1,
+        "rationale": "Quibi violó el ciclo de Lean Startup: asumieron que sabían lo que el cliente quería (demanda) y gastaron todo construyendo el producto final. Si hubieran hecho una landing page, habrían aprendido que nadie pagaría. Las opciones incorrectas inventan reglas falsas o se centran en tácticas superficiales."
       },
       {
-        id: "t5_04", topic: "TEMA5", points: 5, topicName: "5. Experimentos Lean",
-        question: "En las metáforas de ingeniería, ¿por qué una métrica de vanidad equivale a un «log de nivel INFO»?",
-        options: [
+        "id": "t5_04",
+        "topic": "TEMA5",
+        "points": 5,
+        "topicName": "5. Experimentos Lean",
+        "question": "En las metáforas de ingeniería, ¿por qué una métrica de vanidad equivale a un «log de nivel INFO»?",
+        "options": [
           "Porque detiene la ejecución del servidor.",
           "Porque solo dice que el sistema sigue encendido; tranquiliza el ego pero no informa si el negocio funciona.",
           "Porque detecta inyecciones SQL.",
           "Porque consume mucha memoria."
         ],
-        correctIndex: 1,
-        rationale: "Los likes, descargas y seguidores solo te hacen sentir bien (vanidad), pero no te indican si el usuario retiene o paga, que es la métrica accionable."
+        "correctIndex": 1,
+        "rationale": "En programación, un 'INFO' te dice que algo pasó pero no ayuda a arreglar un fallo. En negocios, los likes y visitas te hacen sentir bien (métrica de vanidad) pero no te indican si el modelo funciona. La métrica 'accionable' es aquella que, si cae, sabes exactamente qué corregir en el producto."
       },
       {
-        id: "t5_05", topic: "TEMA5", points: 5, topicName: "5. Experimentos Lean",
-        question: "El ciclo Lean Startup es 'Construir - Medir - Aprender'. ¿Cómo debe ser el orden lógico para su PLANIFICACIÓN?",
-        options: [
+        "id": "t5_05",
+        "topic": "TEMA5",
+        "points": 5,
+        "topicName": "5. Experimentos Lean",
+        "question": "El ciclo Lean Startup es 'Construir - Medir - Aprender'. ¿Cómo debe ser el orden lógico para su PLANIFICACIÓN?",
+        "options": [
           "Construir completo, medir al final y aprender en un año.",
           "Al revés: planificar qué quiero Aprender, definir qué Métrica lo prueba, y al final decidir qué mínimo Construir.",
           "Simultáneo entre programación y ventas.",
           "Programar en sprints sin métricas definidas."
         ],
-        correctIndex: 1,
-        rationale: "Aunque se ejecuta Construir->Medir->Aprender, el diseño del experimento se piensa desde la meta: primero defines la hipótesis a aprender, luego la métrica, y el artefacto es lo último."
+        "correctIndex": 1,
+        "rationale": "Aunque el ciclo se ejecuta Construir->Medir->Aprender, la PLANIFICACIÓN es inversa. Primero defines qué quieres Aprender (hipótesis), luego cómo lo vas a Medir (métrica), y al final qué vas a Construir (PMV). Las demás opciones caen en la trampa de empezar programando a ciegas."
       },
       {
-        id: "t5_06", topic: "TEMA5", points: 5, topicName: "5. Experimentos Lean",
-        question: "¿Cuál de estos indicadores representa una MÉTRICA ACCIONABLE?",
-        options: [
+        "id": "t5_06",
+        "topic": "TEMA5",
+        "points": 5,
+        "topicName": "5. Experimentos Lean",
+        "question": "¿Cuál de estos indicadores representa una MÉTRICA ACCIONABLE?",
+        "options": [
           "20.000 vistas de un video en Facebook.",
           "El porcentaje de docentes que, tras probar el formulario 5 días, aceptan que lo implementemos oficialmente en su clase.",
           "El número total de usuarios registrados en la base de datos.",
           "10,000 visitas únicas a la página de aterrizaje."
         ],
-        correctIndex: 1,
-        rationale: "La conversión con compromiso real de uso continuo demuestra tracción y deseabilidad. Las vistas y visitas son métricas de vanidad que suben solas."
+        "correctIndex": 1,
+        "rationale": "Una métrica accionable mide el compromiso real del usuario. La retención (uso continuo) demuestra tracción (el cliente saca su billetera o tiempo). Las vistas y clicks son métricas de vanidad que suben si gastas en publicidad, pero no demuestran valor. Las demás opciones mezclan vanidad con acción."
       },
       {
-        id: "t5_07", topic: "TEMA5", points: 5, topicName: "5. Experimentos Lean",
-        question: "Completa la plantilla de métrica accionable: 'Sabremos que vamos bien si ____ de ____ personas del segmento ____ dentro de ____.'",
-        options: [
+        "id": "t5_07",
+        "topic": "TEMA5",
+        "points": 5,
+        "topicName": "5. Experimentos Lean",
+        "question": "Completa la plantilla de métrica accionable: 'Sabremos que vamos bien si ____ de ____ personas del segmento ____ dentro de ____.'",
+        "options": [
           "[x] / [y] / [objetivo] / [nuestro presupuesto]",
           "[una cantidad específica] / [un total evaluado] / [acotado] / [un plazo en días]",
           "[muchas] / [todas las] / [general] / [un año]",
           "[el 100%] / [los registrados] / [premium] / [una semana]"
         ],
-        correctIndex: 1,
-        rationale: "La plantilla requiere rigor científico: necesitas un numerador (x), un denominador (y total de evaluados), un segmento bien definido (acotado) y un tiempo límite (plazo en días)."
+        "correctIndex": 1,
+        "rationale": "La plantilla requiere rigor científico absoluto: numerador (éxitos), denominador (total de intentos), un segmento fuertemente tipado (acotado) y límite de tiempo (plazo). Esto evita que manipules el experimento si va mal. Las demás opciones incluyen elementos subjetivos que destruyen el rigor."
       },
       {
-        id: "t5_08", topic: "TEMA5", points: 5, topicName: "5. Experimentos Lean",
-        question: "Un equipo propone esta métrica: 'Sabremos que vamos bien si muchos de los usuarios del sistema nos dan like en Facebook dentro de un par de meses'. ¿Por qué esta métrica es inútil según la plantilla?",
-        options: [
+        "id": "t5_08",
+        "topic": "TEMA5",
+        "points": 5,
+        "topicName": "5. Experimentos Lean",
+        "question": "Un equipo propone esta métrica: 'Sabremos que vamos bien si muchos de los usuarios del sistema nos dan like en Facebook dentro de un par de meses'. ¿Por qué esta métrica es inútil según la plantilla?",
+        "options": [
           "Porque usa Facebook en lugar de Instagram.",
           "Porque viola el rigor numérico ('muchos' en lugar de X de Y), usa un segmento indefinido ('usuarios') y un plazo ambiguo ('un par de meses').",
           "Porque no incluye métricas financieras de retorno de inversión.",
           "Porque el experimento es demasiado corto."
         ],
-        correctIndex: 1,
-        rationale: "Sin números exactos y plazos estrictos, la métrica no es accionable y solo servirá para autoengañarse (métrica de vanidad)."
+        "correctIndex": 1,
+        "rationale": "Sin números exactos ni plazos estrictos, la métrica no es falsable. 'Muchos' no significa nada y te servirá para autoengañarte (efecto de mover los postes de la meta). Además, un 'like' no es un compromiso, es vanidad. Las demás opciones buscan excusas para usar métricas mediocres."
       },
-      // TEMA 6
       {
-        id: "t6_01", topic: "TEMA6", points: 4, topicName: "6. Tipos de Problemas",
-        question: "Un docente te dice: 'Odio pasar notas, me toma 6 horas transcribir los datos de mis 5 cursos a fin de mes'. En el examen debes clasificarlo y proponer una métrica. ¿Cuál es la opción correcta?",
-        options: [
+        "id": "t6_01",
+        "topic": "TEMA6",
+        "points": 4,
+        "topicName": "6. Tipos de Problemas",
+        "question": "Un docente te dice: 'Odio pasar notas, me toma 6 horas transcribir los datos de mis 5 cursos a fin de mes'. En el examen debes clasificarlo y proponer una métrica. ¿Cuál es la opción correcta?",
+        "options": [
           "Tipo: Emocional | Justificación: El usuario declara que 'odia' la tarea | Métrica: Nivel de estrés reportado en una encuesta de 1 a 10.",
           "Tipo: Funcional | Justificación: Es una tarea operativa repetitiva cuyo principal impacto es el tiempo perdido | Métrica: Sabremos que vamos bien si reducimos el tiempo de transcripción de 6 horas a 1 hora en 30 días.",
           "Tipo: Social | Justificación: Afecta su estatus de autoridad ante los alumnos | Métrica: Número de quejas recibidas por los estudiantes al mes.",
           "Tipo: De Información | Justificación: El docente carece de los datos exactos para pasar la nota | Métrica: Porcentaje de notas correctas ingresadas en el sistema."
         ],
-        correctIndex: 1,
-        rationale: "Aunque exprese molestia (odio), el dolor raíz es funcional (un proceso ineficiente). La métrica propuesta sigue el estándar de medir la reducción del impacto negativo (tiempo)."
+        "correctIndex": 1,
+        "rationale": "Aunque exprese emoción ('odio'), la raíz del dolor es FUNCIONAL: un proceso ineficiente y manual. Las opciones incorrectas lo clasifican superficialmente por su reacción emocional o por el gasto de horas, pero la métrica correcta medirá exclusivamente la reducción de ese tiempo ineficiente."
       },
       {
-        id: "t6_02", topic: "TEMA6", points: 4, topicName: "6. Tipos de Problemas",
-        question: "Estudiantes de zonas rurales deben caminar 2 km para encontrar señal porque en sus casas no hay cobertura para descargar deberes. Identifica el tipo, justificación y métrica apropiada.",
-        options: [
+        "id": "t6_02",
+        "topic": "TEMA6",
+        "points": 4,
+        "topicName": "6. Tipos de Problemas",
+        "question": "Estudiantes de zonas rurales deben caminar 2 km para encontrar señal porque en sus casas no hay cobertura para descargar deberes. Identifica el tipo, justificación y métrica apropiada.",
+        "options": [
           "Tipo: De Acceso | Justificación: Hay una imposibilidad física/técnica para obtener el servicio | Métrica: Sabremos que vamos bien si el 80% de los estudiantes rurales logran descargar sus tareas desde casa (offline) en 15 días.",
           "Tipo: Financiero | Justificación: Los estudiantes no pueden pagar un plan de datos más caro | Métrica: Ahorro de $15 mensuales en recargas de saldo.",
           "Tipo: Funcional | Justificación: Descargar deberes toma mucho tiempo | Métrica: Reducción del tiempo de descarga de 30 minutos a 5 minutos.",
           "Tipo: De Información | Justificación: No saben cuándo se envían los deberes | Métrica: Aumento de notificaciones leídas en un 50%."
         ],
-        correctIndex: 0,
-        rationale: "El problema es la barrera física de conectividad (Acceso). La métrica correcta debe medir cuántos estudiantes logran sortear esa barrera usando tu solución (ej. app offline)."
+        "correctIndex": 0,
+        "rationale": "Caminar 2 km por falta de señal no es un problema funcional (la app no falla), es de ACCESO: una barrera física o tecnológica impide el uso. Las demás opciones lo confunden con problemas de complejidad y fallan en la métrica, porque lo vital aquí es vencer la barrera offline."
       },
       {
-        id: "t6_03", topic: "TEMA6", points: 4, topicName: "6. Tipos de Problemas",
-        question: "El rector afirma: 'Me entero que un estudiante va a desertar cuando ya dejó de venir hace un mes'. Clasifica el problema y propón la métrica correcta.",
-        options: [
+        "id": "t6_03",
+        "topic": "TEMA6",
+        "points": 4,
+        "topicName": "6. Tipos de Problemas",
+        "question": "El rector afirma: 'Me entero que un estudiante va a desertar cuando ya dejó de venir hace un mes'. Clasifica el problema y propón la métrica correcta.",
+        "options": [
           "Tipo: Social | Justificación: El estudiante se aísla de la comunidad educativa | Métrica: Número de eventos de integración realizados al mes.",
           "Tipo: Emocional | Justificación: El rector siente frustración e impotencia | Métrica: Nivel de satisfacción laboral del rector.",
           "Tipo: De Información | Justificación: Falta de datos oportunos y alertas tempranas para tomar decisiones correctivas | Métrica: Sabremos que vamos bien si el 90% de los rectores reciben una alerta de riesgo 15 días antes de la deserción.",
           "Tipo: Funcional | Justificación: El sistema de asistencia es muy lento | Métrica: Tiempo de carga del reporte de asistencia menor a 2 segundos."
         ],
-        correctIndex: 2,
-        rationale: "El dolor radica en la carencia de información oportuna (asimetría o retraso de datos). La métrica debe medir la rapidez o efectividad con la que se entrega esa información ahora."
+        "correctIndex": 2,
+        "rationale": "El dolor del rector radica en el retraso de la información (asimetría). Entenderlo un mes tarde es el problema real, no la usabilidad del sistema (Funcional). Las opciones incorrectas fallan porque la métrica de un problema de asimetría siempre debe atarse a la velocidad de la entrega de datos."
       },
       {
-        id: "t6_04", topic: "TEMA6", points: 4, topicName: "6. Tipos de Problemas",
-        question: "El colegio gasta $1,500 mensuales en pagar horas extra a los docentes para poder cerrar el sistema de calificaciones. ¿Cuál es el diagnóstico completo?",
-        options: [
+        "id": "t6_04",
+        "topic": "TEMA6",
+        "points": 4,
+        "topicName": "6. Tipos de Problemas",
+        "question": "El colegio gasta $1,500 mensuales en pagar horas extra a los docentes para poder cerrar el sistema de calificaciones. ¿Cuál es el diagnóstico completo?",
+        "options": [
           "Tipo: Financiero | Justificación: Impacta directamente el presupuesto generando pérdidas cuantificables | Métrica: Sabremos que vamos bien si reducimos el gasto en horas extra de $1,500 a $300 en el primer mes de uso.",
           "Tipo: De Acceso | Justificación: Los docentes no tienen acceso al sistema desde sus casas | Métrica: 100% de los docentes conectados remotamente.",
           "Tipo: Emocional | Justificación: Los docentes sufren agotamiento por trabajar horas extra | Métrica: Reducción del índice de burnout en un 40%.",
           "Tipo: Social | Justificación: Se generan conflictos entre el departamento contable y el académico | Métrica: Cero quejas interdepartamentales."
         ],
-        correctIndex: 0,
-        rationale: "El dolor explícito es la pérdida de dinero (Financiero). La métrica debe atarse a detener esa hemorragia financiera (reducir el gasto a $300)."
+        "correctIndex": 0,
+        "rationale": "El dolor explícito es la pérdida directa de dólares (Problema Financiero). En B2B, la única métrica que importa para esto es atajar la hemorragia reduciendo costos o aumentando ingresos. Las opciones incorrectas intentan volverlo un tema emocional o de acceso."
       },
       {
-        id: "t6_05", topic: "TEMA6", points: 4, topicName: "6. Tipos de Problemas",
-        question: "Un profesor veterano evita usar la pizarra digital porque tiene miedo de cometer errores y que sus alumnos se rían de él. Evalúa el caso:",
-        options: [
+        "id": "t6_05",
+        "topic": "TEMA6",
+        "points": 4,
+        "topicName": "6. Tipos de Problemas",
+        "question": "Un profesor veterano evita usar la pizarra digital porque tiene miedo de cometer errores y que sus alumnos se rían de él. Evalúa el caso:",
+        "options": [
           "Tipo: Financiero | Justificación: La pizarra digital costó mucho dinero y no se usa | Métrica: Retorno de inversión (ROI) de la pizarra en 6 meses.",
           "Tipo: De Información | Justificación: El profesor no sabe usar el manual de la pizarra | Métrica: 100% de lectura del manual de usuario.",
           "Tipo: Emocional/Social | Justificación: La barrera principal es el miedo a la humillación pública y pérdida de estatus | Métrica: Sabremos que vamos bien si 8 de cada 10 profesores veteranos usan la pizarra al menos 3 veces por semana sin asistencia.",
           "Tipo: De Acceso | Justificación: El profesor no tiene las llaves del aula | Métrica: Entrega del 100% de las llaves a tiempo."
         ],
-        correctIndex: 2,
-        rationale: "El miedo a lucir incompetente (Emocional/Social) es más fuerte que la funcionalidad de la pizarra. La métrica debe reflejar la adopción voluntaria superando ese miedo."
+        "correctIndex": 2,
+        "rationale": "El miedo a lucir incompetente ante un grupo es un Problema EMOCIONAL/SOCIAL que paraliza la adopción de la herramienta. La métrica debe reflejar la adopción voluntaria tras vencer ese miedo interno. Las otras opciones caen en la trampa de pensar que todo se arregla con más 'capacitación funcional'."
       },
       {
-        id: "t6_06", topic: "TEMA6", points: 4, topicName: "6. Tipos de Problemas",
-        question: "El coordinador escolar te comenta: 'Los padres de familia no asisten a las reuniones bimestrales. Luego nos enteramos de que no fueron porque la circular estaba en un lenguaje muy técnico y jurídico y ellos sintieron que no la entendían bien, lo que les generaba vergüenza preguntar'. Identifica el tipo, justificación y métrica:",
-        options: [
+        "id": "t6_06",
+        "topic": "TEMA6",
+        "points": 4,
+        "topicName": "6. Tipos de Problemas",
+        "question": "El coordinador escolar te comenta: 'Los padres de familia no asisten a las reuniones bimestrales. Luego nos enteramos de que no fueron porque la circular estaba en un lenguaje muy técnico y jurídico y ellos sintieron que no la entendían bien, lo que les generaba vergüenza preguntar'. Identifica el tipo, justificación y métrica:",
+        "options": [
           "Tipo: De Información | Justificación: Los padres no recibieron la circular a tiempo | Métrica: Tasa de apertura de la circular",
           "Tipo: Funcional | Justificación: La circular tarda mucho en redactarse | Métrica: Tiempo de redacción de circulares",
           "Tipo: Social | Justificación: La barrera no es que no tengan la información, sino la vergüenza de quedar mal ante otros por no entenderla | Métrica: Sabremos que vamos bien si el porcentaje de asistencia a reuniones sube del 30% al 70% en 2 quimestres",
           "Tipo: Emocional | Justificación: Los padres sienten miedo de ir a la reunión | Métrica: Nivel de ansiedad reportado en encuesta"
         ],
-        correctIndex: 2,
-        rationale: "Este es un PROBLEMA SOCIAL clásico: la barrera es la imagen propia frente a la comunidad (vergüenza de parecer ignorante). Es distinto al Emocional puro (miedo interno) porque depende de la percepción de OTROS. La métrica correcta mide el impacto social: la participación."
+        "correctIndex": 2,
+        "rationale": "Es un PROBLEMA SOCIAL: la barrera es la imagen pública ante la comunidad ('vergüenza a parecer ignorante'). A diferencia de problemas puramente emocionales, este depende de la percepción ajena. La métrica debe medir el incremento en la participación comunitaria real. Las opciones incorrectas obvian este componente."
       },
       {
-        id: "t6_07", topic: "TEMA6", points: 4, topicName: "6. Tipos de Problemas",
-        question: "Un docente evita usar la nueva plataforma de calificaciones. Al hacer las entrevistas (Mom Test) descubres que: (1) la plataforma tarda 8 segundos en cargar cada nota, (2) el docente teme que sus alumnos lo vean como 'el profe que no sabe tecnología'. ¿Cuál es el tipo de problema que DEBES resolver PRIMERO y por qué?",
-        options: [
+        "id": "t6_07",
+        "topic": "TEMA6",
+        "points": 4,
+        "topicName": "6. Tipos de Problemas",
+        "question": "Un docente evita usar la nueva plataforma de calificaciones. Al hacer las entrevistas (Mom Test) descubres que: (1) la plataforma tarda 8 segundos en cargar cada nota, (2) el docente teme que sus alumnos lo vean como 'el profe que no sabe tecnología'. ¿Cuál es el tipo de problema que DEBES resolver PRIMERO y por qué?",
+        "options": [
           "Emocional/Social, porque el miedo es más difícil de cambiar que la velocidad del sistema",
           "Funcional, porque si la plataforma carga rápido (1 seg), el docente no tendrá tiempo para sentir vergüenza frente al curso. Resolver lo funcional elimina la causa del miedo social",
           "De Información, porque el docente no sabe que existe un manual de usuario",
           "Financiero, porque el colegio desperdicia dinero en licencias de una plataforma que nadie usa"
         ],
-        correctIndex: 1,
-        rationale: "Este caso ilustra que un mismo hecho tiene múltiples tipos. El Mom Test reveló DOS dolores. Debes resolver el FUNCIONAL primero porque es la causa raíz: si la plataforma responde en 1 segundo, la incomodidad frente al curso desaparece. Resolver lo Emocional/Social sin arreglar lo Funcional sería parchar los síntomas."
+        "correctIndex": 1,
+        "rationale": "Múltiples dolores pueden coexistir. Aquí hay dolor emocional, pero la causa raíz es el problema FUNCIONAL (el sistema tarda). Si arreglas lo funcional, eliminas el síntoma emocional. Las opciones incorrectas intentan tapar los síntomas emocionales (dar charlas) sin arreglar el código base."
       },
-      
-      // TEMA 7
       {
-        id: "t7_01", topic: "TEMA7", points: 4, topicName: "7. Actores del Problema",
-        question: "En un software para el tratamiento de dislexia infantil, los niños juegan en la app. ¿Qué rol de negocio cumplen los niños?",
-        options: [
+        "id": "t7_01",
+        "topic": "TEMA7",
+        "points": 4,
+        "topicName": "7. Actores del Problema",
+        "question": "En un software para el tratamiento de dislexia infantil, los niños juegan en la app. ¿Qué rol de negocio cumplen los niños?",
+        "options": [
           "Pagadores",
           "Usuarios",
           "Decisores",
           "Saboteadores"
         ],
-        correctIndex: 1,
-        rationale: "El niño es quien utiliza (usa) el producto a diario y experimenta la interfaz, pero no es quien decide la compra ni quien la paga."
+        "correctIndex": 1,
+        "rationale": "El niño interactúa con la app a diario, por tanto, es el USUARIO. Sin embargo, no es el cliente ni el pagador porque no toma la decisión de compra ni pone el dinero (eso lo hacen los padres o la escuela). Las opciones incorrectas confunden el uso de la herramienta con el poder adquisitivo."
       },
       {
-        id: "t7_03", topic: "TEMA7", points: 4, topicName: "7. Actores del Problema",
-        question: "El Ministerio de Educación publica una norma que obliga a reportar notas en un formato XML. ¿Qué actor es el Ministerio para tu empresa de software escolar?",
-        options: [
+        "id": "t7_03",
+        "topic": "TEMA7",
+        "points": 4,
+        "topicName": "7. Actores del Problema",
+        "question": "El Ministerio de Educación publica una norma que obliga a reportar notas en un formato XML. ¿Qué actor es el Ministerio para tu empresa de software escolar?",
+        "options": [
           "Usuario Final",
           "Pagador",
           "Influenciador / Restricción de entorno",
           "Decisor técnico"
         ],
-        correctIndex: 2,
-        rationale: "El Ministerio no usa tu app ni te paga, pero sus regulaciones condicionan el mercado y a tus verdaderos clientes."
+        "correctIndex": 2,
+        "rationale": "El Ministerio dicta normas pero no compra ni usa tu app. Por lo tanto, actúa como CONDICIONANTE (o regulador). Sus leyes dictan las reglas del mercado. Las otras opciones lo clasifican erróneamente como usuario o saboteador, ignorando su rol sistémico."
       },
       {
-        id: "t7_04", topic: "TEMA7", points: 4, topicName: "7. Actores del Problema",
-        question: "Vendes tu solución al Rector del colegio, quien da la autorización para que empiece el piloto en secundaria. ¿Qué rol tiene el Rector?",
-        options: [
+        "id": "t7_04",
+        "topic": "TEMA7",
+        "points": 4,
+        "topicName": "7. Actores del Problema",
+        "question": "Vendes tu solución al Rector del colegio, quien da la autorización para que empiece el piloto en secundaria. ¿Qué rol tiene el Rector?",
+        "options": [
           "Usuario diario",
           "Pagador corporativo",
           "Decisor",
           "Influenciador"
         ],
-        correctIndex: 2,
-        rationale: "El decisor es quien tiene la autoridad para decir 'sí' a la implementación, aunque no necesariamente sea él quien desembolse los fondos."
+        "correctIndex": 2,
+        "rationale": "El Rector tiene el poder de autorizar o vetar el proyecto, lo que lo convierte en el DECISOR. Puede que los fondos salgan del área financiera (pagador) y que la app la usen los profes (usuarios), pero el Rector tiene la autoridad final. Las opciones incorrectas lo degradan a simple usuario o pagador directo."
       },
-      // TEMA 8
       {
-        id: "t8_01", topic: "TEMA8", points: 4, topicName: "8. Tipos de PMV",
-        question: "Armas una página promocionando 'Una app que redacta informes'. Al hacer clic en 'Comprar $10', sale un mensaje: 'Aún en desarrollo, déjanos tu correo'. ¿Qué PMV es?",
-        options: [
+        "id": "t8_01",
+        "topic": "TEMA8",
+        "points": 4,
+        "topicName": "8. Tipos de PMV",
+        "question": "Armas una página promocionando 'Una app que redacta informes'. Al hacer clic en 'Comprar $10', sale un mensaje: 'Aún en desarrollo, déjanos tu correo'. ¿Qué PMV es?",
+        "options": [
           "Prueba de Humo (Landing Page / Puerta Falsa)",
           "Mago de Oz",
           "Conserje",
           "Producto Funcional Mínimo"
         ],
-        correctIndex: 0,
-        rationale: "La prueba de humo promociona algo inexistente para medir la intención real de compra sin construir el producto detrás."
+        "correctIndex": 0,
+        "rationale": "La Prueba de Humo (Smoke Test) consiste en vender algo que aún no existe para medir el interés real (ej: clics en el botón 'Comprar'). Si la gente intenta pagar, validas la demanda antes de gastar en programar. Las demás opciones asumen que hay interacción real (Conserje) lo cual es falso aquí."
       },
       {
-        id: "t8_02", topic: "TEMA8", points: 4, topicName: "8. Tipos de PMV",
-        question: "Lanzas un bot en Telegram que dice tener IA para recomendar libros. En realidad, tú estás detrás respondiendo cada mensaje manualmente. ¿Qué PMV es?",
-        options: [
+        "id": "t8_02",
+        "topic": "TEMA8",
+        "points": 4,
+        "topicName": "8. Tipos de PMV",
+        "question": "Lanzas un bot en Telegram que dice tener IA para recomendar libros. En realidad, tú estás detrás respondiendo cada mensaje manualmente. ¿Qué PMV es?",
+        "options": [
           "Conserje",
           "Mago de Oz",
           "Prototipo Clicable",
           "Prueba de Humo"
         ],
-        correctIndex: 1,
-        rationale: "En el Mago de Oz el cliente cree que está interactuando con un sistema automatizado, pero la lógica trasera es manual."
+        "correctIndex": 1,
+        "rationale": "El Mago de Oz oculta la intervención humana: el cliente jura que interactúa con IA, pero eres tú haciendo el trabajo por detrás. Sirve para probar la experiencia tecnológica sin programarla. Las opciones incorrectas fallan porque o bien el servicio es transparente (Conserje) o no hay servicio (Prueba de humo)."
       },
       {
-        id: "t8_03", topic: "TEMA8", points: 4, topicName: "8. Tipos de PMV",
-        question: "Para probar una idea de supermercado a domicilio, el fundador anota los pedidos por WhatsApp, va al súper, compra la comida y la entrega él mismo al cliente. ¿Qué PMV es?",
-        options: [
+        "id": "t8_03",
+        "topic": "TEMA8",
+        "points": 4,
+        "topicName": "8. Tipos de PMV",
+        "question": "Para probar una idea de supermercado a domicilio, el fundador anota los pedidos por WhatsApp, va al súper, compra la comida y la entrega él mismo al cliente. ¿Qué PMV es?",
+        "options": [
           "Mago de Oz",
           "Concierge (Conserje)",
           "Landing Page",
           "Prototipo Clicable"
         ],
-        correctIndex: 1,
-        rationale: "En el PMV Conserje, el servicio se presta de forma manual y transparente. El cliente sabe que es una persona brindando el servicio de forma artesanal."
+        "correctIndex": 1,
+        "rationale": "En el PMV Conserje, el servicio se presta de forma manual y el cliente SABE que eres tú (es transparente). No hay engaño tecnológico. Esto genera altísima empatía y aprendizaje directo sobre los dolores reales. Las opciones incorrectas lo confunden con engaños tecnológicos (Mago de Oz)."
       },
       {
-        id: "t8_04", topic: "TEMA8", points: 4, topicName: "8. Tipos de PMV",
-        question: "Construyes pantallas en Figma y le pides a un usuario que intente 'usarlas' en tu tablet para ver si entiende dónde hacer clic, aunque no guarda datos reales. ¿Qué PMV es?",
-        options: [
+        "id": "t8_04",
+        "topic": "TEMA8",
+        "points": 4,
+        "topicName": "8. Tipos de PMV",
+        "question": "Construyes pantallas en Figma y le pides a un usuario que intente 'usarlas' en tu tablet para ver si entiende dónde hacer clic, aunque no guarda datos reales. ¿Qué PMV es?",
+        "options": [
           "Prototipo Clicable",
           "Mago de Oz",
           "Prueba de Humo",
           "Funcional Mínimo"
         ],
-        correctIndex: 0,
-        rationale: "El prototipo clicable valida el flujo de usuario y la interfaz (UI/UX) sin gastar tiempo en escribir código backend."
+        "correctIndex": 0,
+        "rationale": "Un prototipo clicable (Figma, InVision) sirve para validar la interfaz, el flujo (UI/UX) y si el cliente entiende dónde hacer clic, todo esto sin escribir código backend. Las otras opciones asumen equivocadamente que sirve para probar la lógica real de bases de datos o cobrar."
       },
       {
-        id: "t8_05", topic: "TEMA8", points: 4, topicName: "8. Tipos de PMV",
-        question: "¿Cuál es la principal ventaja de ejecutar un PMV tipo Conserje antes de programar una plataforma automatizada?",
-        options: [
+        "id": "t8_05",
+        "topic": "TEMA8",
+        "points": 4,
+        "topicName": "8. Tipos de PMV",
+        "question": "¿Cuál es la principal ventaja de ejecutar un PMV tipo Conserje antes de programar una plataforma automatizada?",
+        "options": [
           "Se puede reutilizar el código escrito.",
           "Te obliga a interactuar cara a cara con el usuario, permitiendo descubrir dolores reales y ajustar el valor antes de automatizar.",
           "No requiere de un equipo comercial.",
           "Genera un crecimiento viral (1 a n)."
         ],
-        correctIndex: 1,
-        rationale: "Hacer las cosas manualmente te brinda un feedback cualitativo riquísimo y cercanía total con el cliente, ideal para las etapas tempranas de descubrimiento."
+        "correctIndex": 1,
+        "rationale": "La ventaja suprema del Conserje es el 'aprendizaje de alta fidelidad': al hacer tú el trabajo manual, ves la reacción del cliente cara a cara y ajustas el servicio al instante. Las opciones incorrectas afirman falsedades como 'reutilizar código' (no hay código) o 'crecimiento viral' (el conserje es inescalable por diseño)."
       }
     ];
     
@@ -1149,8 +1287,8 @@
     // 2. GESTIÓN DEL ESTADO Y PERSISTENCIA (LOCALSTORAGE)
     // Permite aumentar preguntas sin borrar las existentes
     // -------------------------------------------------------------
-    const STORAGE_KEY_QUESTIONS = "puce_exam_questions_master_v7";
-    const STORAGE_KEY_USER_ANSWERS = "puce_exam_user_answers_v7";
+    const STORAGE_KEY_QUESTIONS = "puce_exam_questions_master_v8";
+    const STORAGE_KEY_USER_ANSWERS = "puce_exam_user_answers_v8";
 
     let allQuestions = [];
     let currentFilteredQuestions = [];
@@ -1397,14 +1535,16 @@
         const fbTitle = document.getElementById("feedbackTitle");
         const fbText = document.getElementById("feedbackText");
 
+        const selectedLetter = String.fromCharCode(65 + saved.selectedOption);
+        const correctLetter = String.fromCharCode(65 + q.correctIndex);
         if (saved.isCorrect) {
           feedbackBox.className = "mt-4 p-3 rounded-xl border border-emerald-300 bg-emerald-50 text-sm leading-relaxed text-emerald-950";
-          fbTitle.innerHTML = `<span class="text-emerald-700 text-base">✓</span> <span class="text-emerald-800 font-bold">¡Respuesta Correcta! Justificación:</span>`;
+          fbTitle.innerHTML = `<span class="text-emerald-700 text-base">✓</span> <span class="text-emerald-800 font-bold">¡Respuesta Correcta! Elegiste la opción ${selectedLetter}.</span>`;
         } else {
           feedbackBox.className = "mt-4 p-3 rounded-xl border border-rose-300 bg-rose-50 text-sm leading-relaxed text-rose-950";
-          fbTitle.innerHTML = `<span class="text-rose-700 text-base">✗</span> <span class="text-rose-800 font-bold">Respuesta Incorrecta. Justificación:</span>`;
+          fbTitle.innerHTML = `<span class="text-rose-700 text-base">✗</span> <span class="text-rose-800 font-bold">Respuesta Incorrecta. Elegiste la ${selectedLetter}, pero la correcta era la ${correctLetter}.</span>`;
         }
-        fbText.textContent = q.rationale;
+        fbText.innerHTML = q.rationale.replace(/\n/g, '<br>');
       } else {
         feedbackBox.classList.add("hidden");
       }
